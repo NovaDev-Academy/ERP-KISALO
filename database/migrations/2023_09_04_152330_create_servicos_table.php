@@ -26,15 +26,13 @@ class CreateServicosTable extends Migration
         Schema::create('servicos', function (Blueprint $table) {
             $table->id();
             $table->string('vc_nome');
-            $table->double('descricao');
+            $table->longText('descricao');
             $table->unsignedBigInteger('users_id')->references('id')
             ->on('users')->onDelete('CASCADE')
             ->onUpdate('CASCADE')->nullable();
-            $table->unsignedBigInteger('id_categoria')->references('id')->on('sub_categorias')
-            ->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->unsignedBigInteger('id_servico_categoria')->references('id')->on('sub_categorias')
             ->onDelete('CASCADE')->onUpdate('CASCADE');
-            $table->longText('lt_desc');
+            // $table->longText('lt_desc');
             $table->timestamps();
         });
     }

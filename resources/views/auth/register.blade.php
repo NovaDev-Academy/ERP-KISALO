@@ -9,7 +9,7 @@ $categorias=App\Models\categoria::get();
 	<section class="login-content overflow-hidden">
 	   <div class="row no-gutters align-items-center bg-white">
 		  <div class="col-md-12 col-lg-6 align-self-center">
-			 <a href="../../dashboard/index.html" class="navbar-brand d-flex align-items-center mb-3 justify-content-center text-primary">
+			 <a href="{{ route('login') }}" class="navbar-brand d-flex align-items-center mb-3 justify-content-center text-primary">
 				<div class="logo-normal text-center">
                     <img src="{{ asset('assets/images/dashboard/Naamloos-2.png') }}" alt="header" width="35%">
 				</div>
@@ -137,6 +137,9 @@ $categorias=App\Models\categoria::get();
 							   <button type="submit" class="btn btn-submit w-100">registrar</button>
 							</div>
 						 </form>
+                         <p class="mt-3 text-center color-primary">
+                            Já tens uma conta ? <a href="{{ route('login') }}" class="text-underline color-tertiary">Iniciar Sessão.</a>
+                         </p>
 					  </div>
 				   </div>
 				</div>

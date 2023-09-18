@@ -11,8 +11,8 @@ class servicos extends Model
     protected $fillable = [
         'vc_nome',
         'preco',
-        'armazens_id',
+        'users_id',
         'id_servico_categoria',
-        'lt_desc',
+        'descricao',
     ];
 }

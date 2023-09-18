@@ -8,12 +8,12 @@
  </div>
 
                         
-  <div class="col-md-6 col-12">
+  {{-- <div class="col-md-6 col-12">
       <div class="form-group">
           <label for="localizacao">Preço:</label>
           <input type="number" id="fl_preco" class="form-control" placeholder="fl_preco a servico" name="fl_preco" value="{{ isset($servico->preco) ? $servico->preco : "" }}">
       </div>
-  </div>
+  </div> --}}
   <div class="form-group col-md-6">
     <label for="inputState">Categoria</label>
     <select id="inputState5" class="form-control" name="id_servico_categoria">
@@ -25,13 +25,14 @@
       @endforeach
     </select>
   </div>
-<div class="col-md-12 col-12">
-  <div class="form-group">
-      <label for="localizacao">Descrição:</label>
-      <input type="textarea" id="lt_desc" class="form-control" placeholder="Descrição a servico" name="lt_desc" value="{{ isset($servico->lt_desc) ? $servico->lt_desc : "" }}">
-  </div>
-</div>
 
 
+
+                    </div>
+                    <div class="col-md-12 col-12">
+                      <div class="form-group">
+                          <label for="localizacao">Descrição:</label>
+                          <input type="textarea" id="lt_desc" class="form-control" placeholder="Descrição a servico" name="lt_desc" value="{{ isset($servico->lt_desc) ? $servico->lt_desc : "" }}">
+                      </div>
                     </div>
 </div>

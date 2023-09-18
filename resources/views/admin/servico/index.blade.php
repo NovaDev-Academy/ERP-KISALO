@@ -28,7 +28,7 @@
                             <th>Nome</th>
                             <th>Categoria</th>
                             <th>Preço</th>
-                            <th>Armazem</th>  
+                            <th>Prestador de Serviço</th>  
 
                           <th>Acções</th>
                         </tr>

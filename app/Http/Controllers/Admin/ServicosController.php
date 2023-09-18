@@ -12,10 +12,10 @@ class ServicosController extends Controller
 {
     //
     public function index(){
-        $dados['servicos']=servicos::join('armazens','servicos.armazens_id','armazens.id')
+        $dados['servicos']=servicos::join('users','servicos.users_id','users.id')
         // ->leftjoin('sub_categorias','servicos.id_tamanho','sub_categorias.id')
         ->leftjoin('sub_categorias','servicos.id_servico_categoria','sub_categorias.id')
-        ->select('armazens.vc_nome as estabelecimento','servicos.*','sub_categorias.vc_nome as categoria_servico')
+        ->select('users.name as estabelecimento','servicos.*','sub_categorias.vc_nome as categoria_servico')
         ->get();
         // dd($dados);
         // $dados['categorias']=categoria::get();
@@ -28,14 +28,15 @@ class ServicosController extends Controller
 
     public function store(Request $req){
         try{
-        $id_armazem=Auth::user()->armazem[0]->id;
+        // dd($req);
+        $id_user=Auth::user()->id;
         // dd($req);
         $servico=servicos::create([
              'vc_nome'=>$req->vc_nome,
-             'preco'=>$req->fl_preco,
-             'armazens_id'=>$id_armazem,
+            //  'preco'=>$req->fl_preco,
+             'users_id'=>$id_user,
              'id_servico_categoria'=>$req->id_servico_categoria,
-             'lt_desc'=>$req->lt_desc,
+             'descricao'=>$req->lt_desc,
 
             
         ]);
@@ -53,13 +54,13 @@ class ServicosController extends Controller
     public function update($id, Request $req){
         try{
             // dd($req);
-            $id_armazem=Auth::user()->armazem[0]->id;
+            $id_user=Auth::user()->id;
             servicos::where('id',$id)->update([
                 'vc_nome'=>$req->vc_nome,
-                'preco'=>$req->fl_preco,
-                'armazens_id'=>$id_armazem,
+                // 'preco'=>$req->fl_preco,
+                'users_id'=>$id_user,
                 'id_servico_categoria'=>$req->id_servico_categoria,
-                'lt_desc'=>$req->lt_desc,
+                'descricao'=>$req->lt_desc,
         ]);
         return redirect()->back()->with('editada',1);
 
