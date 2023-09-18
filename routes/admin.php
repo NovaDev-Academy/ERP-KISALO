@@ -33,12 +33,6 @@ Route::post('/categoria_update{id}', [App\Http\Controllers\Admin\CategoriaContro
 Route::get('/categoria_delete{id}', [App\Http\Controllers\Admin\CategoriaController::class, 'delete'])->name('admin.categoria.delete');
 Route::get('/categoria_list', [App\Http\Controllers\Admin\CategoriaController::class, 'list'])->name('admin.categoria.list');
 
-// Crud Categoria
-Route::get('/praca', [App\Http\Controllers\Admin\PracaController::class, 'index'])->name('admin.praca.index');
-Route::post('/praca_store', [App\Http\Controllers\Admin\PracaController::class, 'store'])->name('admin.praca.store');
-Route::post('/praca_update{id}', [App\Http\Controllers\Admin\PracaController::class, 'update'])->name('admin.praca.update');
-Route::get('/praca_delete{id}', [App\Http\Controllers\Admin\PracaController::class, 'delete'])->name('admin.praca.delete');
-// Route::get('/praca_list', [App\Http\Controllers\Admin\PracaController::class, 'list'])->name('admin.praca.list');
 
 // Crud Subs Categoria
 Route::get('/genero', [App\Http\Controllers\Admin\SubCategoriaController::class, 'index'])->name('admin.sub_categoria.index');
@@ -47,20 +41,6 @@ Route::post('/genero_update/{id}', [App\Http\Controllers\Admin\SubCategoriaContr
 Route::get('/genero_delete/{id}', [App\Http\Controllers\Admin\SubCategoriaController::class, 'delete'])->name('admin.sub_categoria.delete');
 Route::get('/genero_list', [App\Http\Controllers\Admin\SubCategoriaController::class, 'list'])->name('admin.sub_categoria.list');
 
-// Crud Subs Categoria
-Route::get('/provincia', [App\Http\Controllers\Admin\ProvinciaController::class, 'index'])->name('admin.provincia.index');
-Route::post('/provincia_store', [App\Http\Controllers\Admin\ProvinciaController::class, 'store'])->name('admin.provincia.store');
-Route::post('/provincia_update/{id}', [App\Http\Controllers\Admin\ProvinciaController::class, 'update'])->name('admin.provincia.update');
-Route::get('/provincia_delete/{id}', [App\Http\Controllers\Admin\ProvinciaController::class, 'delete'])->name('admin.provincia.delete');
-// Route::get('/provincia_list', [App\Http\Controllers\Admin\ProvinciaController::class, 'list'])->name('admin.provincia.list');
-
-
-// Crud Cores
-Route::get('/cores', [App\Http\Controllers\Admin\CorController::class, 'index'])->name('admin.cor.index');
-Route::post('/cores_store', [App\Http\Controllers\Admin\CorController::class, 'store'])->name('admin.cor.store');
-Route::post('/cores_update/{id}', [App\Http\Controllers\Admin\CorController::class, 'update'])->name('admin.cor.update');
-Route::get('/cores_delete/{id}', [App\Http\Controllers\Admin\CorController::class, 'delete'])->name('admin.cor.delete');
-Route::get('/cores_list', [App\Http\Controllers\Admin\CorController::class, 'list'])->name('admin.cor.list');
 
 
 // Crud Armazem
@@ -78,47 +58,6 @@ Route::post('/empresa_update{id}', [App\Http\Controllers\Admin\EmpresasControlle
 Route::get('/empresa_delete{id}', [App\Http\Controllers\Admin\EmpresasController::class, 'delete'])->name('admin.empresa.delete');
 Route::get('/empresa_list', [App\Http\Controllers\Admin\EmpresasController::class, 'list'])->name('admin.empresa.list');
 
-// Crud Produtos
-Route::get('/produtos', [App\Http\Controllers\Admin\ProdutosController::class, 'index'])->name('admin.produto.index');
-Route::post('/produtos_store', [App\Http\Controllers\Admin\ProdutosController::class, 'store'])->name('admin.produto.store');
-Route::post('/produtos_update{id}', [App\Http\Controllers\Admin\ProdutosController::class, 'update'])->name('admin.produto.update');
-Route::get('/produtos_delete{id}', [App\Http\Controllers\Admin\ProdutosController::class, 'delete'])->name('admin.produto.delete');
-Route::get('/produtos_list', [App\Http\Controllers\Admin\ProdutosController::class, 'list'])->name('admin.produto.list');
-
-// Crud Especies
-Route::get('/especies', [App\Http\Controllers\Admin\EspeciesController::class, 'index'])->name('admin.especies.index');
-Route::post('/especies_store', [App\Http\Controllers\Admin\EspeciesController::class, 'store'])->name('admin.especies.store');
-Route::post('/especies_update{id}', [App\Http\Controllers\Admin\EspeciesController::class, 'update'])->name('admin.especies.update');
-Route::get('/especies_delete{id}', [App\Http\Controllers\Admin\EspeciesController::class, 'delete'])->name('admin.especies.delete');
-Route::get('/especies_list', [App\Http\Controllers\Admin\EspeciesController::class, 'list'])->name('admin.especies.list');
-
-// Crud Racas
-Route::get('/racas', [App\Http\Controllers\Admin\RacasController::class, 'index'])->name('admin.racas.index');
-Route::post('/racas_store', [App\Http\Controllers\Admin\RacasController::class, 'store'])->name('admin.racas.store');
-Route::post('/racas_update{id}', [App\Http\Controllers\Admin\RacasController::class, 'update'])->name('admin.racas.update');
-Route::get('/racas_delete{id}', [App\Http\Controllers\Admin\RacasController::class, 'delete'])->name('admin.racas.delete');
-Route::get('/racas_list', [App\Http\Controllers\Admin\RacasController::class, 'list'])->name('admin.racas.list');
-
-// Crud Animais
-Route::get('/animais', [App\Http\Controllers\Admin\AnimaisController::class, 'index'])->name('admin.animais.index');
-Route::post('/animais_store', [App\Http\Controllers\Admin\AnimaisController::class, 'store'])->name('admin.animais.store');
-Route::post('/animais_update{id}', [App\Http\Controllers\Admin\AnimaisController::class, 'update'])->name('admin.animais.update');
-Route::get('/animais_delete{id}', [App\Http\Controllers\Admin\AnimaisController::class, 'delete'])->name('admin.animais.delete');
-Route::get('/animais_list', [App\Http\Controllers\Admin\AnimaisController::class, 'list'])->name('admin.animais.list');
-
-// Crud Tipos_Lembretes
-Route::get('/tipo_lembretes', [App\Http\Controllers\Admin\TipolembreteContoller::class, 'index'])->name('admin.tipolembrete.index');
-Route::post('/tipo_lembretes_store', [App\Http\Controllers\Admin\TipolembreteContoller::class, 'store'])->name('admin.tipolembrete.store');
-Route::post('/tipo_lembretes_update{id}', [App\Http\Controllers\Admin\TipolembreteContoller::class, 'update'])->name('admin.tipolembrete.update');
-Route::get('/atipo_lembretes_delete{id}', [App\Http\Controllers\Admin\TipolembreteContoller::class, 'delete'])->name('admin.tipolembrete.delete');
-Route::get('/tipo_lembretes_list', [App\Http\Controllers\Admin\TipolembreteContoller::class, 'list'])->name('admin.tipolembrete.list');
-
-// Crud Lembretes
-Route::get('/lembretes', [App\Http\Controllers\Admin\LembretesController::class, 'index'])->name('admin.lembretes.index');
-Route::post('/lembretes_store', [App\Http\Controllers\Admin\LembretesController::class, 'store'])->name('admin.lembretes.store');
-Route::post('/lembretes_update{id}', [App\Http\Controllers\Admin\LembretesController::class, 'update'])->name('admin.lembretes.update');
-Route::get('/lembretes_delete{id}', [App\Http\Controllers\Admin\LembretesController::class, 'delete'])->name('admin.lembretes.delete');
-Route::get('/lembretes_list', [App\Http\Controllers\Admin\LembretesController::class, 'list'])->name('admin.lembretes.list');
 
 // Crud Cores
 Route::get('/comissao', [App\Http\Controllers\Admin\ComissaoController::class, 'index'])->name('admin.comissao.index');
@@ -133,12 +72,6 @@ Route::post('/servicos_update{id}', [App\Http\Controllers\Admin\ServicosControll
 Route::get('/servicos_delete{id}', [App\Http\Controllers\Admin\ServicosController::class, 'delete'])->name('admin.servico.delete');
 Route::get('/servicos_list', [App\Http\Controllers\Admin\ServicosController::class, 'list'])->name('admin.servico.list');
 
-// Crud Animalpet
-Route::get('/animalpetshop', [App\Http\Controllers\Admin\AnimalPetController::class, 'index'])->name('admin.animalpetshop.index');
-Route::post('/animalpetshop_store', [App\Http\Controllers\Admin\AnimalPetController::class, 'store'])->name('admin.animalpetshop.store');
-Route::post('/animalpetshop_update{id}', [App\Http\Controllers\Admin\AnimalPetController::class, 'update'])->name('admin.animalpetshop.update');
-Route::get('/animalpetshop_delete{id}', [App\Http\Controllers\Admin\AnimalPetController::class, 'delete'])->name('admin.animalpetshop.delete');
-Route::get('/animalpetshop_list', [App\Http\Controllers\Admin\AnimalPetController::class, 'list'])->name('admin.animalpetshop.list');
 
 
 });

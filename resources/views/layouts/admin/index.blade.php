@@ -67,7 +67,7 @@
 <div id="loading">
     <div class="loader simple-loader">
         <div class="loader-body ">
-            <img src="../assets/images/loader.webp" alt="loader" class="image-loader img-fluid ">
+            <img src="../assets/images/loader.webp" alt="loader" class="image-loader img-fluid " width="15%">
         </div>
     </div>
     </div>
