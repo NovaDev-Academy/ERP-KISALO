@@ -1,44 +1,43 @@
 @extends('layouts.admin.index')
 @section('conteudo')
 <div class="content-inner container-fluid pb-0" id="page_layout">
-    
+
     <div class="row">
        <div class="col-sm-12">
           <div class="card">
              <div class="card-header d-flex justify-content-between">
                 <div class="header-title">
-                   <h4 class="card-title">Tipo de lembrete</h4>
+                   <h4 class="card-title">Tipo de Estabelecimentos</h4>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">Cadastrar Tipo Lembretes
+                    <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">Cadastrar Tipo de Estabelecimentos
 
-                        <svg class="size-28 hvr-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                            
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.33 2H16.66C20.06 2 22 3.92 22 7.33V16.67C22 20.06 20.07 22 16.67 22H7.33C3.92 22 2 20.06 2 16.67V7.33C2 3.92 3.92 2 7.33 2ZM12.82 12.83H15.66C16.12 12.82 16.49 12.45 16.49 11.99C16.49 11.53 16.12 11.16 15.66 11.16H12.82V8.34C12.82 7.88 12.45 7.51 11.99 7.51C11.53 7.51 11.16 7.88 11.16 8.34V11.16H8.33C8.11 11.16 7.9 11.25 7.74 11.4C7.59 11.56 7.5 11.769 7.5 11.99C7.5 12.45 7.87 12.82 8.33 12.83H11.16V15.66C11.16 16.12 11.53 16.49 11.99 16.49C12.45 16.49 12.82 16.12 12.82 15.66V12.83Z" fill="currentColor"></path>                            
+                        <svg class="size-28 hvr-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.33 2H16.66C20.06 2 22 3.92 22 7.33V16.67C22 20.06 20.07 22 16.67 22H7.33C3.92 22 2 20.06 2 16.67V7.33C2 3.92 3.92 2 7.33 2ZM12.82 12.83H15.66C16.12 12.82 16.49 12.45 16.49 11.99C16.49 11.53 16.12 11.16 15.66 11.16H12.82V8.34C12.82 7.88 12.45 7.51 11.99 7.51C11.53 7.51 11.16 7.88 11.16 8.34V11.16H8.33C8.11 11.16 7.9 11.25 7.74 11.4C7.59 11.56 7.5 11.769 7.5 11.99C7.5 12.45 7.87 12.82 8.33 12.83H11.16V15.66C11.16 16.12 11.53 16.49 11.99 16.49C12.45 16.49 12.82 16.12 12.82 15.66V12.83Z" fill="currentColor"></path>
                         </svg>
                     </button>
                 </div>
              </div>
              <div class="card-body">
-               
+
                 <div class="table-responsive">
                    <table id="input-datatable" class="table" data-toggle="data-table-column-filter">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Nome</th>
+                            <th>Tipo de Estabelecimento</th>
                             <th>Acções</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($tipolembretes as $tipolembrete)
+                        @foreach ($categorias as $categoria)
                         <tr>
-                            <td>{{$tipolembrete->id}}</td>
-                            <td>
-                                {{$tipolembrete->nome}}
-                            </td>              
+                            <td>{{$categoria->id}}</td>
+                            <td>{{$categoria->vc_nome}}</td>
+
 
                             <td>
-                                <a class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="modal"data-bs-target=".bd-example-modal-xl{{$tipolembrete->id}}"  >
+                                <a class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="modal"data-bs-target=".bd-example-modal-xl{{$categoria->id}}"  >
                                     <span class="btn-inner">
                                        <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <path d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -47,7 +46,7 @@
                                        </svg>
                                     </span>
                                  </a>
-                                 <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Eliminar" href="{{route('admin.tipolembrete.delete', $tipolembrete->id)}}">
+                                 <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Eliminar" href="{{route('admin.categoria.delete', $categoria->id)}}"">
                                     <span class="btn-inner">
                                        <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
                                           <path d="M19.3248 9.46826C19.3248 9.46826 18.7818 16.2033 18.4668 19.0403C18.3168 20.3953 17.4798 21.1893 16.1088 21.2143C13.4998 21.2613 10.8878 21.2643 8.27979 21.2093C6.96079 21.1823 6.13779 20.3783 5.99079 19.0473C5.67379 16.1853 5.13379 9.46826 5.13379 9.46826" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -58,21 +57,25 @@
                                  </a>
                                 </td>
                         </tr>
-                       {{-- MODAL Actualizar especie --}}
-                <div class="modal fade bd-example-modal-xl{{$tipolembrete->id}}" tabindex="-1" role="dialog"   aria-hidden="true">
+                       {{-- MODAL CADASTRAR USUARIO --}}
+                <div class="modal fade bd-example-modal-xl{{$categoria->id}}" tabindex="-1" role="dialog"   aria-hidden="true">
                     <div class="modal-dialog modal-xl">
                        <div class="modal-content">
                           <div class="modal-header">
-                             <h5 class="modal-title">Actualizar Tipo de Lembrete</h5>
+                             <h5 class="modal-title">Cadastrar Tipo de Estabelecimentos</h5>
                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                              </button>
                           </div>
                           <div class="modal-body">
-                            <form action="{{route('admin.tipolembrete.update',$tipolembrete->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('admin.categoria.update',$categoria->id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                
-                                @include('admin.tipolembrete.form')
-            
+
+                                <div class="form-group">
+                                    <label for="nome" class="col-form-label">Categoria:</label>
+                                    <input type="text" class="form-control" id="nome" name="nome" value="{{$categoria->vc_nome}}">
+                                </div>
+                               
+
                                 <div class="modal-footer">
                                     <button type="button" class="btn  btn-secondary" data-dismiss="modal">Fechar</button>
                                     <button  class="btn  btn-primary" id="ajaxSubmit" >Cadastrar</button>
@@ -86,7 +89,7 @@
                        </div>
                     </div>
                  </div>
-                        
+
                         @endforeach
 
 
@@ -96,8 +99,8 @@
                             <th title="Name">Name</th>
                             <th title="Position">Position</th>
                             <th title="Office">Office</th>
-                           
-                         
+
+
                          </tr>
                       </tfoot>
                    </table>
@@ -106,26 +109,30 @@
           </div>
        </div>
     </div>
-   
-    
+
+
                 </div>
 
 
-                {{-- MODAL CADASTRAR ESPECIE --}}
+                {{-- MODAL CADASTRAR USUARIO --}}
                 <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"   aria-hidden="true">
                     <div class="modal-dialog modal-xl">
                        <div class="modal-content">
                           <div class="modal-header">
-                             <h5 class="modal-title">Cadastrar tipolembrete</h5>
+                             <h5 class="modal-title">Cadastrar Tipo de Estabelecimentos</h5>
                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                              </button>
                           </div>
                           <div class="modal-body">
-                            <form action="{{route('admin.tipolembrete.store')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('admin.categoria.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                
-                                @include('admin.tipolembrete.form')
-            
+
+                                <div class="form-group">
+                                    <label for="nome" class="col-form-label">Tipo de Estabelecimento:</label>
+                                    <input type="text" class="form-control" id="nome" name="nome">
+                                </div>
+                               
+
                                 <div class="modal-footer">
                                     <button type="button" class="btn  btn-secondary" data-dismiss="modal">Fechar</button>
                                     <button  class="btn  btn-primary" id="ajaxSubmit" >Cadastrar</button>
@@ -139,5 +146,55 @@
                        </div>
                     </div>
                  </div>
-                 
+
+                 <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
+
+
+                 @if (session('eliminada'))
+    <script>
+        Swal.fire(
+            'Tipo de Estabelecimento Eliminado com sucesso!',
+            '',
+            'success'
+        )
+    </script>
+@endif
+@if (session('editada'))
+<script>
+    Swal.fire(
+        'Tipo de Estabelecimento editado com sucesso!',
+        '',
+        'success'
+    )
+</script>
+@endif
+@if (session('editada_f'))
+<script>
+Swal.fire(
+    'ERro ao editar Tipo de Estabelecimento!',
+    '',
+    'error'
+)
+</script>
+@endif
+
+@if (session('status'))
+<script>
+    Swal.fire(
+        'Tipo de Estabelecimento Cadastrado Com Sucesso!',
+        '',
+        'success'
+    )
+</script>
+@endif
+@if (session('status_f'))
+<script>
+Swal.fire(
+    'Erro ao cadastrar Tipo de Estabelecimento!',
+    '',
+    'success'
+)
+</script>
+@endif   
+
 @endsection
