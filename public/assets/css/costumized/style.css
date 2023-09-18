@@ -1,0 +1,210 @@
+/*========= Var css ==========*/
+:root{
+    --primary-color:#321B0C;
+    --secondary-color:#E68E42;
+    --tertiary-color:#894C13;
+    --quartenary-color:#EDDECB;
+    --white-color:#FFF;
+    --border-secondary-color: 1px solid var(--secondary-color);
+}
+
+/* ======= fonts de letra Bariol ======= */
+@font-face{
+    src: url('../../fonts/Bariol_Bold.otf');
+    font-family:bold;
+}
+
+@font-face{
+    src: url('../../fonts/Bariol_Regular.otf');
+    font-family:regular;
+}
+
+/* ======= Reusable class ======= */
+.bg-primary-color{
+    background-color:var(--primary-color) !important;
+    color: var(--white-color) !important;
+}
+
+.bg-secondary-color{
+    background-color: var(--secondary-color) !important;
+    color: var(--white-color) !important;
+}
+
+.color-secondary{
+    color: var(--secondary-color) !important;
+}
+
+.color-tertiary{
+    color: var(--tertiary-color) !important;
+}
+
+.color-primary{
+    color: var(--primary-color) !important;
+}
+.bg-tertiary-color, .btn-submit{
+    background-color: var(--tertiary-color) !important;
+    color: var(--white-color) !important;
+}
+
+.btn-submit:hover{
+    background-color: var(--secondary-color) !important;
+}
+
+input:focus,
+select:focus{
+    border: var(--border-secondary-color) !important;
+}
+
+.form-group label{
+    color: var(--primary-color) !important;
+}
+
+.form-check-input:checked {
+    border-color: var(--tertiary-color) !important;
+    background-color: var(--tertiary-color) !important;
+}
+
+/* ===== title === */
+h1,h2,h3,h4,h5,h6
+{
+    font-family: bold;
+}
+/* ======= Body ====  */
+body{
+    font-family: regular;
+    font-size: 16px;
+    font-weight: 400 !important;
+}
+
+/* ====== estilizar módulo auth ===== */
+
+.card-body h2, input{
+    color: var(--primary-color) !important;
+}
+
+.form-control:focus {
+    border-color: var(--secondary-color) !important;
+}
+
+
+/* ======== Módulo admin ======= */
+
+
+.iq-nav-menu .nav-item:not(:first-child) a.nav-link:hover,
+.iq-header-sub-menu .nav-item a.nav-link:hover,
+.navbar-nav.iq-main-menu a.nav-link:hover{
+    background-color: var(--quartenary-color) !important;
+    color: var(--primary-color) !important;
+}
+
+/* ======= Header admin ============= */
+.iq-nav-menu li .nav-link.active{
+    background-color: var(--tertiary-color) !important;
+    color: var(--white-color) !important;
+}
+
+.bg-soft-primary{
+    background-color:var(--quartenary-color) !important;
+}
+
+::placeholder,.navbar-collapse .nav-item .nav-link,
+li > .dropdown-item{
+    color: var(--primary-color) !important;
+}
+
+.navbar-collapse .nav-item .nav-link:hover{
+    color: var(--secondary-color) !important;
+}
+
+.sidebar-toggle{
+    background-color: var(--tertiary-color) !important;
+}
+
+li > .dropdown-item:hover{
+    background-color: var(--quartenary-color) !important;
+    color: var(--tertiary-color) !important;
+}
+
+.caption-title{
+    color: var(--tertiary-color) !important;
+}
+
+.caption-sub-title{
+    color: var(--secondary-color) !important;
+    font-family: bold;
+}
+
+.btn-primary:hover{
+    background-color: var(--secondary-color) !important;
+    border: var(--border-secondary-color) var(--secondary-color) !important;
+}
+
+.btn-primary{
+    color: var(--white-color) !important;
+    background-color: var(--tertiary-color) !important;
+    border: var(--border-secondary-color) var(--tertiary-color) !important;
+}
+/* ======== sidebar menu ======== */
+.navbar-nav.iq-main-menu a.nav-link{
+    color: var(--primary-color) !important;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+}
+
+/* ======  content main dashboard */
+
+.iq-navbar-header{
+    background-color: var(--tertiary-color) !important;
+    border-bottom:none !important;
+}
+
+.btn-warning{
+    background-color: var(--secondary-color) !important;
+    border: var(--border-secondary-color);
+}
+
+.btn-warning:hover{
+    background-color: var(--tertiary-color) !important;
+    border: var(--tertiary-color) !important;
+}
+
+
+/* Setting Panel */
+.form-check-input + label span{
+    color: var(--primary-color) !important;
+    font-family: bold;
+}
+.form-check-input:checked{
+    background-color: var(--secondary-color) !important;
+}
+
+.btn.btn-border:hover {
+    background: rgba(0, 0, 0, 0);
+    border-color: var(--border-secondary-color) var(--secondary-color) !important;
+    color: var(--secondary-color) !important;
+}
+
+.btn-check:focus+.btn, .btn:focus{
+    background-color: var(--secondary-color) !important;
+    color: var(--white-color) !important;
+    border: var(--border-secondary-color) var(--secondary-color) !important;
+}
+
+btn-check:checked+.btn.btn-border, .btn-check:active+.btn.btn-border, .btn.btn-border:active, .btn.btn-border.active {
+    background: var(--secondary-color) !important;
+    color: var(--white-color) !important;
+    border-color: var(--secondary-color) !important;
+}
+
+
+
+.page-link{
+    color: var(--secondary-color) !important;
+    border:1px solid var(--secondary-color) !important;
+}
+
+.page-item.active .page-link {
+    color: var(--white-color) !important;
+    background-color: var(--secondary-color) !important;
+    border-color: var(--secondary-color) !important;
+}
