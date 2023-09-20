@@ -14,5 +14,7 @@ class servicos extends Model
         'users_id',
         'id_servico_categoria',
         'descricao',
+        'min',
+        'max',
     ];
 }

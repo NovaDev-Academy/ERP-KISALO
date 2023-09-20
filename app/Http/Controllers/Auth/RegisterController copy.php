@@ -84,9 +84,9 @@ class RegisterController extends Controller
         ]);
     }
     elseif($data['tipo_estabelecimento']==1){
-   
-      
-            $imagem = $data['vc_path'];
+
+        if($req->hasFile('vc_path') && $req->file('vc_path')->isValid()){
+            $imagem = $req->file('vc_path');
             $req_imagem=$imagem;
             $extension=$req_imagem->extension();
             $imagem_name=md5($req_imagem->getClientOriginalName() . strtotime('now')) . "." . $extension;
@@ -107,12 +107,12 @@ class RegisterController extends Controller
             // 'descricao'=> $data['descricao'],
             'bi'=> $data['bi'],
             'nif'=> $data['bi'],
-            'documento'=>   $caminho,
+            'documento'=> $caminho,
             'registro'=> $data['registro'],
         ]);
+    }
      
         // 
-   
     }
     else{
         return redirect()->back();

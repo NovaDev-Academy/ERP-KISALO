@@ -127,7 +127,7 @@ $categorias=App\Models\categoria::get();
         
                              <div class="form-group col-lg-6">
                                 <label for="vc_path">Documento de Registro da Empresa</label>
-                                <input type="file" id="vc_path" class="form-control" name="vc_path" placeholder="Documento da EMPRESA" value="">
+                                <input type="file" id="documento" class="form-control" name="documento" placeholder="Documento da EMPRESA" value="">
                             </div>
                             <div class="form-group col-lg-6">
                                 <label for="vc_path">Data de Registro da Empresa</label>

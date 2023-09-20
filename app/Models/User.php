@@ -26,6 +26,14 @@ class User extends Authenticatable
         'endereco',
         'telefone',
         'vc_tipo_utilizador',
+        'nome_empresa',
+        'reponsavel',
+        'descricao',
+        'bi',
+        'nif',
+        'documento',
+        'estado',
+        'registro',
     ];
 
     /**

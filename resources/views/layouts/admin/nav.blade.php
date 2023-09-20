@@ -29,6 +29,7 @@
             <div class="sidebar-list">
                 <!-- Sidebar Menu Start -->
                 <ul class="navbar-nav iq-main-menu" id="sidebar-menu">
+              
                     <li class="nav-item static-item">
                         <a class="nav-link static-item disabled text-start" href="#" tabindex="-1">
                             <span class="default-icon">Home</span>
@@ -36,7 +37,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="../dashboard/index.html">
+                        <a class="nav-link " aria-current="page" href="{{ url('/') }}">
                             <i class="icon" data-bs-toggle="tooltip" title="Dashboard" data-bs-placement="right">
                                 <svg width="20" class="icon-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path opacity="0.4" d="M16.0756 2H19.4616C20.8639 2 22.0001 3.14585 22.0001 4.55996V7.97452C22.0001 9.38864 20.8639 10.5345 19.4616 10.5345H16.0756C14.6734 10.5345 13.5371 9.38864 13.5371 7.97452V4.55996C13.5371 3.14585 14.6734 2 16.0756 2Z" fill="currentColor"></path>
@@ -46,7 +47,7 @@
                             <span class="item-name">Dashboard</span>
                         </a>
                     </li>
-
+                    @if(Auth::user()->vc_tipo_utilizador==1)
                     <li class="nav-item">
                         <a class="nav-link"  href="{{ route('admin.user.index') }}" >
 
@@ -70,7 +71,7 @@
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  href="{{ route('admin.comissao.index') }}" >
+                        <a class="nav-link"  href="{{ route('admin.prestador.empresa.index') }}" >
 
                          <i class="icon" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Users" data-bs-original-title="Users">
                                 <svg width="20" class="icon-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -89,7 +90,7 @@
                     </li>
                     
                     <li class="nav-item">
-                         <a class="nav-link " href="{{route('admin.armazem.index')}}">
+                         <a class="nav-link " href="{{route('admin.individual.index')}}">
 
                          <i class="icon" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Users" data-bs-original-title="Users">
                                 <svg width="20" class="icon-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -148,7 +149,7 @@
                  
           
 
- 
+                    @endif
 
                     <li><hr class="hr-horizontal"></li>
                     <li class="nav-item static-item">
@@ -177,6 +178,8 @@
                            <span class="item-name">Serviços</span>
 
                        </a>
+                       <br>
+                       <br>
                    </li>
                 </ul>
 

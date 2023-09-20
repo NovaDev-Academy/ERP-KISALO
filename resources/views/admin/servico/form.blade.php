@@ -27,7 +27,18 @@
   </div>
 
 
-
+  <div class="col-md-6 col-6">
+    <div class="form-group">
+        <label for="localizacao">Preço minimo:</label>
+        <input type="number" id="min" class="form-control" placeholder="Descrição a servico" name="min" value="{{ isset($servico->min) ? $servico->min : "" }}">
+    </div>
+  </div>
+  <div class="col-md-6 col-6">
+    <div class="form-group">
+        <label for="localizacao">Preço Máximo:</label>
+        <input type="number" id="max" class="form-control" placeholder="Descrição a servico" name="max" value="{{ isset($servico->max) ? $servico->max : "" }}">
+    </div>
+  </div>
                     </div>
                     <div class="col-md-12 col-12">
                       <div class="form-group">
@@ -35,4 +46,6 @@
                           <input type="textarea" id="lt_desc" class="form-control" placeholder="Descrição a servico" name="lt_desc" value="{{ isset($servico->lt_desc) ? $servico->lt_desc : "" }}">
                       </div>
                     </div>
+
+                    
 </div>
