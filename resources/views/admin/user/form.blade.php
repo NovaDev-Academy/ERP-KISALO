@@ -23,8 +23,10 @@
  </div>
  <div class="form-group col-md-6">
     <label for="vc_path">Genêro</label>
-       <input type="text" id="genero" class="form-control" name="genero"
-           placeholder="Genêro" value="{{ isset($user->genero) ? $user->genero : "" }}">
+       <select name="genero" id="" class="form-control">
+         <option value="Masculino">Masculino</option>
+         <option value="Femenino">Femenino</option>
+       </select>
 
  </div>
  <div class="form-group col-md-6">
@@ -52,12 +54,15 @@
   <div class="form-group col-md-6">
     <label for="inputState">Nivel de acesso</label>
     <select id="nivel_acesso" class="form-control" name="vc_tipo_utilizador" style="width: 100%;" >
+      @if(Auth::user()->vc_tipo_utilizador==1)
         <option name="vc_tipo_utilizador" value="1">Admistrador</option>
-        <option name="vc_tipo_utilizador" value="4">Gerente</option>
-        <option name="vc_tipo_utilizador" value="0">Leitor</option>
+      @endif
+        <option name="vc_tipo_utilizador" value="2">Prestador Individual</option>
+        <option name="vc_tipo_utilizador" value="3">Prestador Empresa</option>
         <option name="vc_tipo_utilizador" value="2">Vendedor</option>
         <option name="vc_tipo_utilizador" value="3">Afiliado</option>
     </select>
+  
   </div>
                         </div>
                     </div>

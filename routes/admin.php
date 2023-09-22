@@ -87,6 +87,13 @@ Route::get('/servicos/desativar/{id}', [App\Http\Controllers\Admin\ServicosContr
 Route::get('/servico/activo/{id}', [App\Http\Controllers\Admin\ServicosController::class, 'activo'])->name('prestador.servico.activar');
 Route::get('/servicos/suspenso/{id}', [App\Http\Controllers\Admin\ServicosController::class, 'suspenso'])->name('prestador.servico.desativar');
 
+
+// Perfil Usuario
+
+// Crud Serviços
+Route::get('/perfil', [App\Http\Controllers\Admin\PerfilController::class, 'index'])->name('prestador.perfil.index');
+Route::post('/perfil/atualizar', [App\Http\Controllers\Admin\PerfilController::class, 'update'])->name('prestador.perfil.update');
+
 });
 
 

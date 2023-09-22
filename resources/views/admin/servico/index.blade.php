@@ -50,20 +50,20 @@
                             <td>
 
                                @if($servico->estado_admin==0)
-                                     <p class="text-warning">Em analise</p>
+                                     <p class="badge bg-warning">Em analise</p>
  
                                @elseif($servico->estado_admin==1)
-                                     <p class="text-success">Aprovado</p>
+                                     <p class="badge bg-success">Aprovado</p>
                                @else
-                               <p class="text-danger">Não Aprovado</p>
+                               <p class="badge bg-danger">Não Aprovado</p>
                                @endif
                             </td>
                             <td>
 
                               @if($servico->estado_usuario==1)
-                                    <p class="text-warning">Activo</p>
+                                    <p class="badge bg-success">Activo</p>
                               @else
-                              <p class="text-danger">Suspenso</p>
+                              <p class="badge bg-danger">Suspenso</p>
                               @endif
 
 
