@@ -1,7 +1,5 @@
-@extends('auth.layout')
-@section('titulo','Login')
+@extends('layouts.admin.index')
 @section('conteudo')
-
 <?php
 $categorias=App\Models\categoria::get();
 ?>
@@ -9,19 +7,14 @@ $categorias=App\Models\categoria::get();
 	<section class="login-content overflow-hidden">
 	   <div class="row no-gutters align-items-center bg-white">
 		  <div class="col-md-12 col-lg-6 align-self-center">
-			 <a href="{{ route('login') }}" class="navbar-brand d-flex align-items-center mb-3 justify-content-center text-primary">
-				<div class="logo-normal text-center">
-                    <img src="{{ asset('assets/images/dashboard/Naamloos-2.png') }}" alt="header" width="35%">
-				</div>
-
-			 </a>
+			 
 			 <div class="row justify-content-center pt-5">
 				<div class="col-md-11">
 				   <div class="card  d-flex justify-content-center mb-0 auth-card iq-auth-form">
 					  <div class="card-body">
-						 <h2 class="mb-2 text-center">Registrar </h2>
-						 <p class="text-center">Registra-se</p>
-						 <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+						 <h2 class="mb-2 text-center">Cadastrar </h2>
+						
+						 <form method="POST" action="{{ route('admin.user.store') }}" enctype="multipart/form-data">
 							@csrf
 							<div class="row">
                                 <div class="col-lg-6">
@@ -176,12 +169,10 @@ $categorias=App\Models\categoria::get();
                          
                     </div>
 							<div class="d-flex justify-content-center">
-							   <button type="submit" class="btn btn-submit w-100">registrar</button>
+							   <button type="submit" class="btn btn-submit w-100">Cadastar</button>
 							</div>
 						 </form>
-                         <p class="mt-3 text-center color-primary">
-                            Já tens uma conta ? <a href="{{ route('login') }}" class="text-underline color-tertiary">Iniciar Sessão.</a>
-                         </p>
+                         
 					  </div>
 				   </div>
 				</div>

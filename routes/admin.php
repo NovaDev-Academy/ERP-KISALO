@@ -23,6 +23,7 @@ Route::middleware('administrador')->post('/user_store', [App\Http\Controllers\Ad
 Route::middleware('administrador')->post('/user_update{id}', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('admin.user.update');
 Route::middleware('administrador')->get('/user_delete{id}', [App\Http\Controllers\Admin\UserController::class, 'delete'])->name('admin.user.delete');
 Route::middleware('administrador')->get('/user_list', [App\Http\Controllers\Admin\UserController::class, 'list'])->name('admin.user.list');
+Route::middleware('administrador')->get('/user_form', [App\Http\Controllers\Admin\UserController::class, 'form'])->name('admin.user.indexf');
 
 // Prestador Individual
 Route::middleware('administrador')->get('/user/prestadores/individual', [App\Http\Controllers\Admin\PrestadorController::class, 'individual'])->name('admin.individual.index');

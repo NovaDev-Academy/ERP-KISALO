@@ -29,7 +29,7 @@
                             <th>Email</th>
                             <th>Telefone</th>
                             <th>Conta</th>
-                            {{-- <th>Pagamento</th> --}}
+                            <th>Curriculos</th>
                             <th>Acções</th>
                         </tr>
                     </thead>
@@ -67,6 +67,9 @@
                                     Não Realizado
                                 @endif
                             </td> --}}
+                            <td>
+                              <a target="_black" href="{{ asset($user->cv) }}">{{ $user->cv }}</a>
+                            </td>
 
                             <td>
                                 {{-- <a class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="modal"data-bs-target=".bd-example-modal-xl{{$user->id}}"  >
