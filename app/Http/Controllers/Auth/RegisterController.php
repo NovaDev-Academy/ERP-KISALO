@@ -70,8 +70,18 @@ class RegisterController extends Controller
      protected function create(array $data)
 {
     if($data['tipo_estabelecimento']==2){
+
+        $imagem2 = $data['cv_path'];
+        $req_imagem2=$imagem2;
+        $extension2=$req_imagem2->extension();
+        $imagem_name2=md5($req_imagem2->getClientOriginalName() . strtotime('now')) . "." . $extension2;
+        $destino=$req_imagem2->move(public_path("documentos2/curriculos"), $imagem_name2);
+        $dir2 = "documentos2/curriculos";
+        $caminho2=$dir2. "/". $imagem_name2;
+
         $user = User::create([
             'name' => $data['name'],
+            'sobrename' => $data['sobrename'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'telefone' => $data['phone'],
@@ -80,6 +90,7 @@ class RegisterController extends Controller
             'vc_tipo_utilizador' => $data['tipo_estabelecimento'],
             // 'nome_empresa' => $data['nome_empresa'],
             // 'reponsavel' => $data['reponsavel'],
+            'cv' =>$caminho2,
             'bi' => $data['bi'],
         ]);
     }
@@ -96,6 +107,7 @@ class RegisterController extends Controller
 
         $user=User::create([
             'name' => $data['name'],
+            'sobrename' => $data['sobrename'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'telefone'=> $data['phone'],
@@ -106,7 +118,7 @@ class RegisterController extends Controller
             'reponsavel'=> $data['reponsavel'],
             // 'descricao'=> $data['descricao'],
             'bi'=> $data['bi'],
-            'nif'=> $data['bi'],
+            'nif'=> $data['nif'],
             'documento'=>   $caminho,
             'registro'=> $data['registro'],
         ]);
@@ -126,10 +138,9 @@ class RegisterController extends Controller
     }
 
     event(new Registered($user));
-    \Log::info('Usuário logado com sucesso'); // Isso registrará uma mensagem no log, caso você esteja usando log.
-  //  dd($user);
+   
     Auth::login($user);
-// dd('ola');
+
     return $user;
 }
     // protected function create(array $data)

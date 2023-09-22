@@ -32,6 +32,14 @@ $categorias=App\Models\categoria::get();
 							    </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
+                                       <label for="sobrename" class="form-label">Sobrenome</label>
+                                       <input type="text" class="form-control" name="sobrename" required id="sobrename" placeholder="Segundo Nome">
+                                      </div>
+                                  </div>
+                                
+                                
+                                <div class="col-lg-6">
+                                    <div class="form-group">
                                        <label for="email" class="form-label">Email</label>
                                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" id="email" aria-describedby="email" placeholder="xyz@example.com">
                                        @error('email')
@@ -41,45 +49,45 @@ $categorias=App\Models\categoria::get();
                                    @enderror
                                       </div>
                                  </div>
+
+                                 <div class="col-lg-6">
+                                    <div class="form-group">
+                                       <label for="phone" class="form-label">Telefone</label>
+                                       <input type="tel" class="form-control" name="phone" required id="phone" placeholder="+244">
+                                    </div>
+                                </div>
+
                                 
                             </div>
 
                             <div class="row">
-                           
 
-                               <div class="col-lg-6">
-								  <div class="form-group">
-									 <label for="phone" class="form-label">Telefone</label>
-									 <input type="tel" class="form-control" name="phone" required id="phone" placeholder="+244">
-									</div>
-							   </div>
-                               <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="password" class="form-label">Senha</label>
-                                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="password" id="password" aria-describedby="password" placeholder="xxxx">
-                                    @error('password')
-                                    <span class="invalid-feedback form-control" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="password" class="form-label">Senha</label>
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="password" id="password" aria-describedby="password" placeholder="xxxx">
+                                        @error('password')
+                                            <span class="invalid-feedback form-control" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
-                            </div>
-                            </div>
+                                </div>
 
-							   <div class="row">
-
-                                
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="password_confirmation" class="form-label">Confirmar senha</label>
                                         <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" required autocomplete="password_confirmation" id="password_confirmation" aria-describedby="password_confirmation" placeholder="xxxx">
                                         @error('password_confirmation')
-                                        <span class="invalid-feedback form-control" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                        </div>
+                                            <span class="invalid-feedback form-control" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                         @enderror
+                                    </div>
                                 </div>
+                            </div>
+
+							   <div class="row">
                                 
                                 <div class="col-lg-6">
                                     <div class="form-group">
@@ -133,6 +141,11 @@ $categorias=App\Models\categoria::get();
                                 <label for="vc_path">Data de Registro da Empresa</label>
                                 <input type="date" id="registro" class="form-control" name="registro" placeholder="Imagem" value="">
                             </div>
+
+                            <div class="form-group col-lg-6">
+                                <label for="vc_path">NIF Empresarial</label>
+                                <input type="text" id="nif" class="form-control" name="nif" placeholder="NIF Empresarial" value="">
+                            </div>
                         </div>
 
                         
@@ -150,6 +163,11 @@ $categorias=App\Models\categoria::get();
                     <div class="form-group col-lg-6">
                         <label for="vc_path">Endereço</label>
                         <input type="text" id="endereco" class="form-control" name="endereco" placeholder="Endereço da Empresa" value="">
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label for="vc_path">Curriculo Vitae</label>
+                        <input type="file" id="cv_path" class="form-control" name="cv_path" placeholder="Curriculo Vitae" value="">
                     </div>
                         </div>
 

@@ -11,7 +11,7 @@ class PrestadorController extends Controller
     //
     public function individual(){
         $users=User::where('vc_tipo_utilizador',2)->get();
-     
+        // dd($users);
         return view('admin.prestadores.individual', compact('users'));
     }
     public function empresa(){

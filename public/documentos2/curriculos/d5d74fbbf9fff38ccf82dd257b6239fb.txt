@@ -1,0 +1,185 @@
+<div class="card">
+  <img src="imagem.jpg" alt="Imagem" style="width:100%">
+  <div class="container">
+    <h4><b>Título do Card</b></h4> 
+    <p>Descrição do Card.</p> 
+    <button onclick="document.getElementById('modal').style.display='block'">Ver mais</button>
+  </div>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+    <h2>Título do Modal</h2>
+    <p>Conteúdo do Modal.</p>
+  </div>
+</div>
+
+
+modelo: 1
+
+<div class="card">
+  <img src="imagem.jpg" alt="Imagem" style="width:100%">
+  <div class="container">
+    <h4><b>Título do Card</b></h4> 
+    <p>Descrição do Card.</p> 
+    <button class="visualizar-btn" onclick="document.getElementById('modal').style.display='block'">Visualizar</button>
+  </div>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+    <h2>Título do Modal</h2>
+    <img src="imagem-modal.jpg" alt="Imagem Modal" style="width:100%">
+    <p>Conteúdo do Modal.</p>
+  </div>
+</div>
+
+
+modelo: 2
+
+<div class="card">
+  <img src="imagem.jpg" alt="Imagem" style="width:100%">
+  <div class="container">
+    <h4><b>Título do Card</b></h4> 
+    <p>Descrição do Card.</p> 
+    <button onclick="document.getElementById('modal').style.display='block'">Ver mais</button>
+  </div>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+    <h2>Título do Modal</h2>
+    <p>Conteúdo do Modal.</p>
+  </div>
+</div>
+
+modelo: 3
+
+<div class="card">
+  <img src="imagem.jpg" alt="Imagem" style="width:100%">
+  <div class="container">
+    <h4><b>Título do Card</b></h4> 
+    <p>Descrição do Card.</p> 
+    <button class="ver-mais" onclick="document.getElementById('modal').style.display='block'">Visualizar</button>
+  </div>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+    <img src="imagem.jpg" alt="Imagem" style="width:100%">
+    <h2>Título do Modal</h2>
+    <p>Conteúdo do Modal.</p>
+  </div>
+</div>
+
+modelo: 4
+
+<div class="card">
+  <div class="card-header">
+    <h3>Título do Card</h3>
+  </div>
+  <div class="card-body">
+    <p>Descrição do Card.</p>
+    <button class="ver-mais" onclick="document.getElementById('modal').style.display='block'">Visualizar</button>
+  </div>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+    <h2>Título do Modal</h2>
+    <p>Conteúdo do Modal.</p>
+  </div>
+</div>
+
+modelo: 5
+
+<div class="card">
+  <div class="card-body">
+    <img src="imagem.jpg" alt="Imagem" style="width:100%">
+    <h3>Título do Card</h3>
+    <p>Descrição do Card.</p>
+    <button class="ver-mais" onclick="document.getElementById('modal').style.display='block'">Visualizar</button>
+  </div>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+    <img src="imagem.jpg" alt="Imagem" style="width:100%">
+    <h2>Título do Modal</h2>
+    <p>Conteúdo do Modal.</p>
+  </div>
+</div>
+
+modelo: 6
+
+<div class="card">
+  <div class="card-image">
+    <img src="imagem.jpg" alt="Imagem" style="width:100%">
+    <button class="ver-mais" onclick="document.getElementById('modal').style.display='block'">Visualizar</button>
+  </div>
+  <div class="card-body">
+    <h3>Título do Card</h3>
+    <p>Descrição do Card.</p>
+  </div>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+    <img src="imagem.jpg" alt="Imagem" style="width:100%">
+    <h2>Título do Modal</h2>
+    <p>Conteúdo do Modal.</p>
+  </div>
+</div>
+
+modelo: 7
+
+<div class="card">
+  <div class="card-header">
+    <h3>Título do Card</h3>
+  </div>
+  <div class="card-image">
+    <img src="imagem.jpg" alt="Imagem" style="width:100%">
+    <button class="ver-mais" onclick="document.getElementById('modal').style.display='block'">Visualizar</button>
+  </div>
+  <div class="card-body">
+    <p>Descrição do Card.</p>
+  </div>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+    <img src="imagem.jpg" alt="Imagem" style="width:100%">
+    <h2>Título do Modal</h2>
+    <p>Conteúdo do Modal.</p>
+  </div>
+</div>
+
+modelo: 8
+
+<div class="card">
+  <div class="card-body">
+    <h3>Título do Card</h3>
+    <p>Descrição do Card.</p>
+    <button class="ver-mais" onclick="document.getElementById('modal').style.display='block'">Visualizar</button>
+  </div>
+  <div class="card-image">
+    <img src="imagem.jpg" alt="Imagem" style="width:100%">
+  </div>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+    <img src="imagem.jpg" alt="Imagem" style="width:100%">
+    <h2>Título do Modal</h2>
+    <p>Conteúdo do Modal.</p>
+  </div>
+</div>
