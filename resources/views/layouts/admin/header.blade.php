@@ -521,13 +521,20 @@
                    @if(Auth::user()->vc_tipo_utilizador==2 || Auth::user()->vc_tipo_utilizador== 3 )
                    @if(Auth::user()->estado==0)
                    <li class="nav-item iq-full-screen d-none  d-xl-block border-end" id="fullscreen-item">
-                     <p class="p text-danger">Conta em analise</p>
+                     <span class="badge bg-warning">Conta em Análise</span>
                   </li>
                    
                   @endif
                   @if(Auth::user()->estado==1)
                    <li class="nav-item iq-full-screen d-none  d-xl-block border-end" id="fullscreen-item">
-                     <p class="p text-success">Conta Activada</p>
+                     <span class="badge bg-success">Conta Activada</span>
+                  </li>
+                   
+                  @endif
+
+                  @if(Auth::user()->estado==2)
+                   <li class="nav-item iq-full-screen d-none  d-xl-block border-end" id="fullscreen-item">
+                     <span class="badge bg-danger">Conta Não Aprovada</span>
                   </li>
                    
                   @endif
