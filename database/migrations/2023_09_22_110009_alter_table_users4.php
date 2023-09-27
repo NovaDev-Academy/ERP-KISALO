@@ -15,6 +15,7 @@ class AlterTableUsers4 extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('cv')->nullable();
+            $table->longText('vc_path')->nullable();
            
         });
     }
