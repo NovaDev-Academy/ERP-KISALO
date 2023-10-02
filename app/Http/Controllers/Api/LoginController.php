@@ -13,6 +13,8 @@ class LoginController extends Controller
     //
     public function login(request $req, User $user){
         $credentianls=$req->only('telefone','password');
+
+        // Verificando se as credencias estam certas
         if(! auth()->attempt($credentianls)) abort(401,'Invalid Credentials');
 
         $token=auth()->user()->createToken('auth_token');
