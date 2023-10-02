@@ -14,7 +14,7 @@ class AlterTableUsers3 extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('sobrename');
+            $table->string('sobrename')->nullable();
            
         });
     }

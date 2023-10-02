@@ -15,12 +15,15 @@ class CreatePedidosTable extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
+            $table->date('data');
+            $table->longText('descricao');
+            $table->longText('localizacao');
             $table->unsignedBigInteger('users_id')->references('id')->on('users')
             ->onDelete('CASCADE')->onUpdate('CASCADE');
-            $table->unsignedBigInteger('produtos_id')->references('id')->on('produtos')
+            $table->unsignedBigInteger('id_servico_categoria')->references('id')->on('sub_categorias')
             ->onDelete('CASCADE')->onUpdate('CASCADE');
-            $table->date('agendamento');
-            $table->integer('estado');
+           
+            $table->integer('estado')->default(0);
             $table->timestamps();
         });
     }

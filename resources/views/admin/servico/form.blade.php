@@ -16,10 +16,12 @@
   </div> --}}
   <div class="form-group col-md-6">
     <label for="inputState">Categoria</label>
-    <select id="inputState5" class="form-control" name="id_servico_categoria">
-        @isset($servico->id_servico_categoria)
+    <select id="categorias_id" class="form-control" name="id_servico_categoria">
+        @if(isset($servico->id_servico_categoria))
           <option name="id_servico_categoria" value="{{ $servico->id_servico_categoria}} ">{{ $servico->categoria_servico }}</option>
-        @endisset
+        @else
+        <option >Selecione o SubServiço</option>
+          @endif
       @foreach ($categoria_servicos as $categoria_servico)
           <option name="id_categoria_servico" value="{{ $categoria_servico->id }} ">{{ $categoria_servico->vc_nome }}</option>
       @endforeach
@@ -47,5 +49,15 @@
                       </div>
                     </div>
 
+
+
+
                     
+</div>
+<div id="loading" style="display: none;">
+  <p>Carregando...</p>
+</div>
+<div class="form-group col-md-12">
+    <label for="descricao">Descrição do SubServiço:</label>
+    <p id="descricao_para" class="card-title"></p>
 </div>

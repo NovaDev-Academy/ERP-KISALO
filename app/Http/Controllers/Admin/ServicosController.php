@@ -37,6 +37,17 @@ class ServicosController extends Controller
         return view('admin.servico.index', $dados);
     }
 
+    public function getSubcategoriaDescricao($id)
+{
+    $subCategoria = sub_categoria::where('id', $id)->first();
+
+    if ($subCategoria) {
+        return response()->json(['descricao' => $subCategoria->descricao]);
+    }
+
+    return response()->json(['descricao' => '']); // Retorna uma descrição vazia se não encontrar nenhuma correspondência.
+}
+
     public function store(Request $req){
         try{
         //  dd($req);
