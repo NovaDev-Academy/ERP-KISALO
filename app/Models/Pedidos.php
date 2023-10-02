@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class sub_categoria extends Model
+class Pedidos extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'vc_nome',
-        'id_categoria',
-        'descricao'
+        'data',
+        'descricao',
+        'localizacao',
+        'users_id',
+        'id_servico_categoria',
+        
     ];
 }

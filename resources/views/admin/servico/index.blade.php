@@ -230,5 +230,35 @@
                        </div>
                     </div>
                  </div>
-
+                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                 <script>
+                     $(document).ready(function () {
+                         $('#categorias_id').change(function () {
+                             var categoriaId = $(this).val();
+                             var loadingElement = $('#loading');
+                             var descricaoPara = $('#descricao_para');
+                 
+                             // Mostrar a mensagem de carregamento
+                             loadingElement.show();
+                             descricaoPara.empty(); // Limpar o conteúdo anterior
+                 
+                             $.ajax({
+                                 url: '/admin/servico/get-subcategoria-descricao/' + categoriaId,
+                                 type: 'GET',
+                                 success: function (response) {
+                                     // Ocultar a mensagem de carregamento e atualizar a descrição
+                                     loadingElement.hide();
+                                     descricaoPara.text(response.descricao);
+                                 },
+                                 error: function () {
+                                     // Lidar com erros, se houver
+                                     loadingElement.hide();
+                                     descricaoPara.text('Erro ao carregar a descrição.');
+                                 }
+                             });
+                         });
+                     });
+                 </script>
+                 
+                 
 @endsection

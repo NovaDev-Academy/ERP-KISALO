@@ -22,6 +22,7 @@ class SubCategoriaController extends Controller
         sub_categoria::create([
             'vc_nome'=>$req->vc_nome,
             'id_categoria'=>$req->categoria,
+            'descricao'=>$req->descricao,
         ]);
         return redirect()->back()->with('status',1);
     }catch (\Throwable $th) {
@@ -34,6 +35,7 @@ class SubCategoriaController extends Controller
             sub_categoria::where('id',$id)->update([
                 'vc_nome'=>$req->vc_nome,
                 'id_categoria'=>$req->categoria,
+                'descricao'=>$req->descricao,
             ]);
         return redirect()->back()->with('editada',1);
 
