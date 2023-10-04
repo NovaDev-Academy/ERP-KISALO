@@ -14,6 +14,8 @@ class Pedidos extends Model
         'localizacao',
         'users_id',
         'id_servico_categoria',
+        'avaliacao',
+        'estrelas',
         
     ];
 }

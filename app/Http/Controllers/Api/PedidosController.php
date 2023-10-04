@@ -46,4 +46,38 @@ class PedidosController extends Controller
         ]);
         }
     }
+
+    public function end($pedido, Request $req){
+try {
+    if($req->estado==1){
+        Pedidos::where('id',$pedido)->update([
+            'avaliacao'=>$req->avaliacao,
+            'estrelas'=>$req->estrelas,
+            'estado'=>1,
+        ]);
+    }
+    else{
+        Pedidos::where('id',$pedido)->update([
+            'avaliacao'=>$req->avaliacao,
+            'estado'=>2,
+        ]);
+    }
+
+    return response()
+    ->json([
+        'data'=>[
+            'mensagem'=>"Pedido Finalizado com Sucesso",
+        ],
+    ]);
+} catch (\Throwable $th) {
+    return response()
+    ->json([
+        'data'=>[
+            'error'=>500,
+            'mensagem'=>"Erro ao Finalizar Pedido",
+            "detalhes"=>$th,
+        ],
+    ]);
+}
+    }
 }
