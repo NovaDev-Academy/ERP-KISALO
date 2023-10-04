@@ -39,7 +39,7 @@ class LoginController extends Controller
         $twilio = new Client(config('services.twilio.sid'), config('services.twilio.token'));
         $nome=$req->name;
 
-        $mensagem = "Olá $nome!O teu codigo de verificação é  $numeroAleatorio.";
+        $mensagem = "Seja bem vindo ao KISALO Sr.$nome!O teu codigo de verificação é  $numeroAleatorio.";
 
         $numero=$req->telefone;
         
