@@ -44,11 +44,11 @@ Route::middleware('administrador')->get('/categoria_list', [App\Http\Controllers
 
 
 // Crud Subs Categoria
-Route::middleware('administrador')->get('/genero', [App\Http\Controllers\Admin\SubCategoriaController::class, 'index'])->name('admin.sub_categoria.index');
-Route::middleware('administrador')->post('/genero_store', [App\Http\Controllers\Admin\SubCategoriaController::class, 'store'])->name('admin.sub_categoria.store');
-Route::middleware('administrador')->post('/genero_update/{id}', [App\Http\Controllers\Admin\SubCategoriaController::class, 'update'])->name('admin.sub_categoria.update');
-Route::middleware('administrador')->get('/genero_delete/{id}', [App\Http\Controllers\Admin\SubCategoriaController::class, 'delete'])->name('admin.sub_categoria.delete');
-Route::middleware('administrador')->get('/genero_list', [App\Http\Controllers\Admin\SubCategoriaController::class, 'list'])->name('admin.sub_categoria.list');
+Route::middleware('administrador')->get('/sub_servicos', [App\Http\Controllers\Admin\SubCategoriaController::class, 'index'])->name('admin.sub_categoria.index');
+Route::middleware('administrador')->post('/sub_servicos_store', [App\Http\Controllers\Admin\SubCategoriaController::class, 'store'])->name('admin.sub_categoria.store');
+Route::middleware('administrador')->post('/sub_servicos_update/{id}', [App\Http\Controllers\Admin\SubCategoriaController::class, 'update'])->name('admin.sub_categoria.update');
+Route::middleware('administrador')->get('/sub_servicos_delete/{id}', [App\Http\Controllers\Admin\SubCategoriaController::class, 'delete'])->name('admin.sub_categoria.delete');
+Route::middleware('administrador')->get('/sub_servicos_list', [App\Http\Controllers\Admin\SubCategoriaController::class, 'list'])->name('admin.sub_categoria.list');
 
 
 
@@ -81,12 +81,23 @@ Route::post('/servicos_update{id}', [App\Http\Controllers\Admin\ServicosControll
 Route::get('/servicos_delete{id}', [App\Http\Controllers\Admin\ServicosController::class, 'delete'])->name('admin.servico.delete');
 Route::get('/servicos_list', [App\Http\Controllers\Admin\ServicosController::class, 'list'])->name('admin.servico.list');
 
+Route::get('servico/get-subcategoria-descricao/{id}',[App\Http\Controllers\Admin\ServicosController::class, 'getSubcategoriaDescricao'] )->name('admin.servico.descricao');
+
+
+
 Route::get('/servico/activar/{id}', [App\Http\Controllers\Admin\ServicosController::class, 'activar'])->name('admin.servico.activar');
 Route::get('/servicos/desativar/{id}', [App\Http\Controllers\Admin\ServicosController::class, 'desativar'])->name('admin.servico.desativar');
 
 
 Route::get('/servico/activo/{id}', [App\Http\Controllers\Admin\ServicosController::class, 'activo'])->name('prestador.servico.activar');
 Route::get('/servicos/suspenso/{id}', [App\Http\Controllers\Admin\ServicosController::class, 'suspenso'])->name('prestador.servico.desativar');
+
+
+// Perfil Usuario
+
+// Crud Serviços
+Route::get('/perfil', [App\Http\Controllers\Admin\PerfilController::class, 'index'])->name('prestador.perfil.index');
+Route::post('/perfil/atualizar', [App\Http\Controllers\Admin\PerfilController::class, 'update'])->name('prestador.perfil.update');
 
 });
 

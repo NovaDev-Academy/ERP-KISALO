@@ -35,6 +35,7 @@ class User extends Authenticatable
         'documento',
         'estado',
         'registro',
+        'vc_path',
         'cv',
     ];
 

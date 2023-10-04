@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterTableUsers4 extends Migration
+class AlterTableSubCategorias extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class AlterTableUsers4 extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('cv')->nullable();
-            $table->longText('vc_path')->nullable();
-           
+          Schema::table('sub_categorias', function (Blueprint $table) {
+          
+            $table->longText('descricao');
+        
         });
     }
 

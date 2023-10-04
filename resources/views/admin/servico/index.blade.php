@@ -50,20 +50,20 @@
                             <td>
 
                                @if($servico->estado_admin==0)
-                                     <p class="text-warning">Em analise</p>
+                                     <p class="badge bg-warning">Em analise</p>
  
                                @elseif($servico->estado_admin==1)
-                                     <p class="text-success">Aprovado</p>
+                                     <p class="badge bg-success">Aprovado</p>
                                @else
-                               <p class="text-danger">Não Aprovado</p>
+                               <p class="badge bg-danger">Não Aprovado</p>
                                @endif
                             </td>
                             <td>
 
                               @if($servico->estado_usuario==1)
-                                    <p class="text-warning">Activo</p>
+                                    <p class="badge bg-success">Activo</p>
                               @else
-                              <p class="text-danger">Suspenso</p>
+                              <p class="badge bg-danger">Suspenso</p>
                               @endif
 
 
@@ -230,5 +230,35 @@
                        </div>
                     </div>
                  </div>
-
+                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                 <script>
+                     $(document).ready(function () {
+                         $('#categorias_id').change(function () {
+                             var categoriaId = $(this).val();
+                             var loadingElement = $('#loading');
+                             var descricaoPara = $('#descricao_para');
+                 
+                             // Mostrar a mensagem de carregamento
+                             loadingElement.show();
+                             descricaoPara.empty(); // Limpar o conteúdo anterior
+                 
+                             $.ajax({
+                                 url: '/admin/servico/get-subcategoria-descricao/' + categoriaId,
+                                 type: 'GET',
+                                 success: function (response) {
+                                     // Ocultar a mensagem de carregamento e atualizar a descrição
+                                     loadingElement.hide();
+                                     descricaoPara.text(response.descricao);
+                                 },
+                                 error: function () {
+                                     // Lidar com erros, se houver
+                                     loadingElement.hide();
+                                     descricaoPara.text('Erro ao carregar a descrição.');
+                                 }
+                             });
+                         });
+                     });
+                 </script>
+                 
+                 
 @endsection

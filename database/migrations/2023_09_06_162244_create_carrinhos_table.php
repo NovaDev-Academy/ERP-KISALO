@@ -17,8 +17,7 @@ class CreateCarrinhosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('users_id')->references('id')->on('users')
             ->onDelete('CASCADE')->onUpdate('CASCADE');
-            $table->unsignedBigInteger('produtos_id')->references('id')->on('produtos')
-            ->onDelete('CASCADE')->onUpdate('CASCADE');
+            
             $table->timestamps();
         });
     }

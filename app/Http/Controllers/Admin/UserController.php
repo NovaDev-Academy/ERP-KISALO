@@ -110,7 +110,7 @@ class UserController extends Controller
     }
     public function update($id, Request $req){
         try{
-           
+       dd('ola');
             if($req->hasFile('vc_path') && $req->file('vc_path')->isValid()){
                 // Imagem VC_PATH
                 $req_imagem=$req->vc_path;
@@ -148,7 +148,7 @@ class UserController extends Controller
 
             
     } catch (\Throwable $th) {
-        // dd('ola');
+        dd('ola');
         return redirect()->back()->with("editada_f", '1');
     }
     }

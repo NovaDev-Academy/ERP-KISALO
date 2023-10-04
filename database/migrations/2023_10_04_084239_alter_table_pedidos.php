@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterTableUsers4 extends Migration
+class AlterTablePedidos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class AlterTableUsers4 extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('cv')->nullable();
-            $table->longText('vc_path')->nullable();
-           
+        Schema::table('pedidos', function (Blueprint $table) {
+            $table->longText('avaliacao')->nullable();
+            $table->integer('estrelas')->nullable();
         });
     }
 
