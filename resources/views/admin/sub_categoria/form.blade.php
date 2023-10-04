@@ -19,6 +19,11 @@
             </select>
         </div>
                         </div>
+                        <div class="form-group">
+                            <label for="preco">Preço Base</label>
+                            <input type="number" id="preco" class="form-control" name="preco"
+                                placeholder="Preço Base" value="{{ isset($sub_categoria->preco) ? $sub_categoria->preco : "" }}">
+                        </div>
                         <div class="form-group col-md-12">
                             <label for="categorias_id">Serviços</label>
                            <textarea name="descricao" class="form-control" id="" cols="30" rows="10">{{ isset($sub_categoria->descricao) ? $sub_categoria->descricao : "" }}</textarea>

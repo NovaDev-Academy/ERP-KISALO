@@ -11,6 +11,7 @@ class sub_categoria extends Model
     protected $fillable = [
         'vc_nome',
         'id_categoria',
-        'descricao'
+        'descricao',
+        'preco',
     ];
 }
