@@ -17,7 +17,7 @@ class AcessoMiddleware
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()){
-            if(Auth::user()->vc_tipo_utilizador==1){
+            if(Auth::user()->vc_tipo_utilizador==1 || Auth::user()->vc_tipo_utilizador==2 || Auth::user()->vc_tipo_utilizador==3){
                 return $next($request);
             }
             else{

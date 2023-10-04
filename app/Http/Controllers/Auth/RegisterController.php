@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\armazens;
 use App\Models\categoria;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Contracts\Auth\Authenticatable;
 class RegisterController extends Controller
 {
     /*
@@ -54,7 +56,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+           
         ]);
     }
 
@@ -64,62 +66,126 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
-    {
 
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|unique:users',
-            'email' => 'required|email|unique:users',
-            'contacto' => 'required|numeric|unique:users',
-            'password' => 'required|min:6|confirmed',
-            'vc_nome' => 'required|string|unique:armazens',
-            'endereco' => 'required|string|unique:armazens',
-            'id_categoria' => 'required',
-            'inicio' => 'required',
-            'fim' => 'required',
-        ], [
-            'endereco.required'=>'O campo de Endereço de Biblioteca é obrigatorio',
-            'endereco.string'=>'O campo de Endereço de Biblioteca deve ser uma string',
-            'endereco.unique'=>'Já existe um Estabelecimento cadastrado com esse endereço',
-            'name.required' => 'O campo nome é obrigatório.',
-            'name.string' => 'O campo nome deve ser uma string.',
-            'name.unique' => 'O nome de usuário já está em uso.',
-            'email.required' => 'O campo e-mail é obrigatório.',
-            'email.email' => 'O campo e-mail deve ser um endereço de e-mail válido.',
-            'email.unique' => 'O e-mail já está em uso.',
-            'contacto.required' => 'O campo telefone é obrigatório.',
-            'contacto.numeric' => 'O campo telefone deve conter apenas números.',
-            'contacto.unique' => 'O telefone já está em uso.',
-            'id_categoria.required' => 'O campo Categoria é obrigatório.',
-            'inicio.required' => 'O campo O estabelecimento abre ás: é obrigatório.',
-            'fim.required' => 'O campo O estabelecimento fecha ás: é obrigatório.',
+     protected function create(array $data)
+{
+    if($data['tipo_estabelecimento']==2){
+
+        $imagem2 = $data['cv_path'];
+        $req_imagem2=$imagem2;
+        $extension2=$req_imagem2->extension();
+        $imagem_name2=md5($req_imagem2->getClientOriginalName() . strtotime('now')) . "." . $extension2;
+        $destino=$req_imagem2->move(public_path("documentos2/curriculos"), $imagem_name2);
+        $dir2 = "documentos2/curriculos";
+        $caminho2=$dir2. "/". $imagem_name2;
+
+        $user = User::create([
+            'name' => $data['name'],
+            'sobrename' => $data['sobrename'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'telefone' => $data['phone'],
+            'endereco' => $data['endereco'],
+            'contacto' => $data['phone'],
+            'vc_tipo_utilizador' => $data['tipo_estabelecimento'],
+            // 'nome_empresa' => $data['nome_empresa'],
+            // 'reponsavel' => $data['reponsavel'],
+            'cv' =>$caminho2,
+            'bi' => $data['bi'],
         ]);
-    
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+    }
+    elseif($data['tipo_estabelecimento']==1){
+   
+      
+            $imagem = $data['vc_path'];
+            $req_imagem=$imagem;
+            $extension=$req_imagem->extension();
+            $imagem_name=md5($req_imagem->getClientOriginalName() . strtotime('now')) . "." . $extension;
+            $destino=$req_imagem->move(public_path("documentos/prestadores"), $imagem_name);
+            $dir = "documentos/prestadores";
+            $caminho=$dir. "/". $imagem_name;
 
         $user=User::create([
             'name' => $data['name'],
+            'sobrename' => $data['sobrename'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'telefone'=> $data['phone'],
+            'endereco'=> $data['endereco'],
+            'contacto'=> $data['phone'],
+            'vc_tipo_utilizador'=> 3,
+            'nome_empresa'=> $data['nome_empresa'],
+            'reponsavel'=> $data['reponsavel'],
+            // 'descricao'=> $data['descricao'],
+            'bi'=> $data['bi'],
+            'nif'=> $data['nif'],
+            'documento'=>   $caminho,
+            'registro'=> $data['registro'],
         ]);
-        armazens::where('id',$id)->update([
-            'vc_nome'=>$req->vc_nome,
-            'contacto'=>$req->contacto,
-            // 'horario_funcionamento'=>$req->horario_funcionamento,
-            'id_categoria'=>$req->categoria,
-            // 'vc_path'=>$caminho,
-            'endereco'=>$req->endereco,
-            'inicio'=>$req->inicio,
-            'fim'=>$req->fim,
-            'id_user'=>$user->id,
-        ]);
-       
-        event(new Registered($user));
-
-        Auth::login($user);
-
-        return redirect(RouteServiceProvider::HOME);
+     
+        // 
+   
     }
+    else{
+        return redirect()->back();
+    }
+   
+
+    if (!$user) {
+        // Trate o erro aqui, se a criação do usuário falhar
+        // Por exemplo, você pode lançar uma exceção ou redirecionar com uma mensagem de erro
+        return redirect()->back()->withInput()->withErrors(['error' => 'Erro ao criar o usuário']);
+    }
+
+    event(new Registered($user));
+   
+    Auth::login($user);
+
+    return $user;
+}
+    // protected function create(array $data)
+    // {
+        // dd($data);
+
+        // $validator = Validator::make($request->all(), [
+        //     'name' => 'required|string|unique:users',
+        //     'email' => 'required|email|unique:users',
+        //     'contacto' => 'required|numeric|unique:users',
+        //     'password' => 'required|min:6|confirmed',
+        //     'vc_nome' => 'required|string|unique:armazens',
+        //     'endereco' => 'required|string|unique:armazens',
+        //     'id_categoria' => 'required',
+        //     'inicio' => 'required',
+        //     'fim' => 'required',
+        // ], [
+        //     'endereco.required'=>'O campo de Endereço de Biblioteca é obrigatorio',
+        //     'endereco.string'=>'O campo de Endereço de Biblioteca deve ser uma string',
+        //     'endereco.unique'=>'Já existe um Estabelecimento cadastrado com esse endereço',
+        //     'name.required' => 'O campo nome é obrigatório.',
+        //     'name.string' => 'O campo nome deve ser uma string.',
+        //     'name.unique' => 'O nome de usuário já está em uso.',
+        //     'email.required' => 'O campo e-mail é obrigatório.',
+        //     'email.email' => 'O campo e-mail deve ser um endereço de e-mail válido.',
+        //     'email.unique' => 'O e-mail já está em uso.',
+        //     'contacto.required' => 'O campo telefone é obrigatório.',
+        //     'contacto.numeric' => 'O campo telefone deve conter apenas números.',
+        //     'contacto.unique' => 'O telefone já está em uso.',
+            
+        // ]);
+    
+        // if ($validator->fails()) {
+        //     return redirect()->back()->withErrors($validator)->withInput();
+        // }
+
+//         dd($data);
+
+// dd($user);
+      
+       
+//         event(new Registered($user));
+
+//         Auth::login($user);
+
+//         return redirect(RouteServiceProvider::HOME);
+//     }
 }

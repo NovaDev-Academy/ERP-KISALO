@@ -1,10 +1,10 @@
 /*========= Var css ==========*/
 :root{
-    --primary-color:#321B0C;
-    --secondary-color:#E68E42;
-    --tertiary-color:#894C13;
-    --quartenary-color:#EDDECB;
+    --primary-color:#092b66;
+    --secondary-color:#2061b2;
+    --tertiary-color:#092b66;
     --white-color:#FFF;
+    --light-color:#777777;
     --border-secondary-color: 1px solid var(--secondary-color);
 }
 
@@ -93,13 +93,13 @@ body{
 .iq-nav-menu .nav-item:not(:first-child) a.nav-link:hover,
 .iq-header-sub-menu .nav-item a.nav-link:hover,
 .navbar-nav.iq-main-menu a.nav-link:hover{
-    background-color: var(--quartenary-color) !important;
-    color: var(--primary-color) !important;
+    background-color: var(--secondary-color) !important;
+    color: var(--white-color) !important;
 }
 
 /* ======= Header admin ============= */
 .iq-nav-menu li .nav-link.active{
-    background-color: var(--tertiary-color) !important;
+    background-color: var(--secondary-color) !important;
     color: var(--white-color) !important;
 }
 
@@ -109,7 +109,7 @@ body{
 
 ::placeholder,.navbar-collapse .nav-item .nav-link,
 li > .dropdown-item{
-    color: var(--primary-color) !important;
+    color: var(--light-color) !important;
 }
 
 .navbar-collapse .nav-item .nav-link:hover{
@@ -146,9 +146,9 @@ li > .dropdown-item:hover{
 }
 /* ======== sidebar menu ======== */
 .navbar-nav.iq-main-menu a.nav-link{
-    color: var(--primary-color) !important;
-    font-weight: 400 !important;
-    font-size: 18px !important;
+    color: var(--light-color) !important;
+    font-weight: 500 !important;
+    font-size: 17px !important;
 }
 
 /* ======  content main dashboard */
@@ -171,7 +171,7 @@ li > .dropdown-item:hover{
 
 /* Setting Panel */
 .form-check-input + label span{
-    color: var(--primary-color) !important;
+    color: var(--light-color) !important;
     font-family: bold;
 }
 .form-check-input:checked{
