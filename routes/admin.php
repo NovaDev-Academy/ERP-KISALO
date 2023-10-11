@@ -99,6 +99,10 @@ Route::get('/servicos/suspenso/{id}', [App\Http\Controllers\Admin\ServicosContro
 Route::get('/perfil', [App\Http\Controllers\Admin\PerfilController::class, 'index'])->name('prestador.perfil.index');
 Route::post('/perfil/atualizar', [App\Http\Controllers\Admin\PerfilController::class, 'update'])->name('prestador.perfil.update');
 
+//Pedidoservico
+Route::get('/pedidoservico', [App\Http\Controllers\Admin\PedidoservicoController::class, 'index'])->name('admin.pedidoservico.index');
+Route::get('/pedidoservico/prestadores/{id?}/{idpedido?}', [App\Http\Controllers\Admin\PedidoservicoController::class, 'show'])->name('admin.pedidoservico.prestador');
+Route::post('/pedidoservico/vincular', [App\Http\Controllers\Admin\PedidoservicoController::class, 'vincular'])->name('admin.pedidoservico.vincular');
 });
 
 
