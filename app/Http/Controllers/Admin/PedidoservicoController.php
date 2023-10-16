@@ -46,7 +46,7 @@ class PedidoservicoController extends Controller
             ]);
             return redirect()->back()->with('status',1);
         }catch (\Throwable $th) {
-            dd($th);
+            // dd($th);
             return redirect()->back()->with("status_f", '1');
         }
     }
