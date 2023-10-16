@@ -42,8 +42,10 @@ class PedidoservicoController extends Controller
             //code...
             Pedidoservico::create([
                 'users_id'=>$request->user,
-                'pedidos_id'=>$request->idpedido
+                'pedidos_id'=>$request->idpedido,
+                'preco' =>$request->preco,
             ]);
+            
             return redirect()->back()->with('status',1);
         }catch (\Throwable $th) {
             // dd($th);

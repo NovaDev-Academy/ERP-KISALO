@@ -21,13 +21,12 @@
              <div class="card-body">
 
                <div class="container mt-5 select_search_box">
-                  <h4 >Escolha o Pedido</h4>
-                  <select class="w-25"  id="pedidoSelect" data-live-search="true">
-                     <option value="">Escolha o Pedido</option>
-                     @foreach ($pedidos as $pedido)
-                     <option value="{{ route('admin.pedidoservico.prestador', ['id' => $pedido->id_servico_categoria, 'idpedido'=> $pedido->id]) }}">{{ $pedido->nome }}</option>
-                     @endforeach
-                    
+                  <h4>Escolha o Pedido</h4>
+                  <select class="w-25 select2-basic-single form-select form-control select_search_box" id="pedidoSelect" data-live-search="true" onchange="redirectToSelected()">
+                      <option value="">Escolha o Pedido</option>
+                      @foreach ($pedidos as $pedido)
+                      <option value="{{ route('admin.pedidoservico.prestador', ['id' => $pedido->id_servico_categoria, 'idpedido'=> $pedido->id]) }}">{{ $pedido->nome }}</option>
+                      @endforeach
                   </select>
               </div>
                    
@@ -48,12 +47,16 @@
      </script>
 
 <script>
-   document.getElementById('pedidoSelect').addEventListener('change', function() {
-       var selectedValue = this.value;
+   function redirectToSelected() {
+       var select = document.getElementById('pedidoSelect');
+       var selectedValue = select.value;
        if (selectedValue) {
            window.location.href = selectedValue;
        }
-   });
+   }
 </script>
+
+
+
                  
 @endsection
