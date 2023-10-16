@@ -27,7 +27,7 @@
                             <th>#</th>
                             <th>Nome</th>
                             <th>sub_categoria</th>
-
+<th>Preço</th>
                             <th>Acções</th>
                         </tr>
                     </thead>
@@ -39,6 +39,7 @@
                                 {{$sub_categoria->vc_nome}}
                             </td>
                             <td>{{$sub_categoria->categoria}}</td>
+                            <td>{{$sub_categoria->preco}}</td>
                           
 
                             <td>
@@ -149,7 +150,7 @@
                  @if (session('eliminada'))
     <script>
         Swal.fire(
-            'Categoria dos Serviços Eliminado com sucesso!',
+            'SubCategoria dos Serviços Eliminado com sucesso!',
             '',
             'success'
         )
@@ -158,7 +159,7 @@
 @if (session('editada'))
 <script>
     Swal.fire(
-        'Categoria dos Serviços editado com sucesso!',
+        'SubCategoria dos Serviços editado com sucesso!',
         '',
         'success'
     )
@@ -167,7 +168,7 @@
 @if (session('editada_f'))
 <script>
 Swal.fire(
-    'ERro ao editar Categoria dos Serviços!',
+    'ERro ao editar SubCategoria dos Serviços!',
     '',
     'error'
 )
@@ -177,7 +178,7 @@ Swal.fire(
 @if (session('status'))
 <script>
     Swal.fire(
-        'Categoria dos Serviços Cadastrado Com Sucesso!',
+        'SubCategoria dos Serviços Cadastrado Com Sucesso!',
         '',
         'success'
     )
@@ -186,7 +187,7 @@ Swal.fire(
 @if (session('status_f'))
 <script>
 Swal.fire(
-    'Erro ao cadastrar Categoria dos Serviços!',
+    'Erro ao cadastrar SubCategoria dos Serviços!',
     '',
     'success'
 )

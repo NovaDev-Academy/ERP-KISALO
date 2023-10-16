@@ -16,6 +16,7 @@ class UserFactory extends Factory
     {
         return [
             'name' => "Gomes Mateus",
+            'sobrename' => "Francisco",
             'email' => "admin@gmail.com",
             'vc_tipo_utilizador'=>1,
             'email_verified_at' => now(),

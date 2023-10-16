@@ -10,6 +10,8 @@ class sub_categoria extends Model
     use HasFactory;
     protected $fillable = [
         'vc_nome',
-        'id_categoria'
+        'id_categoria',
+        'descricao',
+        'preco',
     ];
 }

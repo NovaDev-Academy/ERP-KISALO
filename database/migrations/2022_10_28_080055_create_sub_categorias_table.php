@@ -16,6 +16,8 @@ class CreateSubCategoriasTable extends Migration
         Schema::create('sub_categorias', function (Blueprint $table) {
             $table->id();
             $table->string('vc_nome');
+            $table->unsignedBigInteger('id_categoria')->references('id')->on('categorias')
+            ->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->timestamps();
         });
     }

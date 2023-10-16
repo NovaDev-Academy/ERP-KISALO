@@ -5,7 +5,7 @@
  <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>LOJA VIRTUAL</title>
+        <title>Kisalo - BackOffice</title>
         <meta name="description" content="Qompac UI is a revolutionary Bootstrap Admin Dashboard Template and UI Components Library. The Admin Dashboard Template and UI Component features 8 modules.">
         <meta name="keywords" content="premium, admin, dashboard, template, bootstrap 5, clean ui, qompac-ui, admin dashboard,responsive dashboard, optimized dashboard,">
         <meta name="author" content="Iqonic Design">
@@ -61,7 +61,7 @@
         <div id="loading">
             <div class="loader simple-loader">
                 <div class="loader-body ">
-                    <img src="../../assets/images/loader.webp" alt="loader" class="image-loader img-fluid ">
+                    <img src="../assets/images/loader.webp" alt="loader" class="image-loader img-fluid " width="15%">
                 </div>
             </div>
         </div>
