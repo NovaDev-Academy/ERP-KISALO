@@ -353,7 +353,7 @@
 
   /*---------------------------analytics chart-----*/
   if (document.querySelectorAll("#analytics-chart-03").length) {
-    const colors = [secondaryColor, tertiaryColor, '#b1c8f0'];
+    const colors = [secondaryColor, tertiaryColor, '#f2c713'];
     var options = {
       series: [{
         name: 'High',
@@ -444,7 +444,7 @@
 
     //color customizer
     document.addEventListener("theme_color", (e) => {
-      const colors = [secondaryColor, tertiaryColor, '#b1c8f0'];
+      const colors = [secondaryColor, tertiaryColor, '#f2c713'];
 
       const newOpt = {
         colors: colors,
@@ -708,7 +708,7 @@
   if (document.querySelectorAll("#analytics-chart-01").length) {
     const blue = "#0d54ce";
     const secondaryBlue = "#b1c8f0";
-    const colors = [blue, secondaryBlue, '#4d79c5'];
+    const colors = [blue, secondaryBlue, '#272efb'];
     var options = {
       series: [{
       name: 'Avg.Session',
@@ -779,9 +779,9 @@
     chart.render();
     //color customizer
     document.addEventListener("theme_color", (e) => {
-      const blue = "#0d54ce";
+      const blue = "#30579b";
       const secondaryBlue = "#b1c8f0";
-      const colors = [blue, secondaryBlue, '#4d79c5'];
+      const colors = [blue, secondaryBlue, '#023fa9'];
 
       const newOpt = {
         colors: colors,
