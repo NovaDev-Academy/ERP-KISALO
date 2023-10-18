@@ -35,6 +35,7 @@ Route::prefix('auth')->group(function(){
     Route::middleware('auth:sanctum')->post('pedidos/store/{user}', [App\Http\Controllers\Api\PedidosController::class, 'store'])->name('auth.mobile.pedidos.store');
     Route::middleware('auth:sanctum')->post('pedidos/finalizar/{pedido}', [App\Http\Controllers\Api\PedidosController::class, 'end'])->name('auth.mobile.pedidos.finalizar');
 
+    Route::middleware('auth:sanctum')->get('perfil/{user}', [App\Http\Controllers\Api\PerfilController::class, 'index'])->name('auth.mobile.perfil.index');
 
 });
 
