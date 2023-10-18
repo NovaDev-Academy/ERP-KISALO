@@ -6,6 +6,7 @@
     --white-color:#FFF;
     --light-color:#777777;
     --border-secondary-color: 1px solid var(--secondary-color);
+    --b:#4d79c5;
 }
 
 /* ======= fonts de letra Bariol ======= */
@@ -159,13 +160,14 @@ li > .dropdown-item:hover{
 }
 
 .btn-warning{
-    background-color: var(--secondary-color) !important;
-    border: var(--border-secondary-color);
+    background-color:#f2c713 !important;
+    border:#f2c713 ;
+    color: rgb(253, 251, 239);
 }
 
 .btn-warning:hover{
-    background-color: var(--tertiary-color) !important;
-    border: var(--tertiary-color) !important;
+    background-color: #eabb01 !important;
+    border: #eabb01 !important;
 }
 
 
@@ -208,3 +210,21 @@ btn-check:checked+.btn.btn-border, .btn-check:active+.btn.btn-border, .btn.btn-b
     background-color: var(--secondary-color) !important;
     border-color: var(--secondary-color) !important;
 }
+
+ svg.text-primary{
+    color: #0d54ce !important;
+}
+
+svg.text-secondary{
+    color: #b1c8f0 !important;
+}
+
+svg.text-tertiray{
+    color: #4d79c5 !important;
+}
+
+svg.text-info{
+    color:var(--secondary-color) !important;
+}
+
+

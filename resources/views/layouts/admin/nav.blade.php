@@ -203,9 +203,9 @@
                            <span class="item-name">Serviços</span>
 
                        </a>
-                       <br>
-                       <br>
+                       
                    </li>
+                   @if(Auth::user()->vc_tipo_utilizador==1)
                    <li class="nav-item">
                     <a class="nav-link " href="{{route('admin.pedidoservico.index')}}">
 
@@ -222,6 +222,7 @@
                    <br>
                    <br>
                </li>
+               @endif
                 </ul>
 
                 <!-- Sidebar Menu End -->        </div>
