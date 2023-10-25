@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-use Twilio\Rest\Client;
+use GuzzleHttp\Client;
 class LoginController extends Controller
 {
     //
@@ -36,23 +36,31 @@ class LoginController extends Controller
         $UserData['password']=Hash::make($UserData['password']);
         $numeroAleatorio = random_int(1000, 9999);
 
-        $twilio = new Client(config('services.twilio.sid'), config('services.twilio.token'));
+        // $twilio = new Client(config('services.twilio.sid'), config('services.twilio.token'));
+        $apiToken = env('API_TOKEN');
+        $sender = env('API_SENDER');
         $nome=$req->name;
 
         $mensagem = "Seja bem vindo ao KISALO Sr.$nome!O teu codigo de verificação é  $numeroAleatorio.";
 
         $numero=$req->telefone;
+
+        $client = new Client();
+        $url = 'http://52.30.114.86:8080/mimosms/v1/message/send?token=' . $apiToken;
+    
+        $data = [
+            'sender' => $sender,
+            'recipients' => $numero,
+            "text" => $mensagem
+        ];
         
         
-        $message=$twilio->messages->create(
-            "+$numero",
-            [
-                "from" => config('services.twilio.from'),
-                "body" => $mensagem,
-            ]
-        );
-        if ($message->status == 'sent' || $message->status == 'queued') {
-                if(! $user=$user->create($UserData))  abort(500,'Error to Create User');
+        try {
+            $response = $client->post($url, [
+                'json' => $data,
+            ]);
+    
+            if(! $user=$user->create($UserData))  abort(500,'Error to Create User');
 
         
 
@@ -68,15 +76,29 @@ class LoginController extends Controller
                     'user'=>$user,
                 ],
             ]);
-        } else {
-            return response()
-            ->json([
-                'data'=>[
-                    'mensagem'=>'Numero Telefonico Invalido',
-                 
-                ],
-            ]);
+            
+        } catch (\Exception $e) {
+            return response()->json(
+                [
+                   
+                    'data'=>[
+                        'error' => $e->getMessage(),
+                        'mensagem'=>'Numero Telefonico Invalido',   
+                        'Erro ao criar conta do Usuario'
+                    ],
+            ], 500);
         }
+        // if ($message->status == 'sent' || $message->status == 'queued') {
+              
+        // } else {
+        //     return response()
+        //     ->json([
+        //         'data'=>[
+        //             'mensagem'=>'Numero Telefonico Invalido',
+                 
+        //         ],
+        //     ]);
+        // }
        
     }
 

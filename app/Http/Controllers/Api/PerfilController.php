@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class PerfilController extends Controller
 {
     //
-    public function index(){
-        $id=Auth::user()->id;
-        $dados=User::where('id', $id)->get();
+    public function index($id){
+   
+        $dados=User::where('id', $id)->first();
 
         return response()
         ->json([
@@ -19,6 +19,18 @@ class PerfilController extends Controller
                 'data'=>$dados,
             ],
         ]);
+    }
+    public function prestador($id){
+
+        $dados=User::where('id', $id)->first();
+
+        return response()
+        ->json([
+            'data'=>[
+                'data'=>$dados,
+            ],
+        ]);
+        
     }
     
 }
