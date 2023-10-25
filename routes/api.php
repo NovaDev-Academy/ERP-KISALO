@@ -40,6 +40,8 @@ Route::prefix('auth')->group(function(){
    
 
     Route::middleware('auth:sanctum')->get('perfil/{user}', [App\Http\Controllers\Api\PerfilController::class, 'index'])->name('auth.mobile.perfil.index');
+    Route::middleware('auth:sanctum')->post('perfil/atualizar/dados_pessoais/{id_user}', [App\Http\Controllers\Api\PerfilController::class, 'update'])->name('auth.mobile.perfil.update');
+    Route::middleware('auth:sanctum')->post('perfil/atualizar/credencias/{id_user}', [App\Http\Controllers\Api\PerfilController::class, 'senha'])->name('auth.mobile.perfil.senha');
 
 
     Route::middleware('auth:sanctum')->get('prestador/detalhes/{id}', [App\Http\Controllers\Api\PerfilController::class, 'prestador'])->name('auth.mobile.prestador.index');
