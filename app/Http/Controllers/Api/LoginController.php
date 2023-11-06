@@ -41,7 +41,7 @@ class LoginController extends Controller
         $sender = env('API_SENDER');
         $nome=$req->name;
 
-        $mensagem = "Seja bem vindo ao KISALO Sr.$nome!O teu codigo de verificação é  $numeroAleatorio.";
+        $mensagem = "Seja bem vindo ao KISALO Sr. $nome, o teu codigo de verificação é  $numeroAleatorio.";
 
         $numero=$req->telefone;
 
@@ -105,7 +105,7 @@ class LoginController extends Controller
             $sender = env('API_SENDER');
             $nome=$user->name;
     
-            $mensagem = "Seja bem vindo ao KISALO Sr. $nome! O teu codigo de verificação é  $numeroAleatorio.";
+            $mensagem = "Seja bem vindo ao KISALO Sr. $nome, o teu codigo de verificação é  $numeroAleatorio.";
     
             $numero=$user->telefone;
     
@@ -131,9 +131,7 @@ class LoginController extends Controller
                 [
                    
                     'data'=>[
-                    
                         'mensagem'=>'Mensagem enviada com sucesso',   
-                       
                     ],
             ], 500);
             
