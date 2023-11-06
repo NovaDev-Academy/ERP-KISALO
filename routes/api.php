@@ -23,6 +23,7 @@ Route::prefix('auth')->group(function(){
     Route::post('login', [App\Http\Controllers\Api\LoginController::class, 'login'])->name('auth.mobile.login');
     Route::post('register', [App\Http\Controllers\Api\LoginController::class, 'register'])->name('auth.mobile.register');
     Route::middleware('auth:sanctum')->post('logout', [App\Http\Controllers\Api\LoginController::class, 'logout'])->name('auth.mobile.logout');
+    Route::middleware('auth:sanctum')->post('user/verificacao/dois_factores/{id_user}', [App\Http\Controllers\Api\LoginController::class, 'dois_factores'])->name('auth.mobile.verificao');
 
 
 // Serviços

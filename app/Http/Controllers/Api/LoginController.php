@@ -62,18 +62,21 @@ class LoginController extends Controller
     
             if(! $user=$user->create($UserData))  abort(500,'Error to Create User');
 
-        
+            User::where('telefone',$numero)->update([
+                'codigo'=>$numeroAleatorio,
+                'status'=>0,
+            ]);
 
             $credentianls=$req->only('telefone','password');
             if(! auth()->attempt($credentianls)) abort(401,'Invalid Credentials');
 
             $token=auth()->user()->createToken('auth_token');
-
+            $user1=   User::where('telefone',$numero)->first();
             return response()
             ->json([
                 'data'=>[
                     'token'=>$token->plainTextToken,
-                    'user'=>$user,
+                    'user'=>$user1,
                 ],
             ]);
             
@@ -88,18 +91,46 @@ class LoginController extends Controller
                     ],
             ], 500);
         }
-        // if ($message->status == 'sent' || $message->status == 'queued') {
-              
-        // } else {
-        //     return response()
-        //     ->json([
-        //         'data'=>[
-        //             'mensagem'=>'Numero Telefonico Invalido',
-                 
-        //         ],
-        //     ]);
-        // }
        
+       
+    }
+
+    public function dois_factores($id,Request $req){
+        try {
+            $user=User::where('id',$id)->first();
+            if($user->codigo==$req->codigo){
+                User::where('id',$id)->update([
+                    'status'=>1,
+                    
+                ]);
+                return response()
+                ->json([
+                    'data'=>[
+                    'mensagem'=>'Conta autorizada com sucesso'
+                    ],
+                ]);
+            }
+            else{
+                return response()
+                ->json([
+                    'data'=>[
+                      'mensagem'=>'O codigo verificação está incorreto'
+                    ],
+                ]);
+            }
+            
+           
+        } catch (\Throwable $th) {
+            return response()->json(
+                [
+                   
+                    'data'=>[
+                        'error' => $th,
+                           
+                        'mensgem'=>'Erro do sistema',
+                    ],
+            ], 500);
+        }
     }
 
     public function logout(){

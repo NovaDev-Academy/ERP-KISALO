@@ -37,6 +37,8 @@ class User extends Authenticatable
         'registro',
         'vc_path',
         'cv',
+        'codigo',
+        'status',
     ];
 
     /**
