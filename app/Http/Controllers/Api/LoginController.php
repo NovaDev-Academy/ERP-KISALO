@@ -71,7 +71,7 @@ class LoginController extends Controller
             if(! auth()->attempt($credentianls)) abort(401,'Invalid Credentials');
 
             $token=auth()->user()->createToken('auth_token');
-            $user1=   User::where('telefone',$numero)->first();
+            $user1=User::where('telefone',$numero)->first();
             return response()
             ->json([
                 'data'=>[
@@ -92,6 +92,62 @@ class LoginController extends Controller
             ], 500);
         }
        
+       
+    }
+    public function resend($id){
+        try {
+
+            $user=User::where('id',$id)->first();
+            $numeroAleatorio = random_int(1000, 9999);
+
+            // $twilio = new Client(config('services.twilio.sid'), config('services.twilio.token'));
+            $apiToken = env('API_TOKEN');
+            $sender = env('API_SENDER');
+            $nome=$user->name;
+    
+            $mensagem = "Seja bem vindo ao KISALO Sr. $nome! O teu codigo de verificação é  $numeroAleatorio.";
+    
+            $numero=$user->telefone;
+    
+            $client = new Client();
+            $url = 'http://52.30.114.86:8080/mimosms/v1/message/send?token=' . $apiToken;
+        
+            $data = [
+                'sender' => $sender,
+                'recipients' => $numero,
+                "text" => $mensagem
+            ];
+
+            $response = $client->post($url, [
+                'json' => $data,
+            ]);
+
+            User::where('id',$id)->update([
+                'codigo'=>$numeroAleatorio,
+                'status'=>0,
+            ]);
+
+            return response()->json(
+                [
+                   
+                    'data'=>[
+                    
+                        'mensagem'=>'Mensagem enviada com sucesso',   
+                       
+                    ],
+            ], 500);
+            
+        } catch (\Throwable $th) {
+            return response()->json(
+                [
+                   
+                    'data'=>[
+                        'error' => $th->getMessage(),
+                        'mensagem'=>'Numero Telefonico Invalido',   
+                        'Erro ao criar conta do Usuario'
+                    ],
+            ], 500);
+        }
        
     }
 
