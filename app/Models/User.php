@@ -39,6 +39,12 @@ class User extends Authenticatable
         'cv',
         'codigo',
         'status',
+        'provincia',
+        'municipio',
+        'telefone_2',
+        'kisalo',
+        'informações',
+        'funcionarios',
     ];
 
     /**

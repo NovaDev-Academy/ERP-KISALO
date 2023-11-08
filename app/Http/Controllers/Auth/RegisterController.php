@@ -92,6 +92,12 @@ class RegisterController extends Controller
             // 'reponsavel' => $data['reponsavel'],
             'cv' =>$caminho2,
             'bi' => $data['bi'],
+            'provincia'=> $data['provincia'],
+            'municipio'=> $data['municipio'],
+            'telefone_2'=> $data['telefone_2'],
+            'kisalo'=> $data['kisalo'],
+            'informações'=> $data['informações'],
+            'funcionarios'=> $data['funcionarios'],
         ]);
     }
     elseif($data['tipo_estabelecimento']==1){
@@ -121,6 +127,12 @@ class RegisterController extends Controller
             'nif'=> $data['nif'],
             'documento'=>   $caminho,
             'registro'=> $data['registro'],
+            'provincia'=> $data['provincia'],
+            'municipio'=> $data['municipio'],
+            'telefone_2'=> $data['telefone_2'],
+            'kisalo'=> $data['kisalo'],
+            'informações'=> $data['informações'],
+            'funcionarios'=> $data['funcionarios'],
         ]);
      
         // 

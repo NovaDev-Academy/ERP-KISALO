@@ -2,6 +2,11 @@
 @section('titulo','Login')
 @section('conteudo')
 
+{{--  '
+        'kisalo',
+        'informações',
+        'funcionarios', --}}
+
 <?php
 $categorias=App\Models\categoria::get();
 ?>
@@ -26,13 +31,13 @@ $categorias=App\Models\categoria::get();
 							<div class="row">
                                 <div class="col-lg-6">
 								  <div class="form-group">
-									 <label for="name" class="form-label">Nome</label>
+									 <label for="name" class="form-label">Nome*</label>
 									 <input type="text" class="form-control" name="name" required id="name" placeholder="Primeiro Nome">
 									</div>
 							    </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                       <label for="sobrename" class="form-label">Sobrenome</label>
+                                       <label for="sobrename" class="form-label">Sobrenome*</label>
                                        <input type="text" class="form-control" name="sobrename" required id="sobrename" placeholder="Segundo Nome">
                                       </div>
                                   </div>
@@ -40,7 +45,7 @@ $categorias=App\Models\categoria::get();
                                 
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                       <label for="email" class="form-label">Email</label>
+                                       <label for="email" class="form-label">Email*</label>
                                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" id="email" aria-describedby="email" placeholder="xyz@example.com">
                                        @error('email')
                                        <span class="invalid-feedback form-control" role="alert">
@@ -52,11 +57,63 @@ $categorias=App\Models\categoria::get();
 
                                  <div class="col-lg-6">
                                     <div class="form-group">
-                                       <label for="phone" class="form-label">Telefone</label>
+                                       <label for="phone" class="form-label">Telefone*</label>
                                        <input type="tel" class="form-control" name="phone" required id="phone" placeholder="+244">
                                     </div>
                                 </div>
 
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                       <label for="telefone_2" class="form-label">Telefone 2*</label>
+                                       <input type="number" class="form-control" name="telefone_2" required id="telefone_2" placeholder="+244">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="provincia">Escolha uma província de Angola:*</label>
+                                        <select id="provincia" name="provincia"  class="form-control">
+                                            <option value="Bengo">Bengo</option>
+                                            <option value="Benguela">Benguela</option>
+                                            <option value="Bié">Bié</option>
+                                            <option value="Cabinda">Cabinda</option>
+                                            <option value="Cunene">Cunene</option>
+                                            <option value="Huambo">Huambo</option>
+                                            <option value="Huíla">Huíla</option>
+                                            <option value="Luanda">Luanda</option>
+                                            <option value="Lunda Norte">Lunda Norte</option>
+                                            <option value="Lunda Sul">Lunda Sul</option>
+                                            <option value="Malanje">Malanje</option>
+                                            <option value="Moxico">Moxico</option>
+                                            <option value="Namibe">Namibe</option>
+                                            <option value="Uíge">Uíge</option>
+                                            <option value="Zaire">Zaire</option>
+                                            <option value="Cuando Cubango">Cuando Cubango</option>
+                                            <option value="Cuanza Norte">Cuanza Norte</option>
+                                            <option value="Cuanza Sul">Cuanza Sul</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                       <label for="municipio" class="form-label">Municipio*</label>
+                                       <input type="text" class="form-control" name="municipio" required id="municipio" placeholder="Municipio">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                       <label for="kisalo" class="form-label">Como descobriu o Kísalo? *</label>
+                                       <textarea name="kisalo" class="form-control"></textarea></div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                       <label for="kisalo" class="form-label">Outras Informações </label>
+                                       <textarea name="kisalo" class="form-control"></textarea></div>
+                                </div>
+
+
+                                
                                 
                             </div>
 
@@ -64,7 +121,7 @@ $categorias=App\Models\categoria::get();
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="password" class="form-label">Senha</label>
+                                        <label for="password" class="form-label">Senha*</label>
                                         <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="password" id="password" aria-describedby="password" placeholder="xxxx">
                                         @error('password')
                                             <span class="invalid-feedback form-control" role="alert">
@@ -76,7 +133,7 @@ $categorias=App\Models\categoria::get();
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="password_confirmation" class="form-label">Confirmar senha</label>
+                                        <label for="password_confirmation" class="form-label">Confirmar senha*</label>
                                         <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" required autocomplete="password_confirmation" id="password_confirmation" aria-describedby="password_confirmation" placeholder="xxxx">
                                         @error('password_confirmation')
                                             <span class="invalid-feedback form-control" role="alert">
@@ -85,13 +142,15 @@ $categorias=App\Models\categoria::get();
                                          @enderror
                                     </div>
                                 </div>
+
                             </div>
 
 							   <div class="row">
+                               
                                 
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="vc_nome">Tipo de Prestador</label>
+                                        <label for="vc_nome">Tipo de Prestador*</label>
                                         <select type="text" id="tipo_estabelecimento" class="form-control" name="tipo_estabelecimento" placeholder="Nome do Estabelecimento" value="">
                                             <option>Selecione o Tipo de Empresa</option>
                                             <option value="1">Empresa</option>
@@ -107,20 +166,20 @@ $categorias=App\Models\categoria::get();
                                <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="vc_nome">Nome da Empresa</label>
+                                        <label for="vc_nome">Nome da Empresa*</label>
                                         <input type="text" id="nome_empresa" class="form-control" name="nome_empresa" placeholder="Nome da Empresa" value="">
                                     </div>
                                 </div>
         
                                 <div class="form-group col-lg-6">
-                                    <label for="nif">Endereço</label>
+                                    <label for="nif">Endereço*</label>
                                     <input type="text" id="endereco" class="form-control" name="endereco" placeholder="Endereço" value="">
                                 </div>
                                </div>
         
                                <div class="row">
                                <div class="form-group col-lg-6">
-                                    <label for="latitude">Responsavel Legal</label>
+                                    <label for="latitude">Responsavel Legal*</label>
                                     <input type="text" id="reponsavel" class="form-control" name="reponsavel" placeholder="reponsavel" value="">
                              </div>
                              <div class="form-group col-lg-6">
@@ -129,22 +188,27 @@ $categorias=App\Models\categoria::get();
                             </div>
                             
                             <div class="form-group col-lg-6">
-                                <label for="vc_path">Numero do BI do Representante</label>
+                                <label for="vc_path">Numero do BI do Representante*</label>
                                 <input type="text" id="bi" class="form-control" name="bi" placeholder="Numero do BI do Representante" value="">
                             </div>
         
                              <div class="form-group col-lg-6">
-                                <label for="vc_path">Documento de Registro da Empresa</label>
+                                <label for="vc_path">Documento de Registro da Empresa*</label>
                                 <input type="file" id="vc_path" class="form-control" name="vc_path" placeholder="Documento da EMPRESA" value="">
                             </div>
                             <div class="form-group col-lg-6">
-                                <label for="vc_path">Data de Registro da Empresa</label>
+                                <label for="vc_path">Data de Registro da Empresa*</label>
                                 <input type="date" id="registro" class="form-control" name="registro" placeholder="Imagem" value="">
                             </div>
 
                             <div class="form-group col-lg-6">
-                                <label for="vc_path">NIF Empresarial</label>
+                                <label for="vc_path">NIF Empresarial*</label>
                                 <input type="text" id="nif" class="form-control" name="nif" placeholder="NIF Empresarial" value="">
+                            </div>
+
+                            <div class="form-group col-lg-6">
+                                <label for="funcionarios">Quantidade de Funcionarios*</label>
+                                <input type="number" id="funcionarios" class="form-control" name="funcionarios" placeholder="Quantidade de Funcionarios" value="">
                             </div>
                         </div>
 
@@ -157,16 +221,16 @@ $categorias=App\Models\categoria::get();
                                 
                                  
                      <div class="form-group col-lg-6">
-                        <label for="vc_path">Numero do BI</label>
+                        <label for="vc_path">Numero do BI*</label>
                         <input type="text" id="vc_path" class="form-control" name="bi" placeholder="Numero do BI" value="">
                     </div>
                     <div class="form-group col-lg-6">
-                        <label for="vc_path">Endereço</label>
+                        <label for="vc_path">Endereço*</label>
                         <input type="text" id="endereco" class="form-control" name="endereco" placeholder="Endereço da Empresa" value="">
                     </div>
 
                     <div class="form-group col-lg-6">
-                        <label for="vc_path">Curriculo Vitae</label>
+                        <label for="vc_path">Curriculo Vitae*</label>
                         <input type="file" id="cv_path" class="form-control" name="cv_path" placeholder="Curriculo Vitae" value="">
                     </div>
                         </div>
