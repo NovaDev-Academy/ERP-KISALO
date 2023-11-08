@@ -14,12 +14,12 @@ class AlterTableUsers6 extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('provincia');
-            $table->string('municipio');
-            $table->string('telefone_2');
-            $table->longText('kisalo');
+            $table->string('provincia')->nullable();
+            $table->string('municipio')->nullable();
+            $table->string('telefone_2')->nullable();
+            $table->longText('kisalo')->nullable();
             $table->longText('informações')->nullable();
-            $table->integer('funcionarios');
+            $table->integer('funcionarios')->nullable();
             
            
         });

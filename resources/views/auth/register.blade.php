@@ -109,8 +109,8 @@ $categorias=App\Models\categoria::get();
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label for="kisalo" class="form-label">Outras Informações </label>
-                                        <textarea name="kisalo" class="form-control">{{ old('kisalo') }}</textarea>
+                                        <label for="informações" class="form-label">Outras Informações </label>
+                                        <textarea name="informações" class="form-control">{{ old('informações') }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -240,11 +240,12 @@ $categorias=App\Models\categoria::get();
                         
 
                          
-                    </div>
+                  
 							<div class="d-flex justify-content-center">
 							   <button type="submit" class="btn btn-submit w-100">registrar</button>
 							</div>
 						 </form>
+                         
                          <p class="mt-3 text-center color-primary">
                             Já tens uma conta ? <a href="{{ route('login') }}" class="text-underline color-tertiary">Iniciar Sessão.</a>
                          </p>
