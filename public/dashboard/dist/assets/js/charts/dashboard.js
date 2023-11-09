@@ -363,7 +363,7 @@
                 data: [43, 55, 40]
             }],
             chart: {
-                type: 'bar',
+                type: 'line',
                 height: 250,
                 toolbar: {
                     show: false,
@@ -604,7 +604,7 @@
             ],
             chart: {
                 height: 400,
-                type: 'area',
+                type: 'bar',
                 toolbar: {
                     show: false,
                 },
@@ -1701,4 +1701,6 @@
             chart.updateOptions(newOpt);
         });
     }
+
+
 })(jQuery);

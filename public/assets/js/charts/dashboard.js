@@ -3,7 +3,7 @@
 
   const secondaryColor = "#2061b2";
   const yellowColor = "#f2c713";
-  const tertiaryColor = "#092b66";
+  const tertiaryColor = "#063d9a";
   /*---------------------------default chart-----*/
   if (document.querySelectorAll("#sales-chart-01").length) {
     const variableColors = IQUtils.getVariableColor();
@@ -353,88 +353,74 @@
 
   /*---------------------------analytics chart-----*/
   if (document.querySelectorAll("#analytics-chart-03").length) {
-    const colors = [secondaryColor, tertiaryColor, '#f2c713'];
-    var options = {
-      series: [{
-        name: 'High',
-        data: [44, 55, 41 ]
-      }, {
-        name: 'Medium',
-        data: [53, 32,48]
-      }, {
-        name: 'Low',
-        data: [43,55,40]
+    const colors = [secondaryColor, tertiaryColor];
+    const options = {
+        series: [{
+            name:'Prestadores',
+        data: [40, 80, 10, 40, 50, 60,10,30,8,10,20,12]
       }],
-      chart: {
-      type: 'bar',
-      height: 250,
-      toolbar: {
-        show: false,
-      },
-    },
-    legend: {
-      show: true,
-      position:'bottom',
-    },
-    plotOptions: {
-      bar: {
-        barHeight: '100%',
-        distributed: true,
-        horizontal: true,
-        borderRadius: 5,
-        dataLabels: {
-          position: 'bottom'
-        },
-      }
-    },
-    colors: colors,
-    dataLabels: {
-      enabled: false,
-      textAnchor: 'start',
-      style: {
-        colors: ['#fff']
-      },
-      formatter: function (val, opt) {
-        return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
-      },
-      dropShadow: {
-        enabled: true
-      }
-    },
-    stroke: {
-      width: 5,
-      colors: ['transparent']
-    },
+        chart: {
+        type: 'bar',
+        height: 250,
 
-    xaxis: {
-      categories: ['USA', 'Russia', 'Brazil', 'India', 'UK', 'Canada'],
-      labels:{
-        minHeight: 20,
-        maxHeight: 20
-      }
-    },
-    grid: {
-      show:false,
-    },
-    yaxis: {
-      labels: {
-        show: true,
-      }
-    },
-    tooltip: {
-      theme: 'dark',
-      x: {
-        show: false
-      },
-      y: {
-        title: {
-          formatter: function () {
-            return ''
+        toolbar: {
+          show: false,
+        },
+        },
+        yaxis:{
+            min:0,
+            max:100
+        },
+        plotOptions: {
+          bar: {
+            barHeight: '100%',
+            distributed: true,
+            borderRadius: 2,
+            dataLabels: {
+              position: 'top',
+            enabled:true
+            },
           }
+        },
+        colors:colors,
+        legend: {
+          show: false,
+        },
+        stroke: {
+          show: true,
+      },
+        grid: {
+          show: true,
+          strokeDashArray: 2,
+        },
+        dataLabels: {
+          enabled: true,
+          textAnchor: 'middle',
+          style: {
+            colors: ['#fff']
+          },
+        },
+        xaxis: {
+            categories:['Jan', 'Fev','Mar','Abr','Mai', 'Jun', 'Jul','Ago','Set','Out','Nov','Dez'],
+        },
+
+        yaxis: {
+          labels: {
+            show: true,
+            minWidth: 20,
+            maxWidth: 20,
+          },
+          min:0,
+          max:100
+        },
+        tooltip: {
+          theme: 'dark',
+          x: {
+            show: true
+          },
+
         }
-      }
-    }
-    };
+        };
 
    const chart = new ApexCharts(
       document.querySelector("#analytics-chart-03"),
@@ -445,7 +431,6 @@
     //color customizer
     document.addEventListener("theme_color", (e) => {
       const colors = [secondaryColor, tertiaryColor, '#f2c713'];
-
       const newOpt = {
         colors: colors,
         fill: {
@@ -486,7 +471,8 @@
     const colors = [yellowColor, secondaryColor];
     const options = {
     series: [{
-    data: [800, 780, 610, 410, 350, 200,110,80]
+        name:'Prestadores',
+    data: [40, 80, 10, 40, 50, 60,10,30,8,10,20,12]
   }],
     chart: {
     type: 'bar',
@@ -496,13 +482,18 @@
       show: false,
     },
     },
+    yaxis:{
+        min:0,
+        max:100
+    },
     plotOptions: {
       bar: {
         barHeight: '100%',
         distributed: true,
-        borderRadius: 5,
+        borderRadius: 2,
         dataLabels: {
-          position: 'bottom'
+          position: 'top',
+        enabled:true
         },
       }
     },
@@ -511,48 +502,42 @@
       show: false,
     },
     stroke: {
-      show: false,
+      show: true,
   },
     grid: {
       show: true,
-      strokeDashArray: 7,
+      strokeDashArray: 2,
     },
     dataLabels: {
-      enabled: false,
-      textAnchor: 'start',
+      enabled: true,
+      textAnchor: 'middle',
       style: {
         colors: ['#fff']
       },
-      formatter: function (val, opt) {
-        return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
-      },
+
       dropShadow: {
-        enabled: true
+        enabled: false,
       }
     },
     xaxis: {
-      categories: ['Korrea', 'India', 'Spain', 'UAE', 'USA', 'Japan', 'Italy', 'Greece'],
+        categories:['Jan', 'Fev','Mar','Abr','Mai', 'Jun', 'Jul','Ago','Set','Out','Nov','Dez'],
     },
 
     yaxis: {
       labels: {
         show: true,
         minWidth: 20,
-        maxWidth: 20
-      }
+        maxWidth: 20,
+      },
+      min:0,
+      max:100
     },
     tooltip: {
       theme: 'dark',
       x: {
-        show: false
+        show: true
       },
-      y: {
-        title: {
-          formatter: function () {
-            return ''
-          }
-        }
-      }
+
     }
     };
    const chart = new ApexCharts(
@@ -706,71 +691,61 @@
     });
   }
   if (document.querySelectorAll("#analytics-chart-01").length) {
-    const blue = "#0d54ce";
-    const secondaryBlue = "#b1c8f0";
-    const colors = [blue, secondaryBlue, '#272efb'];
-    var options = {
-      series: [{
-      name: 'Avg.Session',
-      data: [11, 5, 32, 20, 33, 15, 25, 45, 10 ,25, 15, 30]
-    }, {
-      name: 'Conversion Rate',
-      data: [20, 25, 15, 30, 35, 40, 25, 42, 28, 45, 15, 20]
-    },
-    { name: 'Avg. Session Durations',
-    data: [22, 17, 20, 25, 15, 15, 10, 25, 18, 25, 35, 45]
-    }],
-      chart: {
-      height: 400,
-      type: 'area',
-      toolbar: {
-        show: false,
+    let options = {
+        series: [{
+        name: 'Downloads',
+        data:[10,20,30,45,55,76,60,34,23,34,45,6]
+      }, {
+        name: 'Registros',
+        data:[10,20,30,37,39,10,30,44,8,10,23,8]
+      },],
+        chart: {
+        type: 'bar',
+        height: 350,
+        stacked: true
       },
-    },
-    colors: colors,
-    dataLabels: {
-      enabled: false
-    },
-    grid: {
-      show: true,
-      strokeDashArray: 7,
-      padding: {
-        right: 0
-      }
-    },
-    stroke: {
-      curve: 'smooth',
-      width:2
-    },
-    legend: {
-     show:false,
-    },
-    yaxis: {
-      labels:{
-        minWidth: 20,
-        maxWidth: 20
+      dataLabels: {
+        formatter: (val) => {
+          return val + '%'
+        }
       },
-    },
-    xaxis: {
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nove', 'Dec'],
-      labels:{
-        minHeight: 20,
-        maxHeight: 20
-      }
-    },
-    fill: {
-      type: "gradient",
-      gradient: {
-        opacityTo: 0.5
-        ,
-      }
-    },
-    tooltip: {
-      x: {
-        format: 'dd/MM/yy HH:mm'
+      plotOptions: {
+        bar: {
+          horizontal: false
+        }
       },
-    },
-    };
+      responsive: [{
+        breakpoint: 480,
+        options: {
+          legend: {
+            position: 'bottom',
+            offsetX: -10,
+            offsetY: 0
+          }
+        }
+      }],
+      xaxis: {
+        categories: ['Jan', 'Fev', 'Mar','Abr','Mai','Jun', 'Jul', 'Ago', 'Set', 'Out',
+        'Nov','Dez'],
+      },
+
+      yaxis:{
+        labels: {
+            formatter: (val) => {
+              return val  + '%'
+            },
+          },
+        min:0,
+        max:100
+      },
+
+      grid: {
+        show: true,
+        strokeDashArray: 7,
+      },
+
+      };
+
 
    const chart = new ApexCharts(
       document.querySelector("#analytics-chart-01"),
@@ -779,17 +754,13 @@
     chart.render();
     //color customizer
     document.addEventListener("theme_color", (e) => {
-      const blue = "#30579b";
-      const secondaryBlue = "#b1c8f0";
-      const colors = [blue, secondaryBlue, '#023fa9'];
-
+      const colors = ["#0358c7",tertiaryColor];
       const newOpt = {
         colors: colors,
         fill: {
-          type: "gradient",
+          type: "solid",
           gradient: {
-            shade: "dark",
-            type: "vertical",
+            type: "horizontal",
             colors: colors,
           },
         },
@@ -1823,6 +1794,276 @@ if (document.querySelectorAll("#crypto-chart-06").length) {
     };
     chart.updateOptions(newOpt);
   });
-}
+};
+
+if (document.querySelectorAll("#chart-01").length) {
+    const colors = [secondaryColor, tertiaryColor, '#f2c713'];
+    let options = {
+        series: [{
+            name:'Usuários',
+            data: [44, 55, 41, 64, 22, 43, 21,23,44,56,56,7]
+          },
+          ],
+            chart: {
+            type: 'bar',
+            height: 430
+          },
+          plotOptions: {
+            bar: {
+              horizontal: true,
+              dataLabels: {
+                position: 'top',
+                maxItems: 100,
+              },
+            }
+          },
+          dataLabels: {
+            enabled: true,
+            offsetX: -6,
+            style: {
+              fontSize: '12px',
+              colors: ['#fff']
+            },
+          },
+          stroke: {
+            show: true,
+            width: 1,
+            colors: ['#fff']
+          },
+          tooltip: {
+            shared: true,
+            intersect: false
+          },
+          xaxis: {
+            categories: ['Jan', 'Fev', 'Mar','Abr','Mai','Jun', 'Jul', 'Ago', 'Set', 'Out',
+            'Nov','Dez'],
+          },
+
+          yaxis:{
+            max:100,
+          },
+          grid: {
+            show: true,
+            strokeDashArray: 7,
+          },
+
+
+    };
+
+   const chart = new ApexCharts(
+      document.querySelector("#chart-01 "),
+      options
+    );
+    chart.render();
+
+    //color customizer
+    document.addEventListener("theme_color", (e) => {
+      const colors = [secondaryColor, tertiaryColor, '#f2c713'];
+      const newOpt = {
+        colors: colors,
+        fill: {
+          type: "gradient",
+          gradient: {
+            shade: "dark",
+            type: "vertical",
+            gradientToColors: colors, // optional, if not defined - uses the shades of same color in series
+            opacityFrom: 1,
+            opacityTo: 1,
+            colors: colors,
+          },
+        },
+      };
+      chart.updateOptions(newOpt);
+    });
+
+    //Font customizer
+    document.addEventListener("body_font_family", (e) => {
+      let prefix =
+        getComputedStyle(document.body).getPropertyValue("--prefix") || "bs-";
+      if (prefix) {
+        prefix = prefix.trim();
+      }
+      const font_1 = getComputedStyle(document.body).getPropertyValue(
+        `--${prefix}body-font-family`
+      );
+      const fonts = [font_1.trim()];
+      const newOpt = {
+        chart: {
+          fontFamily: fonts,
+        },
+      };
+      chart.updateOptions(newOpt);
+    });
+  };
+
+  if (document.querySelectorAll("#chart-02").length) {
+    const colors = [secondaryColor, tertiaryColor, '#f2c713'];
+    let options = {
+        series: [44, 55, 41, 17, 15,20,33,40,22,11,12,23],
+          labels:['Jan', 'Fev','Mar','Abr','Mai', 'Jun', 'Jul','Ago','Set','Out','Nov','Dez'],
+        chart: {
+        type: 'donut',
+      },
+      responsive: [{
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 300,
+            height:700
+          },
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }],
+      dataLabels: {
+        enabled: false,
+
+        },
+        plotOptions: {
+            pie: {
+              donut: {
+                labels: {
+                  show: true,
+                },
+                size: '60%'
+              }
+            }
+          }
+      };
+
+   const chart = new ApexCharts(
+      document.querySelector("#chart-02 "),
+      options
+    );
+    chart.render();
+
+    //color customizer
+    document.addEventListener("theme_color", (e) => {
+      const colors = [secondaryColor, tertiaryColor, '#f2c713'];
+      const newOpt = {
+        colors: colors,
+        fill: {
+          type: "gradient",
+          gradient: {
+            shade: "dark",
+            type: "vertical",
+            gradientToColors: colors, // optional, if not defined - uses the shades of same color in series
+            opacityFrom: 1,
+            opacityTo: 1,
+            colors: colors,
+          },
+        },
+      };
+      chart.updateOptions(newOpt);
+    });
+
+    //Font customizer
+    document.addEventListener("body_font_family", (e) => {
+      let prefix =
+        getComputedStyle(document.body).getPropertyValue("--prefix") || "bs-";
+      if (prefix) {
+        prefix = prefix.trim();
+      }
+      const font_1 = getComputedStyle(document.body).getPropertyValue(
+        `--${prefix}body-font-family`
+      );
+      const fonts = [font_1.trim()];
+      const newOpt = {
+        chart: {
+          fontFamily: fonts,
+        },
+      };
+      chart.updateOptions(newOpt);
+    });
+  }
+  if (document.querySelectorAll("#chart-03").length) {
+    const colors = [secondaryColor, tertiaryColor, '#f2c713'];
+    let options = {
+        series: [{
+        name: 'Solicitação',
+        data: [44, 55, 41, 37, 22, 43, 21,23,32,19,11,12]
+      }, {
+        name: 'Cancelamento',
+        data: [53, 32, 33, 52, 13, 43, 32,10,11,20,11,12]
+      },
+    ],
+        chart: {
+        type: 'bar',
+        height: 350,
+        stacked: true,
+      },
+      plotOptions: {
+        bar: {
+          horizontal: true,
+        },
+      },
+      stroke: {
+        width: 1,
+        colors: ['#fff']
+      },
+
+      xaxis: {
+        categories: ['Jan', 'Fev', 'Mar','Abr','Mai','Jun', 'Jul', 'Ago', 'Set', 'Out',
+            'Nov','Dez'],
+      },
+
+      yaxis:{
+        min:0,
+        max:100
+      },
+
+      legend: {
+        position: 'top',
+        horizontalAlign: 'left',
+        offsetX: 40
+      }
+      };
+
+   const chart = new ApexCharts(
+      document.querySelector("#chart-03"),
+      options
+    );
+    chart.render();
+
+    //color customizer
+    document.addEventListener("theme_color", (e) => {
+      const colors = [secondaryColor, tertiaryColor, '#f2c713'];
+      const newOpt = {
+        colors: colors,
+        fill: {
+          type: "gradient",
+          gradient: {
+            shade: "dark",
+            type: "vertical",
+            gradientToColors: colors, // optional, if not defined - uses the shades of same color in series
+            opacityFrom: 1,
+            opacityTo: 1,
+            colors: colors,
+          },
+        },
+      };
+      chart.updateOptions(newOpt);
+    });
+
+    //Font customizer
+    document.addEventListener("body_font_family", (e) => {
+      let prefix =
+        getComputedStyle(document.body).getPropertyValue("--prefix") || "bs-";
+      if (prefix) {
+        prefix = prefix.trim();
+      }
+      const font_1 = getComputedStyle(document.body).getPropertyValue(
+        `--${prefix}body-font-family`
+      );
+      const fonts = [font_1.trim()];
+      const newOpt = {
+        chart: {
+          fontFamily: fonts,
+        },
+      };
+      chart.updateOptions(newOpt);
+    });
+  }
 })(jQuery);
 
