@@ -68,61 +68,123 @@
        <div class="card-body">
         <form action="{{route('prestador.perfil.update')}}" method="post" enctype="multipart/form-data">
             @csrf
-<div class="row">
-            <div class="col-lg-6">
-               <div class="form-group">
-               <label for="name" class="form-label">Nome</label>
-               <input type="text" class="form-control" name="name" required id="name" placeholder="Primeiro Nome" value="{{ Auth::user()->name }}">
+            <div class="row">
+               <div class="col-lg-6">
+                   <div class="form-group">
+                       <label for="name" class="form-label">Nome*</label>
+                       <input type="text" class="form-control" name="name" value="{{ Auth::user()->name }}" required id="name" placeholder="Primeiro Nome">
+                   </div>
                </div>
+               <div class="col-lg-6">
+                   <div class="form-group">
+                       <label for="sobrename" class="form-label">Sobrenome*</label>
+                       <input type="text" class="form-control" name="sobrename" value="{{ Auth::user()->sobrename }}" required id="sobrename" placeholder="Segundo Nome">
+                   </div>
                </div>
-                  <div class="col-lg-6">
-                      <div class="form-group">
-                         <label for="sobrename" class="form-label">Sobrenome</label>
-                         <input type="text" class="form-control" name="sobrename" required id="sobrename" placeholder="Segundo Nome"value="{{ Auth::user()->sobrename }}">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                     <div class="form-group">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ Auth::user()->email }}"required autocomplete="email" id="email" aria-describedby="email" placeholder="xyz@example.com">
-                        @error('email')
-                        <span class="invalid-feedback form-control" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                       </div>
-                  </div>
-                  <div class="col-lg-6">
-                     <div class="form-group">
-                        <label for="phone" class="form-label">Telefone</label>
-                        <input type="tel" class="form-control" name="phone" required id="phone" placeholder="+244" value="{{ Auth::user()->telefone }}">
-                     </div>
-                 </div>
-          <div class="form-group col-md-6">
-             <label for="vc_path">Endereço</label>
-                <input type="text" id="endeco" class="form-control" name="endeco"
-                    placeholder="Endereço" value="{{ isset($user->endeco) ? $user->endeco : "" }}">
-         
-          </div>
-          <div class="form-group col-md-6">
-             <label for="vc_path">Genêro</label>
-                <select name="genero" id="" class="form-control">
-                  <option value="Masculino">Masculino</option>
-                  <option value="Femenino">Femenino</option>
-                </select>
-         
-          </div>
-          <div class="form-group col-md-6">
-             <label for="vc_path">Password</label>
-                <input type="password" id="password" class="form-control" name="password"
-                    placeholder="Sub-Categoria" >
-         
-          </div>
-          <div class="form-group col-md-6">
-             <label for="vc_path">Confirmar Password</label>
-                <input type="password" id="password_confirmation" class="form-control" name="password_confirmation"
-                    placeholder="Sub-Categoria" >
-          </div>
+       
+               <div class="col-lg-6">
+                   <div class="form-group">
+                       <label for="email" class="form-label">Email*</label>
+                       <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ Auth::user()->email}}" required autocomplete="email" id="email" aria-describedby="email" placeholder="xyz@example.com">
+                       @error('email')
+                       <span class="invalid-feedback form-control" role="alert">
+                           <strong>{{ $message }}</strong>
+                       </span>
+                       @enderror
+                   </div>
+               </div>
+       
+               <div class="col-lg-6">
+                   <div class="form-group">
+                       <label for="phone" class="form-label">Telefone*</label>
+                       <input type="tel" class="form-control" name="phone" value="{{ Auth::user()->telefone }}" required id="phone" placeholder="+244">
+                   </div>
+               </div>
+       
+               <div class="col-lg-6">
+                   <div class "form-group">
+                       <label for="telefone_2" class="form-label">Telefone 2*</label>
+                       <input type="number" class="form-control" name="telefone_2" value="{{ Auth::user()->telefone_2 }}" required id="telefone_2" placeholder="+244">
+                   </div>
+               </div>
+       
+               <div class="col-lg-6">
+                   <div class="form-group">
+                       <label for="provincia">Escolha uma província de Angola:*</label>
+                       <select id="provincia" name="provincia" class="form-control">
+                        <option value="{{ Auth::user()->provincia }}"selected>{{ Auth::user()->provincia }}</option>
+                           <option value="Bengo"{{ old('provincia') == 'Bengo' ? ' selected' : '' }}>Bengo</option>
+                           <option value="Benguela"{{ old('provincia') == 'Benguela' ? ' selected' : '' }}>Benguela</option>
+                           <option value="Bié"{{ old('provincia') == 'Bié' ? ' selected' : '' }}>Bié</option>
+                           <option value="Cabinda"{{ old('provincia') == 'Cabinda' ? ' selected' : '' }}>Cabinda</option>
+                           <option value="Cunene"{{ old('provincia') == 'Cunene' ? ' selected' : '' }}>Cunene</option>
+                           <option value="Huambo"{{ old('provincia') == 'Huambo' ? ' selected' : '' }}>Huambo</option>
+                           <option value="Huíla"{{ old('provincia') == 'Huíla' ? ' selected' : '' }}>Huíla</option>
+                           <option value="Luanda"{{ old('provincia') == 'Luanda' ? ' selected' : '' }}>Luanda</option>
+                           <option value="Lunda Norte"{{ old('provincia') == 'Lunda Norte' ? ' selected' : '' }}>Lunda Norte</option>
+                           <option value="Lunda Sul"{{ old('provincia') == 'Lunda Sul' ? ' selected' : '' }}>Lunda Sul</option>
+                           <option value="Malanje"{{ old('provincia') == 'Malanje' ? ' selected' : '' }}>Malanje</option>
+                           <option value="Moxico"{{ old('provincia') == 'Moxico' ? ' selected' : '' }}>Moxico</option>
+                           <option value="Namibe"{{ old('provincia') == 'Namibe' ? ' selected' : '' }}>Namibe</option>
+                           <option value="Uíge"{{ old('provincia') == 'Uíge' ? ' selected' : '' }}>Uíge</option>
+                           <option value="Zaire"{{ old('provincia') == 'Zaire' ? ' selected' : '' }}>Zaire</option>
+                           <option value="Cuando Cubango"{{ old('provincia') == 'Cuando Cubango' ? ' selected' : '' }}>Cuando Cubango</option>
+                           <option value="Cuanza Norte"{{ old('provincia') == 'Cuanza Norte' ? ' selected' : '' }}>Cuanza Norte</option>
+                           <option value="Cuanza Sul"{{ old('provincia') == 'Cuanza Sul' ? ' selected' : '' }}>Cuanza Sul</option>
+                       </select>
+                       
+                   </div>
+               </div>
+       
+               <div class="col-lg-6">
+                   <div class="form-group">
+                       <label for="municipio" class="form-label">Municipio*</label>
+                       <input type="text" class="form-control" name="municipio" value="{{ Auth::user()->municipio }}" required id="municipio" placeholder="Municipio">
+                   </div>
+               </div>
+               <div class="col-lg-12">
+                   <div class="form-group">
+                       <label for="kisalo" class="form-label">Como descobriu o Kísalo? *</label>
+                       <textarea name="kisalo" class="form-control">{{  Auth::user()->kisalo }}</textarea>
+                   </div>
+               </div>
+               <div class="col-lg-12">
+                   <div class="form-group">
+                       <label for="informações" class="form-label">Outras Informações </label>
+                       <textarea name="informações" class="form-control">{{ Auth::user()->informações }}</textarea>
+                   </div>
+               </div>
+           </div>
+        
+               
+           
+
+           <div class="row">
+
+               <div class="col-lg-6">
+                   <div class="form-group">
+                       <label for="password" class="form-label">Senha*</label>
+                       <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="password" id="password" aria-describedby="password" placeholder="xxxx">
+                       @error('password')
+                           <span class="invalid-feedback form-control" role="alert">
+                               <strong>{{ $message }}</strong>
+                           </span>
+                       @enderror
+                   </div>
+               </div>
+
+               <div class="col-lg-6">
+                   <div class="form-group">
+                       <label for="password_confirmation" class="form-label">Confirmar senha*</label>
+                       <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" required autocomplete="password_confirmation" id="password_confirmation" aria-describedby="password_confirmation" placeholder="xxxx">
+                       @error('password_confirmation')
+                           <span class="invalid-feedback form-control" role="alert">
+                               <strong>{{ $message }}</strong>
+                           </span>
+                        @enderror
+                   </div>
+               </div>
+
          
           
           <div class="form-group col-md-6 ">
@@ -191,7 +253,10 @@
          </div>
          </div>
          
-         
+         <div class="form-group col-lg-6">
+            <label for="funcionarios">Quantidade de Funcionarios*</label>
+            <input type="number" id="funcionarios" class="form-control" name="funcionarios" placeholder="Quantidade de Funcionarios" value="{{ Auth::user()->funcionarios }}">
+        </div>
          
          
          </div>

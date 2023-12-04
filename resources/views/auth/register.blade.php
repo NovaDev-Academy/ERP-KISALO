@@ -1,11 +1,19 @@
 @extends('auth.layout')
 @section('titulo','Login')
 @section('conteudo')
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 {{--  '
         'kisalo',
         'informações',
         'funcionarios', --}}
+
+        <style>
+            label{
+                color: black
+            }
+        </style>
 
 <?php
 $categorias=App\Models\categoria::get();
@@ -62,8 +70,8 @@ $categorias=App\Models\categoria::get();
                                 </div>
                         
                                 <div class="col-lg-6">
-                                    <div class "form-group">
-                                        <label for="telefone_2" class="form-label">Telefone 2*</label>
+                                    <div class="form-group">
+                                        <label for="telefone_2" >Telefone 2*</label>
                                         <input type="number" class="form-control" name="telefone_2" value="{{ old('telefone_2') }}" required id="telefone_2" placeholder="+244">
                                     </div>
                                 </div>
@@ -114,8 +122,7 @@ $categorias=App\Models\categoria::get();
                                     </div>
                                 </div>
                             </div>
-
-                                
+                         
                                 
                             
 

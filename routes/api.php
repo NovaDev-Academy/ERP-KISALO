@@ -35,6 +35,8 @@ Route::prefix('auth')->group(function(){
     Route::middleware('auth:sanctum')->get('pedidos/{user}', [App\Http\Controllers\Api\PedidosController::class, 'index'])->name('auth.mobile.pedidos.index');
     Route::middleware('auth:sanctum')->post('pedidos/store/{user}', [App\Http\Controllers\Api\PedidosController::class, 'store'])->name('auth.mobile.pedidos.store');
     Route::middleware('auth:sanctum')->post('pedidos/finalizar/{pedido}', [App\Http\Controllers\Api\PedidosController::class, 'end'])->name('auth.mobile.pedidos.finalizar');
+    Route::middleware('auth:sanctum')->post('pedidos/pagamento/{pedido}', [App\Http\Controllers\Api\PagamentoController::class, 'store'])->name('auth.mobile.pedidos.pagamento');
+
 
     Route::middleware('auth:sanctum')->get('meuspedidos/{id_pedido}', [App\Http\Controllers\Api\PedidosController::class, 'show'])->name('auth.mobile.meus.pedidos.index');
     Route::middleware('auth:sanctum')->get('aceitar_prestador/{id_pedido}/{id_prestador}', [App\Http\Controllers\Api\PedidosController::class, 'close'])->name('auth.mobile.meus.pedidos.close');

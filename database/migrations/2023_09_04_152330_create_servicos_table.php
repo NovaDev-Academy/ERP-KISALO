@@ -25,8 +25,8 @@ class CreateServicosTable extends Migration
     {
         Schema::create('servicos', function (Blueprint $table) {
             $table->id();
-            $table->string('vc_nome');
-            $table->longText('descricao');
+            // $table->string('vc_nome');
+            // $table->longText('descricao');
             $table->unsignedBigInteger('users_id')->references('id')
             ->on('users')->onDelete('CASCADE')
             ->onUpdate('CASCADE')->nullable();
