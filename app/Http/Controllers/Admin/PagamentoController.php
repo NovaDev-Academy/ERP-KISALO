@@ -81,10 +81,10 @@ class PagamentoController extends Controller
             $pagamento->update([
                 'estado'=>1
             ]);
-            Pedidos::where('id', $pagamento->pedido_id)
-            ->update([
-                'estado'=> 1
-            ]);
+            //Pedidos::where('id', $pagamento->pedido_id)
+            //->update([
+            //    'estado'=> 1
+            //]);
             return redirect()->back()->with('aceitar', 1);
         } catch (\Throwable $th) {
             //throw $th;
