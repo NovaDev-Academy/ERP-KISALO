@@ -48,5 +48,12 @@ Route::prefix('auth')->group(function(){
     
     Route::middleware('auth:sanctum')->get('prestador/detalhes/{id}', [App\Http\Controllers\Api\PerfilController::class, 'prestador'])->name('auth.mobile.prestador.index');
 
+    Route::middleware('auth:sanctum')->get('pagamentos/{user}', [App\Http\Controllers\Api\PagamentoController::class, 'index'])->name('auth.mobile.pagamento.index');
+    
+    Route::middleware('auth:sanctum')->post('pagamento/store', [App\Http\Controllers\Api\PagamentoController::class, 'store'])->name('auth.mobile.pagamento.store');
+
+    Route::middleware('auth:sanctum')->get('banco', [App\Http\Controllers\Api\BancoController::class, 'index'])->name('auth.mobile.banco.index');
+
+
 });
 

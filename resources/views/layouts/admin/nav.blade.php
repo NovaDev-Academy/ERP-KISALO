@@ -135,7 +135,7 @@
                     <li><hr class="hr-horizontal"></li>
                     <li class="nav-item static-item">
                         <a class="nav-link static-item disabled text-start" href="#" tabindex="-1">
-                            <span class="default-icon">Configurações</span>
+                            <span class="default-icon">Servicos</span>
                             <span class="mini-icon" data-bs-toggle="tooltip" title="Home" data-bs-placement="right">-</span>
                         </a>
                     </li>
@@ -164,32 +164,11 @@
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M4.01351 6.20239C3.57284 6.20239 3.21484 6.56039 3.21484 6.99973C3.21484 7.43973 3.57284 7.79839 4.01351 7.79839C4.45418 7.79839 4.81218 7.43973 4.81218 6.99973C4.81218 6.56039 4.45418 6.20239 4.01351 6.20239ZM6.99958 6.20239C6.55891 6.20239 6.20091 6.56039 6.20091 6.99973C6.20091 7.43973 6.55891 7.79839 6.99958 7.79839C7.44024 7.79839 7.79824 7.43973 7.79824 6.99973C7.79824 6.56039 7.44024 6.20239 6.99958 6.20239ZM9.18718 6.99973C9.18718 6.56039 9.54518 6.20239 9.98584 6.20239C10.4265 6.20239 10.7845 6.56039 10.7845 6.99973C10.7845 7.43973 10.4265 7.79839 9.98584 7.79839C9.54518 7.79839 9.18718 7.43973 9.18718 6.99973Z" fill="currentColor"></path>
                                 </svg>
                             </i>
-                            <span class="item-name">SubServiços:</span>
+                            <span class="item-name">SubServiços</span>
 
                         </a>
 
                     </li>
-                    
-                   
-                 
-          
-
-                    @endif
-
-                    <li><hr class="hr-horizontal"></li>
-                    <li class="nav-item static-item">
-                        <a class="nav-link static-item disabled text-start" href="#" tabindex="-1">
-                            <span class="default-icon">Estabelecimento</span>
-                            <span class="mini-icon" data-bs-toggle="tooltip" title="Home" data-bs-placement="right">-</span>
-                        </a>
-                    </li>
-                    {{-- admin.sub_categoria.index --}}
-
-
-
-
-
-                    <li><hr class="hr-horizontal"></li>
                     <li class="nav-item">
                         <a class="nav-link " href="{{route('admin.servico.index')}}">
 
@@ -200,11 +179,25 @@
                                    <path d="M11.153 4.66615C11.0191 4.65753 10.8943 4.5906 10.8081 4.48104C10.7218 4.37149 10.6815 4.22893 10.6966 4.08677C10.7111 3.61854 10.4447 3.19234 10.0338 3.02651C9.7733 2.95539 9.61553 2.67324 9.6807 2.39499C9.74255 2.12121 9.99891 1.95098 10.2566 2.0126C10.2891 2.018 10.3204 2.02979 10.3489 2.04737C11.1727 2.36439 11.7061 3.2176 11.6637 4.1505C11.6623 4.2919 11.6072 4.42665 11.5109 4.52387C11.4146 4.62109 11.2854 4.67244 11.153 4.66615Z" fill="currentColor"></path>
                                </svg>
                            </i>
-                           <span class="item-name">Serviços</span>
+                           <span class="item-name">Prestadores <br> e Servicos</span>
 
                        </a>
                        
                    </li>
+                   
+                 
+          
+
+                    @endif
+
+                    <li><hr class="hr-horizontal"></li>
+                    <li class="nav-item static-item">
+                        <a class="nav-link static-item disabled text-start" href="#" tabindex="-1">
+                            <span class="default-icon">Pedidos</span>
+                            <span class="mini-icon" data-bs-toggle="tooltip" title="Home" data-bs-placement="right">-</span>
+                        </a>
+                    </li>
+                    {{-- admin.sub_categoria.index --}}
                    @if(Auth::user()->vc_tipo_utilizador==1)
                    <li class="nav-item">
                     <a class="nav-link " href="{{route('admin.pedidoservico.index')}}">
@@ -216,13 +209,54 @@
                                <path d="M11.153 4.66615C11.0191 4.65753 10.8943 4.5906 10.8081 4.48104C10.7218 4.37149 10.6815 4.22893 10.6966 4.08677C10.7111 3.61854 10.4447 3.19234 10.0338 3.02651C9.7733 2.95539 9.61553 2.67324 9.6807 2.39499C9.74255 2.12121 9.99891 1.95098 10.2566 2.0126C10.2891 2.018 10.3204 2.02979 10.3489 2.04737C11.1727 2.36439 11.7061 3.2176 11.6637 4.1505C11.6623 4.2919 11.6072 4.42665 11.5109 4.52387C11.4146 4.62109 11.2854 4.67244 11.153 4.66615Z" fill="currentColor"></path>
                            </svg>
                        </i>
-                       <span class="item-name">Serviços Pedidos</span>
-
+                       <span class="item-name">Prestadores <br> e Pedidos</span>
                    </a>
-                   <br>
-                   <br>
                </li>
                @endif
+               <li><hr class="hr-horizontal"></li>
+                    <li class="nav-item static-item">
+                        <a class="nav-link static-item disabled text-start" href="#" tabindex="-1">
+                            <span class="default-icon">Dados Bancarios</span>
+                            <span class="mini-icon" data-bs-toggle="tooltip" title="Home" data-bs-placement="right">-</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link " href="{{route('admin.banco.index')}}">
+
+                       <i class="icon" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Spacial Pages" data-bs-original-title="Spacial Pages">
+                           <svg width="20" class="icon-20" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                               <path opacity="0.4" d="M6.85044 12.5583C5.32841 11.6182 3.91355 10.5097 2.63172 9.25306C1.7268 8.35584 1.0357 7.26031 0.611238 6.05018C-0.147183 3.69015 0.735667 0.992986 3.20054 0.192264C4.50154 -0.216313 5.9165 0.034503 7.00449 0.866556C8.09289 0.0354335 9.50738 -0.215301 10.8085 0.192264C13.2733 0.992986 14.1621 3.69015 13.4037 6.05018C12.9827 7.25917 12.2957 8.3546 11.395 9.25306C10.1121 10.5083 8.69734 11.6167 7.17632 12.5583L7.01042 12.6667L6.85044 12.5583Z" fill="currentColor"></path>
+                               <path d="M7.00694 12.6666L6.85033 12.5583C5.32643 11.6183 3.90959 10.5098 2.62569 9.25304C1.71648 8.35707 1.02126 7.26144 0.593354 6.05016C-0.159142 3.69013 0.723708 0.992966 3.18858 0.192245C4.48958 -0.216332 5.9232 0.0346753 7.00694 0.873695V12.6666Z" fill="currentColor"></path>
+                               <path d="M11.153 4.66615C11.0191 4.65753 10.8943 4.5906 10.8081 4.48104C10.7218 4.37149 10.6815 4.22893 10.6966 4.08677C10.7111 3.61854 10.4447 3.19234 10.0338 3.02651C9.7733 2.95539 9.61553 2.67324 9.6807 2.39499C9.74255 2.12121 9.99891 1.95098 10.2566 2.0126C10.2891 2.018 10.3204 2.02979 10.3489 2.04737C11.1727 2.36439 11.7061 3.2176 11.6637 4.1505C11.6623 4.2919 11.6072 4.42665 11.5109 4.52387C11.4146 4.62109 11.2854 4.67244 11.153 4.66615Z" fill="currentColor"></path>
+                           </svg>
+                       </i>
+                       <span class="item-name">Dados Bancarios</span>
+                   </a>
+               </li>
+
+               <li><hr class="hr-horizontal"></li>
+                    <li class="nav-item static-item">
+                        <a class="nav-link static-item disabled text-start" href="#" tabindex="-1">
+                            <span class="default-icon">Pagamentos</span>
+                            <span class="mini-icon" data-bs-toggle="tooltip" title="Home" data-bs-placement="right">-</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link " href="{{route('admin.pagamento.index')}}">
+
+                       <i class="icon" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Spacial Pages" data-bs-original-title="Spacial Pages">
+                           <svg width="20" class="icon-20" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                               <path opacity="0.4" d="M6.85044 12.5583C5.32841 11.6182 3.91355 10.5097 2.63172 9.25306C1.7268 8.35584 1.0357 7.26031 0.611238 6.05018C-0.147183 3.69015 0.735667 0.992986 3.20054 0.192264C4.50154 -0.216313 5.9165 0.034503 7.00449 0.866556C8.09289 0.0354335 9.50738 -0.215301 10.8085 0.192264C13.2733 0.992986 14.1621 3.69015 13.4037 6.05018C12.9827 7.25917 12.2957 8.3546 11.395 9.25306C10.1121 10.5083 8.69734 11.6167 7.17632 12.5583L7.01042 12.6667L6.85044 12.5583Z" fill="currentColor"></path>
+                               <path d="M7.00694 12.6666L6.85033 12.5583C5.32643 11.6183 3.90959 10.5098 2.62569 9.25304C1.71648 8.35707 1.02126 7.26144 0.593354 6.05016C-0.159142 3.69013 0.723708 0.992966 3.18858 0.192245C4.48958 -0.216332 5.9232 0.0346753 7.00694 0.873695V12.6666Z" fill="currentColor"></path>
+                               <path d="M11.153 4.66615C11.0191 4.65753 10.8943 4.5906 10.8081 4.48104C10.7218 4.37149 10.6815 4.22893 10.6966 4.08677C10.7111 3.61854 10.4447 3.19234 10.0338 3.02651C9.7733 2.95539 9.61553 2.67324 9.6807 2.39499C9.74255 2.12121 9.99891 1.95098 10.2566 2.0126C10.2891 2.018 10.3204 2.02979 10.3489 2.04737C11.1727 2.36439 11.7061 3.2176 11.6637 4.1505C11.6623 4.2919 11.6072 4.42665 11.5109 4.52387C11.4146 4.62109 11.2854 4.67244 11.153 4.66615Z" fill="currentColor"></path>
+                           </svg>
+                       </i>
+                       <span class="item-name">Pagamentos</span>
+                   </a>
+               </li>
+                    <br>
+                    <br>
+                    <br>
                 </ul>
 
                 <!-- Sidebar Menu End -->        </div>

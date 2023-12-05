@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterTablePedidos3 extends Migration
+class CreateBancosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class AlterTablePedidos3 extends Migration
      */
     public function up()
     {
-        Schema::table('pedidos', function (Blueprint $table) {
-            $table->unsignedBigInteger('prestador_id')->references('id')->on('users')
-            ->onDelete('CASCADE')->onUpdate('CASCADE')->nullable();
-      
+        Schema::create('bancos', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('iban');
+            $table->string('conta');
+            $table->string('titular');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +30,6 @@ class AlterTablePedidos3 extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('bancos');
     }
 }
