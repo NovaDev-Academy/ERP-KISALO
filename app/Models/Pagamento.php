@@ -13,5 +13,6 @@ class Pagamento extends Model
         'pedido_id',
         'comprovativo',
         'estado',
+        'numero',
     ];
 }

@@ -18,7 +18,7 @@ class CreateNotificacaosTable extends Migration
             $table->string('titulo');
             $table->unsignedBigInteger('user_id')->references('id')->on('users')
             ->onDelete('CASCADE')->onUpdate('CASCADE');
-            $table->logtext('conteudo');
+            $table->longText('conteudo');
             $table->timestamps();
         });
     }

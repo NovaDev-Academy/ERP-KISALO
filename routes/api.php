@@ -47,12 +47,18 @@ Route::prefix('auth')->group(function(){
     Route::middleware('auth:sanctum')->get('reenviar-codigo/{user}', [App\Http\Controllers\Api\LoginController::class, 'resend'])->name('auth.mobile.perfil.resend');
     
     Route::middleware('auth:sanctum')->get('prestador/detalhes/{id}', [App\Http\Controllers\Api\PerfilController::class, 'prestador'])->name('auth.mobile.prestador.index');
-
+    
+    //PAGAMENTOS
     Route::middleware('auth:sanctum')->get('pagamentos/{user}', [App\Http\Controllers\Api\PagamentoController::class, 'index'])->name('auth.mobile.pagamento.index');
     
     Route::middleware('auth:sanctum')->post('pagamento/store', [App\Http\Controllers\Api\PagamentoController::class, 'store'])->name('auth.mobile.pagamento.store');
 
     Route::middleware('auth:sanctum')->get('banco', [App\Http\Controllers\Api\BancoController::class, 'index'])->name('auth.mobile.banco.index');
+   
+    // USER
+    Route::middleware('auth:sanctum')->post('user/upadate/data/{user}', [App\Http\Controllers\Api\UserController::class, 'updateData'])->name('auth.mobile.user.updateUserdata');
+    Route::middleware('auth:sanctum')->post('user/upadate/image/{user}', [App\Http\Controllers\Api\UserController::class, 'updateImage'])->name('auth.mobile.user.updateimage');
+    Route::middleware('auth:sanctum')->post('user/rest/password/{user}', [App\Http\Controllers\Api\UserController::class, 'resetPassword'])->name('auth.mobile.user.resetPassword');
 
 
 });

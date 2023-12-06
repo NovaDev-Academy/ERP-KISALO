@@ -50,7 +50,7 @@ class PedidosController extends Controller
 
     public function end($pedido, Request $req){
 try {
-    if($req->estado==1){
+    if($req->estado == 0){
         Pedidos::where('id',$pedido)->update([
             'avaliacao'=>$req->avaliacao,
             'estrelas'=>$req->estrelas,
