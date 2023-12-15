@@ -100,7 +100,7 @@ Route::get('/perfil', [App\Http\Controllers\Admin\PerfilController::class, 'inde
 Route::post('/perfil/atualizar', [App\Http\Controllers\Admin\PerfilController::class, 'update'])->name('prestador.perfil.update');
 
 // PDF FACTURAS
-Route::get('/pdf/factura/{id_user}/{num_factura}', [App\Http\Controllers\Admin\PerfilController::class, 'index'])->name('prestador.perfil.index');
+//Route::get('/pdf/factura/{id_user}/{num_factura}', [App\Http\Controllers\Admin\PerfilController::class, 'index'])->name('prestador.perfil.index');
 
 //Pedidoservico
 Route::get('/pedidoservico', [App\Http\Controllers\Admin\PedidoservicoController::class, 'index'])->name('admin.pedidoservico.index');
