@@ -12,37 +12,45 @@ class PedidosController extends Controller
     //
     public function pedidos_novos(){
         $data['pedidos']=Pedidos::join('users','pedidos.users_id','users.id')
-        ->leftjoin('users','pedidos.prestador_id','users.id')
         ->join('sub_categorias','pedidos.id_servico_categoria','sub_categorias.id')
-        ->where('prestador_id',null)
+        ->whereNull('pedidos.prestador_id')
+       ->select('users.name as cliente','sub_categorias.vc_nome as pedido','pedidos.*')
         ->get();
-        dd($data);
+
+        // dd($data);
+       return view('admin.pedidos.novos.index',$data);
     }
     public function index(){
-        $data['pedidos']=Pedidoservico::join('pedidos','pedidoservicos.id_pedido','pedidos.id')
-        ->join('users','pedidoservicos.users_id','users.id')
-        ->leftjoin('users','pedidos.prestador_id','users.id')
-        ->join('sub_categorias','pedidos.id_servico_categoria','sub_categorias.id')
-        ->where('pedidos.estado',0)
-        ->get();
-        dd($data);
+        // users_id
+//prestador_id
+$data['pedidos' ]= Pedidoservico::join('pedidos','pedidoservico.pedidos_id','pedidos.id')
+->join('users as clientes', 'pedidos.users_id', '=', 'clientes.id')
+->join('users as prestadores', 'pedidos.prestador_id', '=', 'prestadores.id')
+->join('sub_categorias','pedidos.id_servico_categoria','sub_categorias.id')
+->where('pedidos.estado',0)
+->select('sub_categorias.vc_nome as pedido','pedidoservico.*', 'clientes.name as cliente', 'prestadores.name as prestador')
+->get();
+        // dd($data);
+        return view('admin.pedidos.v_pedidos.index',$data);
     }
     public function pedidos_finalizados(){
-        $data['pedidos']=Pedidoservico::join('pedidos','pedidoservicos.id_pedido','pedidos.id')
-        ->join('users','pedidoservicos.users_id','users.id')
-        ->leftjoin('users','pedidos.prestador_id','users.id')
+        $data['pedidos']= Pedidoservico::join('pedidos','pedidoservico.pedidos_id','pedidos.id')
+        ->join('users as clientes', 'pedidos.users_id', '=', 'clientes.id')
+        ->join('users as prestadores', 'pedidos.prestador_id', '=', 'prestadores.id')
         ->join('sub_categorias','pedidos.id_servico_categoria','sub_categorias.id')
         ->where('pedidos.estado',1)
+        ->select('sub_categorias.vc_nome as pedido','pedidoservico.*', 'clientes.name as cliente', 'prestadores.name as prestador')
         ->get();
-        dd($data);
+        return view('admin.pedidos.v_pedidos.index',$data);
     }
     public function pedidos_rejeitados(){
-        $data['pedidos']=Pedidoservico::join('pedidos','pedidoservicos.id_pedido','pedidos.id')
-        ->join('users','pedidoservicos.users_id','users.id')
-        ->leftjoin('users','pedidos.prestador_id','users.id')
+        $data['pedidos']= Pedidoservico::join('pedidos','pedidoservico.pedidos_id','pedidos.id')
+        ->join('users as clientes', 'pedidos.users_id', '=', 'clientes.id')
+        ->join('users as prestadores', 'pedidos.prestador_id', '=', 'prestadores.id')
         ->join('sub_categorias','pedidos.id_servico_categoria','sub_categorias.id')
         ->where('pedidos.estado',2)
+        ->select('sub_categorias.vc_nome as pedido','pedidoservico.*', 'clientes.name as cliente', 'prestadores.name as prestador')
         ->get();
-        dd($data);
+        return view('admin.pedidos.v_pedidos.index',$data);
     }
 }
