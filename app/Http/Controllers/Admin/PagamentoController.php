@@ -75,7 +75,7 @@ class PagamentoController extends Controller
                    'user_id' => $req->user_id,
                    'titulo'=> "Pagamento",
                    'conteudo'=> "$user->name $user->sobrename o teu pagamento foi recusado"
-                   ]);
+                ]);
             //Pedidos::where('id', $pagamento->pedido_id)
             //->update([
             //    'estado'=> 2
