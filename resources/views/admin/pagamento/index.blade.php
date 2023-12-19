@@ -23,7 +23,8 @@
                    <table id="input-datatable" class="table" data-toggle="data-table-column-filter">
                     <thead>
                         <tr>
-                            <th>#</th>
+                           <th>#</th>
+                            <th>Numero</th>
                             <th>Servico</th>
                             <th>Valor</th>
                             <th>Prestador</th>
@@ -36,9 +37,10 @@
                     <tbody>
                         @foreach ($pagamentos as $pagamento)
                         <tr>
-                            <td>{{$pagamento->id}}</td>
+                           <td>#</td>
+                            <td>{{$pagamento->numero}}</td>
                             <td>{{$pagamento->servico}}</td>
-                           <td>{{$pagamento->pedido_id}}</td>
+                           <td class = "preco" >{{$pagamento->preco}}</td>
                             <td>
                                 {{$pagamento->prestador}}
                             </td>
@@ -249,10 +251,43 @@
                              });
                          });
                      });
-                 </script>
-                                  <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
+</script>
 
 
+
+<script>
+    //Script para formatar o valor do preco
+    function formatarMoeda(valor) {
+        let valorSemFormato = valor.replace(/\D/g, ''); 
+        if (valorSemFormato === '') {
+            return valor;
+        }
+        while (valorSemFormato.length < 3) {
+            valorSemFormato = '0' + valorSemFormato;
+        }
+        let parteInteira = valorSemFormato.substring(0, valorSemFormato.length - 2);
+        let parteDecimal = valorSemFormato.substring(valorSemFormato.length - 2);
+        if (parteInteira.length > 3) {
+            parteInteira = parteInteira.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        }
+
+        let moedaFormatada = parteInteira + ',' + parteDecimal;
+        return moedaFormatada + ' AKz';
+    }
+    function formatarValoresNaTabela() {
+        let celulasPreco = document.querySelectorAll('.preco');
+        celulasPreco.forEach(function (celula) {
+            let valor = celula.textContent.trim();
+
+            let valorFormatado = formatarMoeda(valor);
+
+            celula.textContent = valorFormatado;
+        });
+    }
+    window.onload = formatarValoresNaTabela;
+</script>
+
+<script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
 @if (session('eliminada'))
 <script>
 Swal.fire(

@@ -104,6 +104,7 @@ Route::get('/pdf/factura/{id_user}/{num_factura}', [App\Http\Controllers\Admin\P
 
 //Pedidoservico
 Route::get('/pedidoservico', [App\Http\Controllers\Admin\PedidoservicoController::class, 'index'])->name('admin.pedidoservico.index');
+Route::get('/pedidoservico/historico', [App\Http\Controllers\Admin\PedidoservicoController::class, 'historico'])->name('admin.pedidoservico.historico');
 Route::get('/pedidoservico/prestadores/{id?}/{idpedido?}', [App\Http\Controllers\Admin\PedidoservicoController::class, 'show'])->name('admin.pedidoservico.prestador');
 Route::post('/pedidoservico/vincular', [App\Http\Controllers\Admin\PedidoservicoController::class, 'vincular'])->name('admin.pedidoservico.vincular');
 

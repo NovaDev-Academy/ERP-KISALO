@@ -42,8 +42,40 @@
                         <div class="form-group col-md-6">
                             <div class="container mt-6 select_search_box">
                                 <h4>Preço</h4>
-                                <input class="w-50" type="text" id="precoMin" class="form-control" name="preco"
+                                <input class="w-50" type="text" value="0,00" id="precoMin" oninput="formatarMoeda(this)" class="form-control" name="preco"
                                 placeholder="kz" >
+             {{--                   <script>
+    function formatarMoeda(input) {
+        // Obter o valor atual do input
+        let valor = input.value.replace(/\D/g, ''); // Remover não-dígitos
+
+        // Se o valor estiver vazio, não faça nada
+        if (valor === '') {
+            return;
+        }
+
+        // Adicionar zeros à esquerda até que tenhamos pelo menos três dígitos
+        while (valor.length < 3) {
+            valor = '0' + valor;
+        }
+
+        // Separar a parte inteira e a parte decimal
+        let parteInteira = valor.substring(0, valor.length - 2);
+        let parteDecimal = valor.substring(valor.length - 2);
+
+        // Adicionar um ponto para separar os milhares, se necessário
+        if (parteInteira.length > 3) {
+            parteInteira = parteInteira.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        }
+
+        // Formatar a moeda
+        let moedaFormatada = parteInteira + ',' + parteDecimal;
+
+        // Atualizar o valor do input
+        input.value = moedaFormatada;
+    }
+</script>
+--}}
                                 {{-- <h4>Preço Maximo</h4>
                                 <input class="w-50" type="text" id="precoMax" class="form-control" name="precoMax"
                                 placeholder="kz" > --}}

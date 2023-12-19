@@ -12,17 +12,31 @@ use Laravel\Ui\Presets\React;
 class PedidoservicoController extends Controller
 {
     //
-
     public function index(){
-        $users=User:: get();
-        $pedidos=Pedidos::join('sub_categorias','pedidos.id_servico_categoria','sub_categorias.id')
+        $users = User::get();
+        $pedidos = Pedidos::join('sub_categorias','pedidos.id_servico_categoria','sub_categorias.id')
         ->select('pedidos.*','sub_categorias.vc_nome as nome')
         ->where('estado', 0)
-
         ->get();
         // dd($pedidos);
 
         return view('admin.pedidoservico.index', compact('users', 'pedidos'));
+    }
+    public function historico(){
+        $users = User::get();
+        $pedidos = Pedidos::join('sub_categorias','pedidos.id_servico_categoria','sub_categorias.id')
+        ->leftjoin('users','users.id', 'pedidos.prestador_id')
+        ->leftjoin('pagamentos','pagamentos.pedido_id', 'pedidos.id')
+        ->leftjoin('pedidoservico','pedidoservico.pedidos_id', 'pedidos.id')
+        ->select('pedidos.*','sub_categorias.vc_nome as nome', 'users.name as prestadorName','users.sobrename as prestadorLastName', 'pedidoservico.preco as preco', 'pagamentos.estado as pagamentoEstado')
+        ->where('pedidos.estado','!=', 0)
+
+      //  ->groupBy('pedidos.id')
+        ->get();
+        // dd($pedidos);
+
+        return view('admin.pedidoservico.antigos_pedidos', compact('users', 'pedidos'));
+
     }
 
     public function show($id, $idpedido){

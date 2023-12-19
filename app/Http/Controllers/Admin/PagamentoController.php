@@ -15,8 +15,10 @@ class PagamentoController extends Controller
         $pedidos = Pedidos::get();
         $pagamentos = Pagamento::join('pedidos','pagamentos.pedido_id','pedidos.id')
         ->leftjoin('users','pedidos.prestador_id','users.id')
+        ->leftjoin('pedidoservico','pedidoservico.pedidos_id','pedidos.id')
         ->leftjoin('sub_categorias','pedidos.id_servico_categoria','sub_categorias.id')
-        ->select('pagamentos.*','users.name as prestador','sub_categorias.vc_nome as servico')
+        ->orderBy('pagamentos.id','desc')
+        ->select('pagamentos.*','users.name as prestador','sub_categorias.vc_nome as servico', 'pedidoservico.preco  as preco')
         ->get();
         $clientes = User::get();
         return view('admin.pagamento.index', compact('pagamentos', 'pedidos','clientes'));
