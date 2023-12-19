@@ -60,6 +60,8 @@ Route::prefix('auth')->group(function(){
     Route::middleware('auth:sanctum')->post('user/upadate/image/{user}', [App\Http\Controllers\Api\UserController::class, 'updateImage'])->name('auth.mobile.user.updateimage');
     Route::middleware('auth:sanctum')->post('user/rest/password/{user}', [App\Http\Controllers\Api\UserController::class, 'resetPassword'])->name('auth.mobile.user.resetPassword');
 
-
+    Route::middleware('auth:sanctum')->get('notificacoes/{user}', [App\Http\Controllers\Api\NotificacaoController::class, 'index'])->name('auth.mobile.notificacao.index');
+    Route::middleware('auth:sanctum')->get('notificacao/{notificacao}', [App\Http\Controllers\Api\NotificacaoController::class, 'show'])->name('auth.mobile.notificacao.show');
+    
 });
 

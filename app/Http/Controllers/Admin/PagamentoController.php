@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Pagamento;
 use App\Models\Pedidos;
 use App\Models\User;
+use App\Models\Notificacao;
 
 class PagamentoController extends Controller
 {
@@ -38,6 +39,8 @@ class PagamentoController extends Controller
                     'comprovativo'=> $caminho,
                     'estado' => '0',
                 ]);
+             
+              
                 return redirect()->back()->with('status', 1);
             }else{
                 return redirect()->back()->with('status_f', 1);
@@ -66,6 +69,15 @@ class PagamentoController extends Controller
             $pagamento->update([
                 'estado'=>2
             ]);
+               // Notificacao
+               $user=User::where('id',$pagamento->user_id)->first();
+               // 'name',
+           // 'sobrename',
+               Notificacao::create([
+                   'user_id' => $req->user_id,
+                   'titulo'=> "Pagamento",
+                   'conteudo'=> "$user->name $user->sobrename o teu pagamento foi recusado"
+                   ]);
             //Pedidos::where('id', $pagamento->pedido_id)
             //->update([
             //    'estado'=> 2
@@ -82,6 +94,14 @@ class PagamentoController extends Controller
             //code...
             $pagamento->update([
                 'estado'=>1
+            ]);
+            $user=User::where('id',$pagamento->user_id)->first();
+            // 'name',
+        // 'sobrename',
+            Notificacao::create([
+                'user_id' => $req->user_id,
+                'titulo'=> "Pagamento",
+                'conteudo'=> "$user->name $user->sobrename o teu pagamento foi aceite"
             ]);
             //Pedidos::where('id', $pagamento->pedido_id)
             //->update([

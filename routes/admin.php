@@ -100,11 +100,14 @@ Route::get('/perfil', [App\Http\Controllers\Admin\PerfilController::class, 'inde
 Route::post('/perfil/atualizar', [App\Http\Controllers\Admin\PerfilController::class, 'update'])->name('prestador.perfil.update');
 
 // PDF FACTURAS
-Route::get('/pdf/factura/{id_user}/{num_factura}', [App\Http\Controllers\Admin\PerfilController::class, 'index'])->name('prestador.perfil.index');
+//Route::get('/pdf/factura/{id_user}/{num_factura}', [App\Http\Controllers\Admin\PerfilController::class, 'index'])->name('prestador.perfil.index');
 
 //Pedidoservico
-Route::get('/pedidoservico', [App\Http\Controllers\Admin\PedidoservicoController::class, 'index'])->name('admin.pedidoservico.index');
-Route::get('/pedidoservico/historico', [App\Http\Controllers\Admin\PedidoservicoController::class, 'historico'])->name('admin.pedidoservico.historico');
+Route::get('/novos/pedidos', [App\Http\Controllers\Admin\PedidosController::class, 'pedidos_novos'])->name('admin.pedidoservico.index');
+Route::get('/pedidos/andamento', [App\Http\Controllers\Admin\PedidosController::class, 'index'])->name('admin.pedidos.anadamento');
+Route::get('/pedidos/finalizados', [App\Http\Controllers\Admin\PedidosController::class, 'pedidos_finalizados'])->name('admin.pedidos.finalizados');
+Route::get('/pedidos/rejeitados', [App\Http\Controllers\Admin\PedidosController::class, 'pedidos_rejeitados'])->name('admin.pedidos.rejeitados');
+
 Route::get('/pedidoservico/prestadores/{id?}/{idpedido?}', [App\Http\Controllers\Admin\PedidoservicoController::class, 'show'])->name('admin.pedidoservico.prestador');
 Route::post('/pedidoservico/vincular', [App\Http\Controllers\Admin\PedidoservicoController::class, 'vincular'])->name('admin.pedidoservico.vincular');
 
