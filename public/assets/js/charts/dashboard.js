@@ -1,6 +1,9 @@
 (function (jQuery) {
   "use strict";
 
+  const secondaryColor = "#2061b2";
+  const yellowColor = "#f2c713";
+  const tertiaryColor = "#092b66";
   /*---------------------------default chart-----*/
   if (document.querySelectorAll("#sales-chart-01").length) {
     const variableColors = IQUtils.getVariableColor();
@@ -43,7 +46,7 @@
         yaxis: {
             tickAmount: 4,
             floating: false,
-          
+
             labels: {
               minWidth: 20,
               maxWidth: 20,
@@ -79,7 +82,7 @@
         ]
       }
     };
-    
+
     const chart = new ApexCharts(
       document.querySelector("#sales-chart-01"),
       options
@@ -350,8 +353,7 @@
 
   /*---------------------------analytics chart-----*/
   if (document.querySelectorAll("#analytics-chart-03").length) {
-    const variableColors = IQUtils.getVariableColor();
-    const colors = [variableColors.primary, variableColors.secondary, variableColors.tertiray];
+    const colors = [secondaryColor, tertiaryColor, '#b1c8f0'];
     var options = {
       series: [{
         name: 'High',
@@ -403,7 +405,7 @@
       width: 5,
       colors: ['transparent']
     },
-    
+
     xaxis: {
       categories: ['USA', 'Russia', 'Brazil', 'India', 'UK', 'Canada'],
       labels:{
@@ -442,8 +444,7 @@
 
     //color customizer
     document.addEventListener("theme_color", (e) => {
-      const variableColors = IQUtils.getVariableColor();
-      const colors = [variableColors.primary, variableColors.secondary, variableColors.tertiray];
+      const colors = [secondaryColor, tertiaryColor, '#b1c8f0'];
 
       const newOpt = {
         colors: colors,
@@ -482,8 +483,7 @@
     });
   }
   if (document.querySelectorAll("#analytics-chart-02").length) {
-    const variableColors = IQUtils.getVariableColor();
-    const colors = [variableColors.primary, variableColors.secondary];
+    const colors = [yellowColor, secondaryColor];
     const options = {
     series: [{
     data: [800, 780, 610, 410, 350, 200,110,80]
@@ -491,6 +491,7 @@
     chart: {
     type: 'bar',
     height: 250,
+
     toolbar: {
       show: false,
     },
@@ -510,7 +511,7 @@
       show: false,
     },
     stroke: {
-      show: false,      
+      show: false,
   },
     grid: {
       show: true,
@@ -563,7 +564,7 @@
     //color customizer
     document.addEventListener("theme_color", (e) => {
       const variableColors = IQUtils.getVariableColor();
-      const colors = [variableColors.primary, variableColors.secondary];
+      const colors = [tertiaryColor, secondaryColor];
 
       const newOpt = {
         colors: colors,
@@ -602,8 +603,7 @@
     });
   }
   if (document.querySelectorAll("#analytics-chart-04").length) {
-    const variableColors = IQUtils.getVariableColor();
-    const colors = [variableColors.primary, variableColors.secondary, variableColors.tertiray];
+    const colors = [secondaryColor, tertiaryColor, yellowColor];
     const options = {
       series: [44, 55, 41],
       chart: {
@@ -636,7 +636,7 @@
           width: 270,
           height: 300
         },
-        
+
       },
     },
     {
@@ -645,7 +645,7 @@
         chart: {
           width: 300
         },
-        
+
       }
     },
     {
@@ -654,7 +654,7 @@
         chart: {
           width: 100,
         }
-        
+
       }
     }
   ]
@@ -667,8 +667,7 @@
 
     //color customizer
     document.addEventListener("theme_color", (e) => {
-      const variableColors = IQUtils.getVariableColor();
-      const colors = [variableColors.primary, variableColors.secondary, variableColors.tertiray];
+      const colors = [ tertiaryColor,secondaryColor, yellowColor];
 
       const newOpt = {
         colors: colors,
@@ -707,8 +706,9 @@
     });
   }
   if (document.querySelectorAll("#analytics-chart-01").length) {
-    const variableColors = IQUtils.getVariableColor();
-    const colors = [ variableColors.secondary, variableColors.tertiray,variableColors.primary,];
+    const blue = "#0d54ce";
+    const secondaryBlue = "#b1c8f0";
+    const colors = [blue, secondaryBlue, '#4d79c5'];
     var options = {
       series: [{
       name: 'Avg.Session',
@@ -779,8 +779,9 @@
     chart.render();
     //color customizer
     document.addEventListener("theme_color", (e) => {
-      const variableColors = IQUtils.getVariableColor();
-      const colors = [variableColors.secondary, variableColors.tertiray,variableColors.primary];
+      const blue = "#0d54ce";
+      const secondaryBlue = "#b1c8f0";
+      const colors = [blue, secondaryBlue, '#4d79c5'];
 
       const newOpt = {
         colors: colors,
@@ -1469,7 +1470,7 @@ if (document.querySelectorAll("#crypto-chart-05").length) {
         y: 377
       }
     ]
-  
+
   }],
     chart: {
     type: 'area',
@@ -1502,7 +1503,7 @@ if (document.querySelectorAll("#crypto-chart-05").length) {
   yaxis: {
     tickAmount: 4,
     floating: false,
-  
+
     labels: {
       minWidth: 20,
       maxWidth: 20,
@@ -1799,7 +1800,7 @@ if (document.querySelectorAll("#crypto-chart-06").length) {
 
     const newOpt = {
       colors: colors,
-      
+
     };
     chart.updateOptions(newOpt);
   });

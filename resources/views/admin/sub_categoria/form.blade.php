@@ -8,8 +8,7 @@
            placeholder="Categoria do Serviço" value="{{ isset($sub_categoria->vc_nome) ? $sub_categoria->vc_nome : "" }}">
    </div>
 
-  
-        </div>
+   «   </div>
         <div class="form-group col-md-6">
             <label for="categorias_id">Serviços</label>
             <select id="categorias_id" class="form-control" name="categoria">
@@ -18,6 +17,11 @@
                 @endforeach
             </select>
         </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="preco">Preço Base</label>
+                            <input type="number" id="preco" class="form-control" name="preco"
+                                placeholder="Preço Base" value="{{ isset($sub_categoria->preco) ? $sub_categoria->preco : "" }}">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="categorias_id">Serviços</label>

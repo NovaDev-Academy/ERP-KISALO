@@ -99,6 +99,35 @@ Route::get('/servicos/suspenso/{id}', [App\Http\Controllers\Admin\ServicosContro
 Route::get('/perfil', [App\Http\Controllers\Admin\PerfilController::class, 'index'])->name('prestador.perfil.index');
 Route::post('/perfil/atualizar', [App\Http\Controllers\Admin\PerfilController::class, 'update'])->name('prestador.perfil.update');
 
+// PDF FACTURAS
+//Route::get('/pdf/factura/{id_user}/{num_factura}', [App\Http\Controllers\Admin\PerfilController::class, 'index'])->name('prestador.perfil.index');
+
+//Pedidoservico
+Route::get('/novos/pedidos', [App\Http\Controllers\Admin\PedidosController::class, 'pedidos_novos'])->name('admin.pedidoservico.index');
+Route::get('/pedidos/andamento', [App\Http\Controllers\Admin\PedidosController::class, 'index'])->name('admin.pedidos.anadamento');
+Route::get('/pedidos/finalizados', [App\Http\Controllers\Admin\PedidosController::class, 'pedidos_finalizados'])->name('admin.pedidos.finalizados');
+Route::get('/pedidos/rejeitados', [App\Http\Controllers\Admin\PedidosController::class, 'pedidos_rejeitados'])->name('admin.pedidos.rejeitados');
+
+Route::get('/pedidoservico/prestadores/{id?}/{idpedido?}', [App\Http\Controllers\Admin\PedidoservicoController::class, 'show'])->name('admin.pedidoservico.prestador');
+Route::post('/pedidoservico/vincular', [App\Http\Controllers\Admin\PedidoservicoController::class, 'vincular'])->name('admin.pedidoservico.vincular');
+
+// Crud dados bancarios
+Route::middleware('administrador')->get('/bancos', [App\Http\Controllers\Admin\BancoController::class, 'index'])->name('admin.banco.index');
+Route::middleware('administrador')->post('/bancos_store', [App\Http\Controllers\Admin\BancoController::class, 'store'])->name('admin.banco.store');
+Route::middleware('administrador')->post('/bancos_update{banco}', [App\Http\Controllers\Admin\BancoController::class, 'update'])->name('admin.banco.update');
+Route::middleware('administrador')->get('/bancos_delete{banco}', [App\Http\Controllers\Admin\BancoController::class, 'delete'])->name('admin.banco.delete');
+Route::middleware('administrador')->get('/bancos_list', [App\Http\Controllers\Admin\BancoController::class, 'list'])->name('admin.banco.list');
+
+// Crud Pagamentos
+Route::middleware('administrador')->get('/pagamentos', [App\Http\Controllers\Admin\PagamentoController::class, 'index'])->name('admin.pagamento.index');
+Route::middleware('administrador')->post('/pagamentos_store', [App\Http\Controllers\Admin\PagamentoController::class, 'store'])->name('admin.pagamento.store');
+Route::middleware('administrador')->post('/pagamentos_update{pagamento}', [App\Http\Controllers\Admin\PagamentoController::class, 'update'])->name('admin.pagamento.update');
+Route::middleware('administrador')->get('/pagamentos_delete{pagamento}', [App\Http\Controllers\Admin\PagamentoController::class, 'delete'])->name('admin.pagamento.delete');
+Route::middleware('administrador')->get('/pagamentos_show', [App\Http\Controllers\Admin\PagamentoController::class, 'show'])->name('admin.pagamento.list');
+Route::middleware('administrador')->get('/pagamentos_aceitar{pagamento}', [App\Http\Controllers\Admin\PagamentoController::class, 'aceitar'])->name('admin.pagamento.aceitar');
+Route::middleware('administrador')->get('/pagamentos_recusar{pagamento}', [App\Http\Controllers\Admin\PagamentoController::class, 'recusar'])->name('admin.pagamento.recusar');
+
+
 });
 
 

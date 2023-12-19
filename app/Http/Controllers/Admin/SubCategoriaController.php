@@ -23,6 +23,7 @@ class SubCategoriaController extends Controller
             'vc_nome'=>$req->vc_nome,
             'id_categoria'=>$req->categoria,
             'descricao'=>$req->descricao,
+            'preco'=>$req->preco,
         ]);
         return redirect()->back()->with('status',1);
     }catch (\Throwable $th) {
@@ -36,6 +37,7 @@ class SubCategoriaController extends Controller
                 'vc_nome'=>$req->vc_nome,
                 'id_categoria'=>$req->categoria,
                 'descricao'=>$req->descricao,
+                'preco'=>$req->preco,
             ]);
         return redirect()->back()->with('editada',1);
 
