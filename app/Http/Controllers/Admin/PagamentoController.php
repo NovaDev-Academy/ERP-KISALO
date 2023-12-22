@@ -9,6 +9,7 @@ use App\Models\Notificacao;
 use App\Models\Pagamento;
 use App\Models\Pedidos;
 use App\Models\User;
+use Mpdf\Mpdf;
 
 
 class PagamentoController extends Controller
@@ -98,9 +99,25 @@ class PagamentoController extends Controller
         ->leftjoin('sub_categorias','pedidos.id_servico_categoria','sub_categorias.id')
         ->select('pagamentos.*','users.name as prestador','sub_categorias.vc_nome as servico', 'pedidoservico.preco  as preco')
         ->get();
-        $pdf = Pdf::loadView('pdf.factura', $data)->setPaper('a4');
-        return $pdf->stream();
-        
+        // $pdf = Pdf::loadView('pdf.factura', $data)->setPaper('a4');
+        //return $pdf->stream();
+        $mpdf = new Mpdf();
+        $html = view('pdf.factura', $data)->render();
+        $cssPaths = [
+            public_path('factura_icons/bootstrap-icons.css'),
+            public_path('factura_css/invoice.css'),
+            public_path('factura_css/bootstrap.css'),
+        ];
+
+        $allCss = '';
+        foreach ($cssPaths as $cssPath) {
+            $allCss .= file_get_contents($cssPath);
+        }
+
+        $mpdf->WriteHTML($allCss, 1); // 1 para incluir os estilos inline
+        $mpdf->WriteHTML($html);
+      
+        $mpdf->Output('factura.pdf', 'I');
     }
     public function aceitar(Pagamento $data){
         try {

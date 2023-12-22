@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kisalo - Fatura</title>
-    <link rel="stylesheet" href="{{ asset('factura_css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('factura_icons/bootstrap-icons.css') }}" />
-    <link rel="stylesheet" href="{{ asset('factura_css/invoice.css') }}" />
+    <link rel="stylesheet" href="{{ public_path('factura_css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ public_path('factura_icons/bootstrap-icons.css') }}" />
+    <link rel="stylesheet" href="{{ public_path('factura_css/invoice.css') }}" />
 </head>
 
 <body>
