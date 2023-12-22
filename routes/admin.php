@@ -99,9 +99,6 @@ Route::get('/servicos/suspenso/{id}', [App\Http\Controllers\Admin\ServicosContro
 Route::get('/perfil', [App\Http\Controllers\Admin\PerfilController::class, 'index'])->name('prestador.perfil.index');
 Route::post('/perfil/atualizar', [App\Http\Controllers\Admin\PerfilController::class, 'update'])->name('prestador.perfil.update');
 
-// PDF FACTURAS
-//Route::get('/pdf/factura/{id_user}/{num_factura}', [App\Http\Controllers\Admin\PerfilController::class, 'index'])->name('prestador.perfil.index');
-
 //Pedidoservico
 Route::get('/novos/pedidos', [App\Http\Controllers\Admin\PedidosController::class, 'pedidos_novos'])->name('admin.pedidoservico.index');
 Route::get('/pedidos/andamento', [App\Http\Controllers\Admin\PedidosController::class, 'index'])->name('admin.pedidos.anadamento');

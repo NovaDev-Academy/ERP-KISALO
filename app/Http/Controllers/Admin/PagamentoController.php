@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use App\Models\Notificacao;
 use App\Models\Pagamento;
 use App\Models\Pedidos;
 use App\Models\User;
-use App\Models\Notificacao;
+
 
 class PagamentoController extends Controller
 {
@@ -89,7 +91,18 @@ class PagamentoController extends Controller
         }
        
     }
-    public function aceitar(Pagamento $pagamento){
+    public function gerarFactura(Pagamento $pagamento){
+       $data['pagamentos'] = $pagamento->join('pedidos','pagamentos.pedido_id','pedidos.id')
+        ->leftjoin('users','pedidos.prestador_id','users.id')
+        ->leftjoin('pedidoservico','pedidoservico.pedidos_id','pedidos.id')
+        ->leftjoin('sub_categorias','pedidos.id_servico_categoria','sub_categorias.id')
+        ->select('pagamentos.*','users.name as prestador','sub_categorias.vc_nome as servico', 'pedidoservico.preco  as preco')
+        ->get();
+        $pdf = Pdf::loadView('pdf.factura', $data)->setPaper('a4');
+        return $pdf->stream();
+        
+    }
+    public function aceitar(Pagamento $data){
         try {
             //code...
             $pagamento->update([

@@ -42,12 +42,14 @@
                         <div class="form-group col-md-6">
                             <div class="container mt-6 select_search_box">
                                 <h4>Preço</h4>
-                                <input class="w-50" type="text" value="0,00" id="precoMin" oninput="formatarMoeda(this)" class="form-control" name="preco"
+                                <input class="w-50" type="text" value="0,00" id="precoMin" oninput="formatarMoeda(this)" class="form-control"
                                 placeholder="kz" >
-             {{--                   <script>
+                                <input type="hidden" id = "precoReal" name="preco">  
+                               <script>
     function formatarMoeda(input) {
         // Obter o valor atual do input
         let valor = input.value.replace(/\D/g, ''); // Remover não-dígitos
+        let precoreal = document.getElementById('precoReal');
 
         // Se o valor estiver vazio, não faça nada
         if (valor === '') {
@@ -62,20 +64,19 @@
         // Separar a parte inteira e a parte decimal
         let parteInteira = valor.substring(0, valor.length - 2);
         let parteDecimal = valor.substring(valor.length - 2);
-
+        precoReal.value = parteInteira + '.' + parteDecimal;
         // Adicionar um ponto para separar os milhares, se necessário
         if (parteInteira.length > 3) {
-            parteInteira = parteInteira.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+            parteInteira = parteInteira.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
         }
-
         // Formatar a moeda
         let moedaFormatada = parteInteira + ',' + parteDecimal;
-
         // Atualizar o valor do input
         input.value = moedaFormatada;
+       
     }
 </script>
---}}
+
                                 {{-- <h4>Preço Maximo</h4>
                                 <input class="w-50" type="text" id="precoMax" class="form-control" name="precoMax"
                                 placeholder="kz" > --}}
@@ -85,20 +86,15 @@
                         <input type="hidden" name="user" id="iduser">
                         <button  class="btn  btn-primary w-50 " id="id" >Vincular</button>
                         </form>  
-                </div>
-   
+                    </div>
                 </div>
              </div>
           </div>
        </div>
     </div>
-
-
-    </div>
-    <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
-
-
-    @if (session('eliminada'))
+</div>
+<script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
+@if (session('eliminada'))
 <script>
 Swal.fire(
 'Categoria de Serviço Eliminado com sucesso!',

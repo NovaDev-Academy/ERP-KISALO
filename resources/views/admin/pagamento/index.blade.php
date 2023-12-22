@@ -268,7 +268,7 @@
         let parteInteira = valorSemFormato.substring(0, valorSemFormato.length - 2);
         let parteDecimal = valorSemFormato.substring(valorSemFormato.length - 2);
         if (parteInteira.length > 3) {
-            parteInteira = parteInteira.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+            parteInteira = parteInteira.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
         }
 
         let moedaFormatada = parteInteira + ',' + parteDecimal;
