@@ -104,18 +104,23 @@ class PagamentoController extends Controller
         $mpdf = new Mpdf();
         $html = view('pdf.factura', $data)->render();
         $cssPaths = [
-            public_path('factura_icons/bootstrap-icons.css'),
-            public_path('factura_css/invoice.css'),
-            public_path('factura_css/bootstrap.css'),
+            file_get_contents(public_path('factura_css/bootstrap.css')) ,
+            file_get_contents(public_path('factura_icons/bootstrap-icons.css')) ,
+            file_get_contents(public_path('factura_css/invoice.css')) ,   
         ];
-
+        //$style2 =  file_get_contents(public_path('factura_icons/bootstrap-icons.css')) ;
+        //$style3 =  file_get_contents(public_path('factura_css/invoice.css')) ;
+        //$style1 =  file_get_contents(public_path('factura_css/bootstrap.css')) ;
         $allCss = '';
-        foreach ($cssPaths as $cssPath) {
-            $allCss .= file_get_contents($cssPath);
+        foreach ($cssPaths as $css) {
+            $allCss .= $css;
         }
-
-        $mpdf->WriteHTML($allCss, 1); // 1 para incluir os estilos inline
-        $mpdf->WriteHTML($html);
+       
+        //$mpdf->WriteHTML($style1, \Mpdf\HTMLParserMode::HEADER_CSS);
+        //$mpdf->WriteHTML($style2, \Mpdf\HTMLParserMode::HEADER_CSS);
+        //$mpdf->WriteHTML($style3, \Mpdf\HTMLParserMode::HEADER_CSS);
+        $mpdf->WriteHTML($allCss, \Mpdf\HTMLParserMode::HEADER_CSS, 1); // 1 para incluir os estilos inline
+        $mpdf->WriteHTML($html, \Mpdf\HTMLParserMode::HTML_BODY);
       
         $mpdf->Output('factura.pdf', 'I');
     }
