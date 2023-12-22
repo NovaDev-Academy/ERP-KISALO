@@ -167,27 +167,6 @@
                         </a>
 
                     </li>
-
-
-
-
-
-                    @endif
-
-                    <li><hr class="hr-horizontal"></li>
-                    <li class="nav-item static-item">
-                        <a class="nav-link static-item disabled text-start" href="#" tabindex="-1">
-                            <span class="default-icon">Estabelecimento</span>
-                            <span class="mini-icon" data-bs-toggle="tooltip" title="Home" data-bs-placement="right">-</span>
-                        </a>
-                    </li>
-                    {{-- admin.sub_categoria.index --}}
-
-
-
-
-
-                    <li><hr class="hr-horizontal"></li>
                     <li class="nav-item">
                         <a class="nav-link " href="{{route('admin.servico.index')}}">
 
@@ -215,6 +194,7 @@
                         </a>
                     </li>
                     {{-- admin.sub_categoria.index --}}
+                    @endif
                    @if(Auth::user()->vc_tipo_utilizador==1)
                    
                <li class="nav-item">

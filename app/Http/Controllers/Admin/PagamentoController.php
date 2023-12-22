@@ -97,39 +97,29 @@ class PagamentoController extends Controller
         ->leftjoin('sub_categorias','pedidos.id_servico_categoria','sub_categorias.id')
         ->select('pagamentos.*','users.name as prestador','sub_categorias.vc_nome as servico', 'pedidoservico.preco  as preco')
         ->get();
-        $mpdf = new \Mpdf\Mpdf([
-            'mode' => 'utf-8',
-            'format' => 'A4',
-            'margin_left' => 15,
-            'margin_right' => 15,
-            'margin_top' => 16,
-            'margin_bottom' => 16,
-            'margin_header' => 9,
-            'margin_footer' => 9,
-        ]);
-
-
-        $mpdf->SetFont("arial");
-        $mpdf->setHeader();
-        $html = view("pdf.factura")->render();
-
-        // Inclua o CSS personalizado
-      
+        // $pdf = Pdf::loadView('pdf.factura', $data)->setPaper('a4');
+        //return $pdf->stream();
+        $mpdf = new Mpdf();
+        $html = view('pdf.factura', $data)->render();
         $cssPaths = [
-            // public_path('factura_css/bootstrap.css'),
-            // public_path('factura_icons/bootstrap-icons.css'),
-            // public_path('factura_css/invoice.css'),
+            file_get_contents(public_path('factura_css/bootstrap.css')) ,
+            file_get_contents(public_path('factura_icons/bootstrap-icons.css')) ,
+            file_get_contents(public_path('factura_css/invoice.css')) ,   
         ];
+        //$style2 =  file_get_contents(public_path('factura_icons/bootstrap-icons.css')) ;
+        //$style3 =  file_get_contents(public_path('factura_css/invoice.css')) ;
+        //$style1 =  file_get_contents(public_path('factura_css/bootstrap.css')) ;
         $allCss = '';
-        foreach ($cssPaths as $cssPath) {
-            $allCss .= file_get_contents($cssPath);
+        foreach ($cssPaths as $css) {
+            $allCss .= $css;
         }
-        
-        $mpdf->WriteHTML($allCss,\Mpdf\HTMLParserMode::HEADER_CSS); // 1 para incluir os estilos inline
-        $mpdf->WriteHTML($html);
-
-        
-        // Saída do PDF
+       
+        //$mpdf->WriteHTML($style1, \Mpdf\HTMLParserMode::HEADER_CSS);
+        //$mpdf->WriteHTML($style2, \Mpdf\HTMLParserMode::HEADER_CSS);
+        //$mpdf->WriteHTML($style3, \Mpdf\HTMLParserMode::HEADER_CSS);
+        $mpdf->WriteHTML($allCss, \Mpdf\HTMLParserMode::HEADER_CSS, 1); // 1 para incluir os estilos inline
+        $mpdf->WriteHTML($html, \Mpdf\HTMLParserMode::HTML_BODY);
+      
         $mpdf->Output('factura.pdf', 'I');
         
     }
