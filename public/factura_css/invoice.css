@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
+:root{
+    --main-color:#092b66;
+    --secondary-color:#2061b2;
+}
+
+html{
+    border: none !important;
+}
+
+body{
+    overflow-x: hidden;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+header{
+    height: 450px;
+}
+
+img{
+    max-width: 100%;
+    width:150px;
+}
+
+.logoBackground {
+    position: absolute;
+    top: -120px;
+    left: -90px;
+}
+
+.logo > img{
+    width: 80px;
+    height: 70px;
+}
+.logoBackground > img{
+    width: 20%;
+}
+
+.brand-logo{
+    height: 150px;
+}
+.header-invoice h4{
+    color: var(--main-color);
+}
+
+.bg-color{
+    background-color: var(--main-color);
+}
+
+.small{
+    font-size:.7rem;
+}

@@ -18,6 +18,8 @@ class ServicosController extends Controller
         ->leftjoin('sub_categorias','servicos.id_servico_categoria','sub_categorias.id')
         ->select('users.name as estabelecimento','servicos.*','sub_categorias.vc_nome as categoria_servico')
         ->get();
+        $dados['prestadores'] = User::Where('vc_tipo_utilizador', 3)->orwhere('vc_tipo_utilizador', 2)->get();
+       
         // dd($dados);
         // $dados['categorias']=categoria::get();
         // $dados['tamanhos']=sub_categoria::get();
@@ -50,8 +52,8 @@ class ServicosController extends Controller
 
     public function store(Request $req){
         try{
-        //  dd($req);
-        $id_user=Auth::user()->id;
+        // dd($req);
+        $id_user= $req->id_user ?? Auth::user()->id;
         // dd($req);
         $servico=servicos::create([
             'min'=>$req->min,
@@ -78,7 +80,7 @@ class ServicosController extends Controller
     public function update($id, Request $req){
         try{
             // dd($req);
-            $id_user=Auth::user()->id;
+            $id_user = Auth::user()->id;
             servicos::where('id',$id)->update([
                 'vc_nome'=>$req->vc_nome,
                 // 'preco'=>$req->fl_preco,

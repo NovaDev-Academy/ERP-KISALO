@@ -1,0 +1,613 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap');
+
+:root{
+    --oxford-blue:#092b66;
+    --yellow:#f2c713;
+    --light-yellow:#FFF9DE;
+    --orange:#ef6906;
+    --gradient:linear-gradient(to right, var(--orange), var(--yellow));
+    --blue-sky:#2061b2;
+    --white-color:rgba(255,255,255,.9);
+    --box-shadown: drop-shadow(5px 5px 5px , #555);
+    --gradient2: linear-gradient(#EF6906, #FDD013);
+    --gray-color:#f3f3f3;
+    --tertial-color:#F9FAFB;
+    --font-letter: 1em;
+    --poppins: "poppins", sans-serif;
+    --inter: 'Inter', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    border: none !important;
+}
+
+body{
+    overflow-x: hidden;
+    font-family: var(--inter);
+    font-size: 16px;
+}
+
+::placeholder{
+    font-size: 15px;
+    color: #D1D1D1;
+    font-weight: 400;
+}
+
+
+.font-poppins{
+    font-family: 'Poppins', sans-serif;
+}
+
+.font-inter{
+    font-family: 'Inter', sans-serif;
+}
+
+
+.btn-hover a:hover{
+    background: white !important;
+}
+
+.yellow{
+    color: var(--yellow);
+}
+
+.yellow-hover{
+    transition: linear .1s;
+}
+
+.yellow-hover:hover{
+    background-color: var(--yellow);
+    color: white;
+    border: 1px solid var(--yellow) !important;
+}
+
+.oxford-blue-text{
+    color: var(--oxford-blue);
+}
+
+
+
+.accordion-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.accordion-button::after{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-plus' viewBox='0 0 16 16'%3E%3Cpath d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/%3E%3C/svg%3E");
+    transition: all .5s linear;
+    border: 1px solid var(--gray-color);
+    border-radius: 50%;
+}
+
+.accordion-button:not(.collapsed)::after{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-dash-lg' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z'/%3E%3C/svg%3E");
+    background-size: contain;
+}
+
+#banner .carousel-indicators [data-bs-target]{
+    background:var(--gradient);
+    background-clip: padding-box;
+    height: 5px !important;
+    width: 40px !important;
+}
+
+.btn{
+    border: 1px solid #e2e2e2 !important;
+}
+
+a:hover{
+    color: white;
+}
+
+.yellow-title{
+    color: var(--yellow);
+}
+
+.oxford-blue-color{
+    background-color: var(--oxford-blue);
+}
+
+
+.grandient-color{
+    background: var(--gradient);
+}
+
+.white-color{
+    color: var(--white-color);
+}
+
+img{
+    max-width: 100%;
+}
+
+input{
+    border: 1px solid #ededed !important;
+}
+
+.card{
+    height: 100%;
+}
+
+.card img{
+    width: 50px;
+    height: auto;
+}
+
+/* style header */
+
+#header .navbar {
+    background:var(--blue-sky) ;
+    z-index: 2000;
+}
+.logo{
+    max-width:9rem;
+}
+
+.navbar a{
+    cursor: pointer;
+    transition: linear .3s ;
+}
+
+.navbar a.btn{
+    border: none !important;
+}
+
+#header ul li a{
+    width: max-content;
+}
+
+
+#header ul li a::after{
+    content:"";
+    position: absolute;
+    width:100%;
+    height:2px;
+    bottom: -5px;
+    left: 0;
+    transition: .3s;
+    transition-timing-function: ease-in;
+    transform: scaleX(0);
+    background-color: var(--yellow);
+}
+
+#header ul li a:hover{
+    color:var(--yellow);
+}
+
+#header ul li a:hover::after{
+    transform: scaleX(1);
+}
+
+.navbar-toggler{
+   background-color: var(--gradient2); 
+}
+
+
+/* style banner  */
+
+#banner{
+    width: 100%;
+    height: 70vh;
+}
+
+#banner p{
+    max-width: 40rem;
+}
+
+.banner-icons{
+    background: url('../images/Actions.png') no-repeat ;
+    background-size: contain;
+    height: 2.5rem;
+}
+
+#banner #banner-slider-image img{
+    max-width:120px;
+}
+
+#banner #banner-slider-image .carousel slide .carousel-indicators{
+    top: 20rem;
+}
+
+
+/* about us */
+
+#about-us .bg-image{
+    background: url('../images/visita-frontal.png') no-repeat top left;
+    background-size: contain;
+    height: 30rem;
+    position: relative;
+   
+}
+
+#about-us .bg-image::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background:linear-gradient(to right, rgba(239, 105, 6,.2) 0%, rgba(253, 208, 19,.2) 0%);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+#about-us h2, #work h2{
+    color: var(--oxford-blue);
+}
+
+#about-us p{
+    text-align: justify !important;
+}
+/* boxes */
+
+#boxes .card-container .card .icon{
+    background: var(--gradient);
+    width: 3rem;
+    height: 3rem;
+}
+
+#boxes .card-container .card .icon img{
+    width: 30px;
+}
+
+#boxes .card-container .card {
+    background-color: var(--gray-color);
+    border: none;
+    position: relative;
+    height: 100%;
+    transform: scale(1);
+}
+
+/* Services */
+#ourService .card{
+    transition: all ease-in .3s;
+    height:100%;
+}
+
+#ourService .card img{
+    object-fit: cover;
+    width: 100%;
+    transition: all ease-in .3s;
+    filter: grayscale(0);
+}
+
+.card-body h4{
+    font-size: 20px;
+}
+#ourService .card:hover{
+    transform: scale(1.04) translateY(-2px);
+    z-index: 1;
+}
+
+#ourService .card:hover img{
+    filter: grayscale(90%);
+}
+/* resource */
+
+#resource{
+    height: 100vh;
+}
+
+
+
+#resources .icon{
+    background-color:var(--light-yellow);
+    width: 3rem;
+    height: 3rem;
+}
+
+#resources .image img{
+    object-fit: contain;
+}
+
+/* app resource */
+
+#app-resource{
+    height: 100%;
+    width: 100%;
+}
+
+#app-resource .content p{
+    color: rgba(255,255,255,.6);
+}
+
+
+
+
+
+/* section resource 3 */
+
+#resources-3 .card .card-icon img{
+    max-width:80px;
+    max-height:100px;
+}
+
+/* Dúvidas frequentes */
+#faqs .accordion{
+    width:50%;
+}
+
+#faqs .witness{
+    background-color: var(--tertial-color);
+    height: 100%;
+}
+
+#faqs .witness .witness-imgs{
+    background: url('../images/avatar.png') no-repeat center;
+    background-size: contain;
+    width:5rem;
+    height: 5rem;
+}
+
+#faqs .witness p{
+    width: 50%;
+}
+
+
+
+/* Footer */
+
+footer ul li a{
+    font-weight: 200;
+    color:var(--tertial-color);
+}
+footer ul li a:hover{
+    color: white !important;
+    text-decoration: underline;
+}
+
+footer .icon-footer{
+    background: url("../images/action-footer.png") no-repeat;
+    background-size: contain;
+    height: 5rem;
+}
+
+footer .line{
+    height: .05rem;
+}
+
+footer .logo img{
+    object-fit: contain;
+    max-width: 2rem;
+}
+
+
+/* style página de serviços */
+
+
+/* style página notícia */
+
+
+/* style página sobre nós */
+
+.banner{
+    background: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.7)),
+    url('../images/jovem-africano.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+
+.banner .banner-text{
+    width: 40rem;
+    z-index: 1;
+}
+
+/* estilizara página about */
+h2{
+    position: relative;
+    min-width: min-content;
+    text-align: center;
+}
+
+ h2::after{
+    content: '';
+    width:20%;
+    height: 5px;
+    background: var(--oxford-blue);
+    position: absolute;
+    bottom: 0;
+    left: 40%;   
+}
+
+#work .work-image
+{
+    background: url('../images/jovemContrutor.png') no-repeat center;
+    background-size: contain;
+    height: 30rem;
+}
+
+
+
+/* style Scroll animate  */
+
+.hidden{
+    opacity: 0;
+    transition: all 1s;
+    transform: translateX(-100%);
+    filter: blur(5px);
+}
+
+.show{
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+    transition: opacity 1s, transform 1s;
+}
+
+.hidden-right{
+    opacity: 0;
+    transition: all 1s;
+    transform: translateX(100%);
+    filter: blur(5px);
+}
+
+.show-right{
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+    transition: opacity 1s, transform 1s;
+}
+
+
+/* carousel-section */
+
+.carousel-section .carousel-indicators button{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.carousel-section .carousel-caption{
+    bottom: 180px;
+}
+.carousel-section .carousel-caption h5{
+    font-size: 3.5em;
+}
+
+/* news style */
+.news-section .card img{
+    width: 100%;
+    height: 270px;
+}
+
+.news-card .card-item img{
+    width: 90px;
+    height: 85px;
+    object-fit: cover;
+}
+
+.news-card .card{
+    display: flex;
+}
+
+.right-news a:hover{
+    text-decoration: underline !important;
+}
+
+.card-news .newsImage{
+    width: 100%;
+    object-fit:fill;
+}
+
+.news-right-card .card::after{
+    content: '';
+    position: relative;
+    width: 100%;
+    height: 1px;
+    background-color: #edf1f4;
+    margin: 10px 0 15px;
+    box-sizing: 1px 1px 3px #edf1f4;
+
+}
+
+.text{
+    border-right: 2px solid #edf1f4;
+    padding-right: 10px;
+}
+
+/* left news */
+.left-news a{
+    text-decoration: none !important;
+}
+.left-news a:hover{
+    text-decoration: underline !important;
+    color: black !important;
+}
+
+/* recent news */
+.news-recent-card div{
+    height: 95px;
+}
+
+.news-img{
+    width: 75px;
+    object-fit: cover;
+}
+
+/* media Query */
+@media only screen and (min-width:320px) and (max-width:1024px){
+    #banner{
+        padding: 30px 10px;
+    }
+    .card .card-body p{
+        font-size: 16px;
+    }
+    
+    #faqs .witness p{
+        width: 100%;
+    }
+
+    #banner{
+        height: 100%;
+    }
+    #banner p, #faqs .accordion{
+       width: 100%;
+    }
+}
+
+@media (max-width:568px){
+    .banner{
+        background-position:right;
+     }
+    
+
+     .banner-text h1{
+        font-size: 2em;
+    }
+
+    .banner p{
+        font-size: 1.2em;
+    }
+
+    .banner div {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+     }
+    
+}
+
+
+@media (min-width:569px) and (max-width:992px){
+    .banner{
+        background-position:center;
+     }
+ 
+     .banner-text{
+        padding-left: 1.rem;
+     }
+   
+    .banner-text h1{
+        font-size: 1.5em;
+    }
+
+    .banner div {
+        width: 40% !important;
+    }
+    
+}
+
+
+@media screen and (max-width:992px){
+    h2::after{
+        content: '';
+        width:50%;
+        height: 5px;
+        background: var(--oxford-blue);
+        position: absolute;
+        bottom: 0;
+        left: 27%;
+    }
+
+    #work .work-image {
+        background-size: cover;
+    }
+}

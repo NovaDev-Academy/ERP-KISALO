@@ -16,6 +16,7 @@ class Pedidos extends Model
         'id_servico_categoria',
         'avaliacao',
         'estrelas',
+        'prestador_id',
         
     ];
 }

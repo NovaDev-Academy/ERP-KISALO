@@ -8,8 +8,7 @@
            placeholder="Categoria do Serviço" value="{{ isset($sub_categoria->vc_nome) ? $sub_categoria->vc_nome : "" }}">
    </div>
 
-  
-        </div>
+   «   </div>
         <div class="form-group col-md-6">
             <label for="categorias_id">Serviços</label>
             <select id="categorias_id" class="form-control" name="categoria">
