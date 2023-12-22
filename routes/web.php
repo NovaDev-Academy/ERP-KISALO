@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
+// PDF FACTURAS
+Route::get('/factura/{pagamento}', [App\Http\Controllers\Admin\PagamentoController::class, 'gerarFactura'])->name('gerar.factura');
 
 // Route::namespace('App\Http\Controllers\Site')->group(function () {
 
