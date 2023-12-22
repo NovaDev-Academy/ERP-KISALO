@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use App\Models\Notificacao;
 use App\Models\Pagamento;
 use App\Models\Pedidos;
 use App\Models\User;
-
+use Mpdf\Mpdf;
 
 class PagamentoController extends Controller
 {
@@ -98,8 +97,40 @@ class PagamentoController extends Controller
         ->leftjoin('sub_categorias','pedidos.id_servico_categoria','sub_categorias.id')
         ->select('pagamentos.*','users.name as prestador','sub_categorias.vc_nome as servico', 'pedidoservico.preco  as preco')
         ->get();
-        $pdf = Pdf::loadView('pdf.factura', $data)->setPaper('a4');
-        return $pdf->stream();
+        $mpdf = new \Mpdf\Mpdf([
+            'mode' => 'utf-8',
+            'format' => 'A4',
+            'margin_left' => 15,
+            'margin_right' => 15,
+            'margin_top' => 16,
+            'margin_bottom' => 16,
+            'margin_header' => 9,
+            'margin_footer' => 9,
+        ]);
+
+
+        $mpdf->SetFont("arial");
+        $mpdf->setHeader();
+        $html = view("pdf.factura")->render();
+
+        // Inclua o CSS personalizado
+      
+        $cssPaths = [
+            public_path('factura_css/bootstrap.css'),
+            public_path('factura_icons/bootstrap-icons.css'),
+            public_path('factura_css/invoice.css'),
+        ];
+        $allCss = '';
+        foreach ($cssPaths as $cssPath) {
+            $allCss .= file_get_contents($cssPath);
+        }
+        
+        $mpdf->WriteHTML($allCss, 1); // 1 para incluir os estilos inline
+        $mpdf->WriteHTML($html);
+
+        
+        // Saída do PDF
+        $mpdf->Output('factura.pdf', 'I');
         
     }
     public function aceitar(Pagamento $data){
