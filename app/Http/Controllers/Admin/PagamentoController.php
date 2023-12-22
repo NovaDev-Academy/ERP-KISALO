@@ -116,16 +116,16 @@ class PagamentoController extends Controller
         // Inclua o CSS personalizado
       
         $cssPaths = [
-            public_path('factura_css/bootstrap.css'),
-            public_path('factura_icons/bootstrap-icons.css'),
-            public_path('factura_css/invoice.css'),
+            // public_path('factura_css/bootstrap.css'),
+            // public_path('factura_icons/bootstrap-icons.css'),
+            // public_path('factura_css/invoice.css'),
         ];
         $allCss = '';
         foreach ($cssPaths as $cssPath) {
             $allCss .= file_get_contents($cssPath);
         }
         
-        $mpdf->WriteHTML($allCss, 1); // 1 para incluir os estilos inline
+        $mpdf->WriteHTML($allCss,\Mpdf\HTMLParserMode::HEADER_CSS); // 1 para incluir os estilos inline
         $mpdf->WriteHTML($html);
 
         
