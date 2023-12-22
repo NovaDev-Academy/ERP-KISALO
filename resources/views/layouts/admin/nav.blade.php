@@ -184,7 +184,7 @@
                  
           
 
-                    @endif
+                  
 
                     <li><hr class="hr-horizontal"></li>
                     <li class="nav-item static-item">
@@ -194,6 +194,7 @@
                         </a>
                     </li>
                     {{-- admin.sub_categoria.index --}}
+                    @endif
                    @if(Auth::user()->vc_tipo_utilizador==1)
                    
                <li class="nav-item">

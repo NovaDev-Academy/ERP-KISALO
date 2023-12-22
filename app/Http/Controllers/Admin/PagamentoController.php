@@ -3,14 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use App\Models\Notificacao;
 use App\Models\Pagamento;
 use App\Models\Pedidos;
 use App\Models\User;
 use Mpdf\Mpdf;
-
 
 class PagamentoController extends Controller
 {
@@ -80,7 +78,7 @@ class PagamentoController extends Controller
                    'user_id' => $req->user_id,
                    'titulo'=> "Pagamento",
                    'conteudo'=> "$user->name $user->sobrename o teu pagamento foi recusado"
-                   ]);
+                ]);
             //Pedidos::where('id', $pagamento->pedido_id)
             //->update([
             //    'estado'=> 2
@@ -123,6 +121,7 @@ class PagamentoController extends Controller
         $mpdf->WriteHTML($html, \Mpdf\HTMLParserMode::HTML_BODY);
       
         $mpdf->Output('factura.pdf', 'I');
+        
     }
     public function aceitar(Pagamento $data){
         try {

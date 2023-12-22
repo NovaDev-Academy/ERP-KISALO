@@ -10,12 +10,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
   /*---------------------------analytics chart-----*/
   if (document.querySelectorAll("#analytics-chart-03").length) {
-    /*GRAFICOS PRESTADORES*/ 
+    
     const colors = [secondaryColor, tertiaryColor];
     const options = {
         series: [{
             name:'Prestadores',
-        data: [40, 80, 10, 40, 50, 60,10,30,8,10,20,12]
+            data: graficos_03.quantidades,
       }],
         chart: {
         type: 'bar',
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
           },
         },
         xaxis: {
-            categories:['Jan', 'Fev','Mar','Abr','Mai', 'Jun', 'Jul','Ago','Set','Out','Nov','Dez'],
+          categories: graficos_03.labels,
         },
 
         yaxis: {
@@ -1241,8 +1241,8 @@ if (document.querySelectorAll("#chart-01").length) {
   if (document.querySelectorAll("#chart-08").length) {
     const colors = [secondaryColor, tertiaryColor];
     let options = {
-        series: [44, 55, 41, 17, 15,20,33,40,22,11,12,23],
-          labels:['Jan', 'Fev','Mar','Abr','Mai', 'Jun', 'Jul','Ago','Set','Out','Nov','Dez'],
+        series: graficos_08.quantidades,
+          labels:graficos_08.labels,
         chart: {
         type: 'donut',
       },

@@ -1,6 +1,5 @@
 @extends('layouts.admin.index')
 @section('conteudo')
-
 <div class="content-inner container-fluid pb-0" id="page_layout">
     <div class="row">
         <div class="col-lg-8">
@@ -614,7 +613,17 @@
       </svg>
     </a>
     <!-- Dashboard Script -->
-    
+    {{-- @dd($chart_03->pluck('mes_nome')->toArray()) --}}
+    <script>
+        const graficos_03 = {
+            labels: @json($chart_03->pluck('mes_nome')->toArray()),
+            quantidades: @json($chart_03->pluck('quantidade_pedidos')->toArray()),
+        };
+        const graficos_08 = {
+            labels: @json($chart_08->pluck('mes_nome')->toArray()),
+            quantidades: @json($chart_08->pluck('quantidade_pedidos')->toArray()),
+        };
+    </script>
 @include('admin.dashboard.charts.charts')
   
 @endsection
