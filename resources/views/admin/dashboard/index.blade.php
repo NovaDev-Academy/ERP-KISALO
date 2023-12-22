@@ -33,6 +33,7 @@
                         </div>
                     </div>
                 </div>
+
                  <div class="col-lg-3 col-md-6">
                     <div class="card text-center">
                         <div class="card-body">
@@ -42,6 +43,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-12">
                     <div class="card card-block card-stretch card-height">
                         <div class="card-header">
@@ -54,6 +56,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-12">
                     <div class="card card-block card-stretch card-height">
                     <div class="card-header">
@@ -79,8 +82,61 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-12">
+                    <div class="card card-block card-stretch card-height">
+                        <div class="card-header">
+                                <div class="header-title">
+                                    <h4 class="text-center">Quantidade de serviços abertos (sem prestadores alocadores)</h4>
+                                </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-08"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="card card-block card-stretch card-height">
+                        <div class="card-header">
+                            <div class="header-title">
+                                <h4 class="text-center">Quantidade de prestadores por categoria e subcategoria de serviços</h4>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-09"  class="analytics-chart-01"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="card card-block card-stretch card-height">
+                        <div class="card-header">
+                                <div class="header-title">
+                                    <h4 class="text-center">Categoria e subcategorias registadas</h4>
+                                </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-10"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="card card-block card-stretch card-height">
+                        <div class="card-header">
+                                <div class="header-title">
+                                    <h4 class="text-center">Receita por categoria e subcateria</h4>
+                                </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-11"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
         <div class="col-lg-4">
             <div class="row">
             <div class="col-lg-12">
@@ -96,11 +152,12 @@
                         </div>
                     </div>
                 </div>
+            </div>
                 <div class="col-lg-12">
                    <div class="card card-block card-stretch card-height">
                         <div class="flex-wrap card-header">
                             <div class="header-title text-center">
-                                <h4>Quantidade de prestadores que <br>atenderam os pedidos</h4>
+                                <h4>Quantidade de prestadores em actividade na plataforma</h4>
                             </div>
                            <!--  <div class="dropdown">
                                 <a href="#" class="text-gray" id="dropdownMenuButton34" data-bs-toggle="dropdown" aria-expanded="false"><svg width="22" height="5" viewBox="0 0 22 5" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -141,6 +198,93 @@
                         </div>
                         <div class="card-body">
                             <div id="analytics-chart-03"  class="analytics-chart-03"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="card card-block card-stretch card-height">
+                            <div class="card-header">
+                                <h4 class="text-center">
+                                Quantidade de serviços que se encontram <br>pendentes de orçamentos
+                                </h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="chart-04"></div>
+                            </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-12">
+                    <div class="card card-block card-stretch card-height">
+                            <div class="card-header">
+                                <h4 class="text-center">
+                                Quantidade de comentários por avaliações
+                                </h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="chart-05"></div>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card card-block card-stretch card-height">
+                        <div class="card-header">
+                                <div class="header-title">
+                                    <h4 class="text-center">Quantidade de prestadores que atenderam os pedidos</h4>
+                                </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-06"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card card-block card-stretch card-height">
+                        <div class="card-header">
+                                <div class="header-title">
+                                    <h4 class="text-center">Quantidade de prestadores que não atenderam os pedidos</h4>
+                                </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-07"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card card-block card-stretch card-height">
+                        <div class="card-header">
+                                <div class="header-title">
+                                    <h4 class="text-center">Taxa de retenção de solicitação de serviços</h4>
+                                </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-12"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card card-block card-stretch card-height">
+                        <div class="card-header">
+                                <div class="header-title">
+                                    <h4 class="text-center">Quantidade de prestadores removidos da plataforma</h4>
+                                </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-13"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card card-block card-stretch card-height">
+                        <div class="card-header">
+                                <div class="header-title">
+                                    <h4 class="text-center">Quantidade de prestadores por avaliação</h4>
+                                </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-14"></div>
                         </div>
                     </div>
                 </div>
