@@ -10,8 +10,15 @@ use App\Models\provincia;
 use App\Models\cores;
 use App\Models\Pagamento;
 use App\Models\Pedidos;
+use App\Helpers\FormatDatatoMonthHelper;
 class ChartController extends Controller
 {
+    protected $helper;
+
+    public function __construct()
+    {
+        $this->helper = new FormatDatatoMonthHelper();
+    }
     public function chart_08(){
         $chart =   Pedidos::join('users', 'pedidos.users_id', 'users.id')
           ->join('sub_categorias', 'pedidos.id_servico_categoria', 'sub_categorias.id')
@@ -23,7 +30,9 @@ class ChartController extends Controller
           ->groupBy('mes_numero')
           ->get();
             // Mapeando os nomes dos meses em português
-          $chart=$this->meses($chart);
+            
+          $chart= $this->helper->formatDatatoMonth($chart);
+
           return $chart;
       }
   
@@ -40,7 +49,7 @@ class ChartController extends Controller
           ->get();
       
           // Mapeando os nomes dos meses em português
-          $chart=$this->meses($chart);
+          $chart= $this->helper->formatDatatoMonth($chart);
           return $chart;
       }
 
@@ -52,21 +61,10 @@ class ChartController extends Controller
         ->selectRaw('COUNT(DISTINCT users.id) as quantidade_usuarios')
         ->get();
        
-        $chart=$this->meses($chart);
-  
-        
+        $chart= $this->helper->formatDatatoMonth($chart);
         
         return $chart;
       }
-      public function meses($chart){
-          $meses = [
-              'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
-              'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'
-          ];
-          $chart->transform(function ($item) use ($meses) {
-            $item->mes_nome = $meses[$item->mes_numero - 1];
-            return $item;
-        });
-          return $chart;
-      }
+
+      
 }
