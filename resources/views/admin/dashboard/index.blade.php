@@ -613,4 +613,8 @@
           <circle cx="12.1747" cy="11.8891" r="2.63616" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></circle>
       </svg>
     </a>
+    <!-- Dashboard Script -->
+    
+@include('admin.dashboard.charts.charts')
+  
 @endsection

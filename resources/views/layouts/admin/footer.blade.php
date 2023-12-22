@@ -342,8 +342,6 @@
   <script src="{{asset('assets/js/core/external.min.js')}}"></script>
   <!-- Widgetchart Script -->
   <script src="{{asset('assets/js/charts/widgetcharts.js')}}" defer></script>
-  <!-- Dashboard Script -->
-  <script src="{{asset('assets/js/charts/dashboard.js')}}" defer></script>
   <!-- qompacui Script -->
   <script src="{{asset('assets/js/qompac-ui.js')}}" defer></script>
   <script src="{{asset('assets/js/sidebar.js')}}" defer></script>
