@@ -14,6 +14,7 @@ class PedidosController extends Controller
     public function index ($user){
         $dados['pedidos']=Pedidos::join('sub_categorias','pedidos.id_servico_categoria','sub_categorias.id')
         ->where('pedidos.users_id',$user)
+        ->orderBy('id', 'desc')
         ->select('pedidos.*','sub_categorias.vc_nome as servico')
         ->get();
         return response()
@@ -85,9 +86,12 @@ try {
     public function show($id_pedido){
         try {
             $dados['pedidos']=Pedidoservico::join('users','pedidoservico.users_id','users.id')
-        ->where('pedidoservico.pedidos_id',$id_pedido)
-        ->select('pedidoservico.*','users.name','users.sobrename')
-        ->get();
+                ->where('pedidoservico.pedidos_id',$id_pedido)
+                ->select('pedidoservico.*','users.*')
+                ->get();
+            //$dados['estrelas']=Pedidoservico::join('users','pedidoservico.users_id','users.id')
+              //  ->svg('pedidoservico.estrelas as mediaEstrelas')
+                //->get();
 
         return response()
         ->json([
@@ -101,7 +105,7 @@ try {
                 'data'=>[
                     'error'=>500,
                     'mensagem'=>"Erro ao encontrar prestadores vinculados ao seu pedido",
-                    "detalhes"=>$th,
+                    'detalhes'=>$th,
                 ],
             ]);
         }

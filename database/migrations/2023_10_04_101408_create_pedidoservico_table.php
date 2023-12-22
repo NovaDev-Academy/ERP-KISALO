@@ -20,7 +20,7 @@ class CreatePedidoservicoTable extends Migration
             ->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->unsignedBigInteger('pedidos_id')->references('id')->on('pedidos')
             ->onDelete('CASCADE')->onUpdate('CASCADE');
-            $table->integer('preco')->nullable();
+            $table->double('preco')->nullable();
             $table->timestamps();
         });
     }

@@ -31,6 +31,7 @@ class PagamentoController extends Controller
                     'comprovativo'=> $caminho,
                     'estado' => '0',
                 ]);
+                /*
                 $currentDate = Carbon::now();
                 $data = Pedidos::where('id', $req->pedido_id)->first();
                 $pedidoServico = Pedidoservico::where('pedidos_id',$data->id)->first();
@@ -69,7 +70,7 @@ class PagamentoController extends Controller
                 $response = $client->post($url, [
                     'json' => $data,
                 ]);
-    
+                */
                 return response()
                 ->json([
                     'data'=>'Pagamento recebido com sucesso!',
@@ -98,6 +99,7 @@ class PagamentoController extends Controller
             ->join('pedidos','pagamentos.pedido_id','pedidos.id')
             ->leftjoin('users','pedidos.prestador_id','users.id')
             ->leftjoin('sub_categorias','pedidos.id_servico_categoria','sub_categorias.id')
+            ->orderBy('id', 'desc')
             ->select('pagamentos.*','users.name as prestador','sub_categorias.vc_nome as servico')
             ->get();
             return response()
