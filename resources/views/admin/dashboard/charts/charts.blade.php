@@ -1669,7 +1669,6 @@ if (document.querySelectorAll("#chart-01").length) {
 
     }
     };
-
    const chart = new ApexCharts(
       document.querySelector("#chart-12"),
       options
