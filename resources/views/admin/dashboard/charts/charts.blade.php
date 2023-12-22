@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   /*---------------------------analytics chart-----*/
   if (document.querySelectorAll("#analytics-chart-03").length) {
+    /*GRAFICOS PRESTADORES*/ 
     const colors = [secondaryColor, tertiaryColor];
     const options = {
         series: [{
@@ -1668,6 +1669,7 @@ if (document.querySelectorAll("#chart-01").length) {
 
     }
     };
+
    const chart = new ApexCharts(
       document.querySelector("#chart-12"),
       options
@@ -1908,6 +1910,7 @@ if (document.querySelectorAll("#chart-01").length) {
 
     }
     };
+
    const chart = new ApexCharts(
       document.querySelector("#chart-14"),
       options
@@ -1956,8 +1959,6 @@ if (document.querySelectorAll("#chart-01").length) {
     });
   }
 })(jQuery);
-
-
-  });
+});
 </script>
   
