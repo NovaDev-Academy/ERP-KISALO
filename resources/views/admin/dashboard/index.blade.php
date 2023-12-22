@@ -615,9 +615,13 @@
     <!-- Dashboard Script -->
     {{-- @dd($chart_03->pluck('mes_nome')->toArray()) --}}
     <script>
-        const dadosParaGrafico = {
+        const graficos_03 = {
             labels: @json($chart_03->pluck('mes_nome')->toArray()),
             quantidades: @json($chart_03->pluck('quantidade_pedidos')->toArray()),
+        };
+        const graficos_08 = {
+            labels: @json($chart_08->pluck('mes_nome')->toArray()),
+            quantidades: @json($chart_08->pluck('quantidade_pedidos')->toArray()),
         };
     </script>
 @include('admin.dashboard.charts.charts')

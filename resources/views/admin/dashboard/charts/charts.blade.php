@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const options = {
         series: [{
             name:'Prestadores',
-            data: dadosParaGrafico.quantidades,
+            data: graficos_03.quantidades,
       }],
         chart: {
         type: 'bar',
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
           },
         },
         xaxis: {
-          categories: dadosParaGrafico.labels,
+          categories: graficos_03.labels,
         },
 
         yaxis: {
@@ -1241,8 +1241,8 @@ if (document.querySelectorAll("#chart-01").length) {
   if (document.querySelectorAll("#chart-08").length) {
     const colors = [secondaryColor, tertiaryColor];
     let options = {
-        series: [44, 55, 41, 17, 15,20,33,40,22,11,12,23],
-          labels:['Jan', 'Fev','Mar','Abr','Mai', 'Jun', 'Jul','Ago','Set','Out','Nov','Dez'],
+        series: graficos_08.quantidades,
+          labels:graficos_08.labels,
         chart: {
         type: 'donut',
       },

@@ -23,12 +23,7 @@ class ChartController extends Controller
           ->groupBy('mes_numero')
           ->get();
             // Mapeando os nomes dos meses em português
-          $mesesEmPortugues=$this->meses();
-  
-          $chart->transform(function ($item) use ($mesesEmPortugues) {
-              $item->mes_nome = $mesesEmPortugues[$item->mes_numero - 1];
-              return $item;
-          });
+          $chart=$this->meses($chart);
           return $chart;
       }
   
@@ -45,19 +40,33 @@ class ChartController extends Controller
           ->get();
       
           // Mapeando os nomes dos meses em português
-          $mesesEmPortugues=$this->meses();
-  
-          $chart->transform(function ($item) use ($mesesEmPortugues) {
-              $item->mes_nome = $mesesEmPortugues[$item->mes_numero - 1];
-              return $item;
-          });
+          $chart=$this->meses($chart);
           return $chart;
       }
-      public function meses(){
+
+      public function chart_01(){
+        $chart = Pedidos::join('users', 'pedidos.users_id', 'users.id')
+        ->join('sub_categorias', 'pedidos.id_servico_categoria', 'sub_categorias.id')
+        ->select( \DB::raw('MONTH(pedidos.created_at) as mes_numero'))
+        ->groupBy('mes_numero')
+        ->selectRaw('COUNT(DISTINCT users.id) as quantidade_usuarios')
+        ->get();
+       
+        $chart=$this->meses($chart);
+  
+        
+        
+        return $chart;
+      }
+      public function meses($chart){
           $meses = [
               'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
               'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'
           ];
-          return $meses;
+          $chart->transform(function ($item) use ($meses) {
+            $item->mes_nome = $meses[$item->mes_numero - 1];
+            return $item;
+        });
+          return $chart;
       }
 }

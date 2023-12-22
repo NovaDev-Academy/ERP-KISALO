@@ -18,6 +18,8 @@ class HomeController extends Controller
         $chartController= new ChartController;
         $data['chart_03']=$chartController->chart_03();
         $data['chart_08']=$chartController->chart_08();
+        $data['chart_01']=$chartController->chart_01();
+        dd($data);
      
         return view('admin.dashboard.index', $data);
     }
