@@ -3,14 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use App\Models\Notificacao;
 use App\Models\Pagamento;
 use App\Models\Pedidos;
 use App\Models\User;
 use Mpdf\Mpdf;
-
 
 class PagamentoController extends Controller
 {
@@ -80,7 +78,7 @@ class PagamentoController extends Controller
                    'user_id' => $req->user_id,
                    'titulo'=> "Pagamento",
                    'conteudo'=> "$user->name $user->sobrename o teu pagamento foi recusado"
-                   ]);
+                ]);
             //Pedidos::where('id', $pagamento->pedido_id)
             //->update([
             //    'estado'=> 2
@@ -104,20 +102,26 @@ class PagamentoController extends Controller
         $mpdf = new Mpdf();
         $html = view('pdf.factura', $data)->render();
         $cssPaths = [
-            public_path('factura_icons/bootstrap-icons.css'),
-            public_path('factura_css/invoice.css'),
-            public_path('factura_css/bootstrap.css'),
+            file_get_contents(public_path('factura_css/bootstrap.css')) ,
+            file_get_contents(public_path('factura_icons/bootstrap-icons.css')) ,
+            file_get_contents(public_path('factura_css/invoice.css')) ,   
         ];
-
+        //$style2 =  file_get_contents(public_path('factura_icons/bootstrap-icons.css')) ;
+        //$style3 =  file_get_contents(public_path('factura_css/invoice.css')) ;
+        //$style1 =  file_get_contents(public_path('factura_css/bootstrap.css')) ;
         $allCss = '';
-        foreach ($cssPaths as $cssPath) {
-            $allCss .= file_get_contents($cssPath);
+        foreach ($cssPaths as $css) {
+            $allCss .= $css;
         }
-
-        $mpdf->WriteHTML($allCss, 1); // 1 para incluir os estilos inline
-        $mpdf->WriteHTML($html);
+       
+        //$mpdf->WriteHTML($style1, \Mpdf\HTMLParserMode::HEADER_CSS);
+        //$mpdf->WriteHTML($style2, \Mpdf\HTMLParserMode::HEADER_CSS);
+        //$mpdf->WriteHTML($style3, \Mpdf\HTMLParserMode::HEADER_CSS);
+        $mpdf->WriteHTML($allCss, \Mpdf\HTMLParserMode::HEADER_CSS, 1); // 1 para incluir os estilos inline
+        $mpdf->WriteHTML($html, \Mpdf\HTMLParserMode::HTML_BODY);
       
         $mpdf->Output('factura.pdf', 'I');
+        
     }
     public function aceitar(Pagamento $data){
         try {
