@@ -623,6 +623,26 @@
             labels: @json($chart_08->pluck('mes_nome')->toArray()),
             quantidades: @json($chart_08->pluck('quantidade_pedidos')->toArray()),
         };
+        const graficos_01 = {
+            labels: @json($chart_01->pluck('mes_nome')->toArray()),
+            quantidades: @json($chart_01->pluck('quantidade_usuarios')->toArray()),
+        };
+        const graficos_04 = {
+            labels: @json($chart_04->pluck('mes_nome')->toArray()),
+            quantidades: @json($chart_04->pluck('quantidade_pagamentos')->toArray()),
+        };
+        const graficos_05 = {
+            labels: @json($chart_05->pluck('estrelas')->toArray()),
+            quantidades: @json($chart_05->pluck('quantidade_estrelas')->toArray()),
+        };
+        const graficos_06 = {
+            labels: @json($chart_06->pluck('mes_nome')->toArray()),
+            quantidades: @json($chart_06->pluck('quantidade_prestadores')->toArray()),
+        };
+        const analytics_chart_03 = {
+            labels: @json($analytics_chart_03->pluck('mes_nome')->toArray()),
+            quantidades: @json($analytics_chart_03->pluck('quantidade_pedidos')->toArray()),
+        };
     </script>
 @include('admin.dashboard.charts.charts')
   

@@ -19,7 +19,11 @@ class HomeController extends Controller
         $data['chart_03']=$chartController->chart_03();
         $data['chart_08']=$chartController->chart_08();
         $data['chart_01']=$chartController->chart_01();
-        dd($data);
+        $data['chart_04']=$chartController->chart_04();
+        $data['chart_05']=$chartController->chart_05();
+        $data['chart_06']=$chartController->chart_06();
+        $data['analytics_chart_03']=$chartController->analytics_chart_03();
+        // dd($data);
      
         return view('admin.dashboard.index', $data);
     }

@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const options = {
         series: [{
             name:'Prestadores',
-            data: graficos_03.quantidades,
+            data: analytics_chart_03.quantidades,
       }],
         chart: {
         type: 'bar',
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
           },
         },
         xaxis: {
-          categories: graficos_03.labels,
+          categories: analytics_chart_03.labels,
         },
 
         yaxis: {
@@ -456,7 +456,7 @@ if (document.querySelectorAll("#chart-01").length) {
     let options = {
         series: [{
             name:'Usuários',
-            data: [44, 55, 41, 64, 22, 43, 21,23,44,56,56,7]
+            data: graficos_01.quantidades
           },
           ],
             chart: {
@@ -490,8 +490,7 @@ if (document.querySelectorAll("#chart-01").length) {
             intersect: false
           },
           xaxis: {
-            categories: ['Jan', 'Fev', 'Mar','Abr','Mai','Jun', 'Jul', 'Ago', 'Set', 'Out',
-            'Nov','Dez'],
+            categories: graficos_01.labels,
           },
 
           yaxis:{
@@ -676,7 +675,7 @@ if (document.querySelectorAll("#chart-01").length) {
     let options = {
         series: [{
         name: 'Solicitação',
-        data: [44, 55, 41, 37, 22, 43, 21,23,32,19,11,12]
+        data: graficos_03.quantidades
       }, 
     ],
         chart: {
@@ -695,8 +694,7 @@ if (document.querySelectorAll("#chart-01").length) {
       },
 
       xaxis: {
-        categories: ['Jan', 'Fev', 'Mar','Abr','Mai','Jun', 'Jul', 'Ago', 'Set', 'Out',
-            'Nov','Dez'],
+        categories: graficos_03.labels,
       },
 
       yaxis:{
@@ -762,7 +760,7 @@ if (document.querySelectorAll("#chart-01").length) {
     const options = {
     series: [{
         name:'Prestadores',
-    data: [40, 80, 10, 40, 50, 60,10,30,8,10,20,12]
+    data: graficos_04.quantidades
   }],
     chart: {
     type: 'bar',
@@ -810,7 +808,7 @@ if (document.querySelectorAll("#chart-01").length) {
       }
     },
     xaxis: {
-        categories:['Jan', 'Fev','Mar','Abr','Mai', 'Jun', 'Jul','Ago','Set','Out','Nov','Dez'],
+        categories:graficos_04.labels,
     },
 
     yaxis: {
@@ -882,7 +880,7 @@ if (document.querySelectorAll("#chart-01").length) {
     const options = {
     series: [{
         name:'Prestadores',
-    data: [40, 80, 10, 40, 50, 60,10,30,8,10,20,12]
+        data: graficos_05.quantidades
   }],
     chart: {
     type: 'bar',
@@ -930,7 +928,7 @@ if (document.querySelectorAll("#chart-01").length) {
       }
     },
     xaxis: {
-        categories:['Jan', 'Fev','Mar','Abr','Mai', 'Jun', 'Jul','Ago','Set','Out','Nov','Dez'],
+      categories:graficos_05.labels,
     },
 
     yaxis: {
@@ -1002,7 +1000,7 @@ if (document.querySelectorAll("#chart-01").length) {
     const options = {
     series: [{
         name:'Prestadores',
-    data: [40, 80, 10, 40, 50, 60,10,30,8,10,20,12]
+    data: graficos_06.quantidades
   }],
     chart: {
     type: 'bar',
@@ -1050,7 +1048,7 @@ if (document.querySelectorAll("#chart-01").length) {
       }
     },
     xaxis: {
-        categories:['Jan', 'Fev','Mar','Abr','Mai', 'Jun', 'Jul','Ago','Set','Out','Nov','Dez'],
+        categories:graficos_06.labels,
     },
 
     yaxis: {
