@@ -22,6 +22,19 @@ class ChartController extends Controller
         $this->helper = new FormatDatatoMonthHelper();
         $this->pedidos_table = new pedidosTableHelper();
     }
+    public function analytics_chart_01_r(){
+      $chart=User::where('vc_tipo_utilizador','!=',0)
+      ->where('vc_tipo_utilizador','!=',1)
+      ->where('vc_tipo_utilizador','!=',2)
+      ->select( 
+        \DB::raw('COUNT(users.id) as quantidade_users'),
+      \DB::raw('MONTH(users.created_at) as mes_numero'))
+      ->groupBy('mes_numero')
+      ->get();
+      $chart= $this->helper->formatDatatoMonth($chart);
+      return $chart;
+    }
+
     public function chart_03(){
     //  >Quantidade de utilizadores que solicitaram e <br>cancelaram os serviços
         $chart = $this->pedidos_table->userServicos() ->whereNotNull('pedidos.prestador_id')

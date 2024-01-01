@@ -355,7 +355,7 @@ document.addEventListener("DOMContentLoaded", function() {
         data:[10,20,30,45,55,76,60,34,23,34,45,6]
       }, {
         name: 'Registros',
-        data:[10,20,30,37,39,10,30,44,8,10,23,8]
+        data:analytics_chart_01.quantidades_1
       },],
         chart: {
         type: 'bar',
@@ -383,8 +383,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       }],
       xaxis: {
-        categories: ['Jan', 'Fev', 'Mar','Abr','Mai','Jun', 'Jul', 'Ago', 'Set', 'Out',
-        'Nov','Dez'],
+        categories: analytics_chart_01.labels,
       },
 
       yaxis:{

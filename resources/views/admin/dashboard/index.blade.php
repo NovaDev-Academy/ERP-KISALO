@@ -643,6 +643,11 @@
             labels: @json($analytics_chart_03->pluck('mes_nome')->toArray()),
             quantidades: @json($analytics_chart_03->pluck('quantidade_pedidos')->toArray()),
         };
+        const analytics_chart_01 = {
+            labels: @json($analytics_chart_01_r->pluck('mes_nome')->toArray()),
+            quantidades_1: @json($analytics_chart_01_r->pluck('quantidade_users')->toArray()),
+        };
+        // analytics_chart_01_r
     </script>
 @include('admin.dashboard.charts.charts')
   
