@@ -51,6 +51,19 @@
 
 
 
+    <div class="form-group col-md-6">
+    <label for="inputState">Prestador</label>
+    <select id="categorias_id" class="form-control" name="id_user">
+        @if(isset($prestadores->id))
+          <option name="id_servico_categoria" value="{{$prestador->id}} ">{{ $prestador->id }}</option>
+        @else
+        <option >Selecione o Prestador</option>
+          @endif
+      @foreach ($prestadores as $prestador)
+          <option name="id_user" value="{{ $prestador->id }} ">{{ $prestador->name }}</option>
+      @endforeach
+    </select>
+  </div>
 
                     
 </div>
