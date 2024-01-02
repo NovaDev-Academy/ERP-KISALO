@@ -2,12 +2,12 @@
 name: DEPLOY PRODUCTION 
 on:
   push:
-    branches: [ master ]
+    branches: [ develop-local-kelvin ]
   pull_request:
-    branches: [ master ]
+    branches: [ develop-local-kelvin ]
 
 jobs:
-  laravel-tests:
+  laravel-deploy:
 
     runs-on: ubuntu-latest
     steps:
@@ -39,13 +39,13 @@ jobs:
       
       # aqui comecou a deply com FTP  actions
 
-    - name: Started sync all 🎁 files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
-              server: ${{secrets.PETBOOKSERVER}}
-              username: ${{secrets.PETBOOKUSER}}
-              password: ${{secrets.PETBOOKPWD}}
-              exclude: |
-                 */.git
-                 */.git/**
-                 */node_modules/*
+  #  - name: Started sync all 🎁 files
+   #   uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+    #  with:
+     #         server: ${{secrets.KISALOSERVER}}
+      #        username: ${{secrets.KISALOUSER}}
+       #       password: ${{secrets.KISALOPWD}}
+        #      exclude: |
+         #        */.git
+          #       */.git/**           
+          #      */node_modules/*
