@@ -27,7 +27,7 @@
                             <th>#</th>
                             <th>Nome</th>
                             <th>sub_categoria</th>
-
+<th>Preço</th>
                             <th>Acções</th>
                         </tr>
                     </thead>
@@ -39,6 +39,7 @@
                                 {{$sub_categoria->vc_nome}}
                             </td>
                             <td>{{$sub_categoria->categoria}}</td>
+                            <td>{{$sub_categoria->preco}}</td>
                           
 
                             <td>

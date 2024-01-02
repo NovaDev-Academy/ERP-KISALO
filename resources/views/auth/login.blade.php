@@ -80,7 +80,7 @@
 				</div>
 			 </div>
 		  </div>
-		  <div class="col-lg-6 d-lg-block d-none bg-primary p-0  overflow-hidden">
+		  <div class="col-lg-6 d-lg-block d-none  p-0  overflow-hidden">
 			 <img src="../../assets/images/auth/01.png" class="img-fluid gradient-main" alt="images" loading="lazy" >
 		  </div>
 	   </div>

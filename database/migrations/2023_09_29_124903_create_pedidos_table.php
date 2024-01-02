@@ -22,7 +22,6 @@ class CreatePedidosTable extends Migration
             ->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->unsignedBigInteger('id_servico_categoria')->references('id')->on('sub_categorias')
             ->onDelete('CASCADE')->onUpdate('CASCADE');
-           
             $table->integer('estado')->default(0);
             $table->timestamps();
         });

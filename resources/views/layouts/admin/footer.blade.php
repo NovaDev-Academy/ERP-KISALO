@@ -25,7 +25,7 @@
                                   <div class="form-check mb-0 w-100">
                                       <input class="form-check-input custom-redio-btn" type="radio" value="light" name="theme_scheme" id="color-mode-light" checked="">
                                       <label class="form-check-label d-flex align-items-center justify-content-between" for="color-mode-light">
-                                               <span>Light Theme</span> 
+                                               <span>Light Theme</span>
                                                 <div class="text-primary ">
                                                     <svg width="60" height="27" viewBox="0 0 60 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <rect x="0.375" y="0.375" width="59.25" height="26.25" rx="4.125" fill="white"></rect>
@@ -51,7 +51,7 @@
                                                         <rect x="6" y="18" width="48" height="3" rx="1.5" fill="currentColor"></rect>
                                                         <rect x="0.375" y="0.375" width="59.25" height="26.25" rx="4.125" stroke="currentColor" stroke-width="0.75"></rect>
                                                     </svg>
-                                               </div>                                    
+                                               </div>
                                             </label>
                                   </div>
                               </div>
@@ -59,7 +59,7 @@
                                   <div class="form-check mb-0 w-100">
                                       <input class="form-check-input custom-redio-btn" type="radio" value="auto" name="theme_scheme" id="color-mode-auto">
                                       <label class="form-check-label d-flex align-items-center justify-content-between" for="color-mode-auto">
-                                               <span>Device Default</span> 
+                                               <span>Device Default</span>
                                                <div class="text-primary ">
                                                     <svg class="rounded" width="60" height="27" viewBox="0 0 60 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <rect x="0.375" y="0.375" width="59.25" height="26.25" rx="4.125" fill="#1E2745"></rect>
@@ -309,27 +309,27 @@
   <!-- Library Bundle Script -->
   <script src="{{asset('assets/js/core/libs.min.js')}}"></script>
   <!-- Plugin Scripts -->
-  
-  
+
+
   <!-- Flatpickr Script -->
   <script src="{{asset('assets/vendor/flatpickr/dist/flatpickr.min.js')}}"></script>
   <script src="{{asset('assets/js/plugins/flatpickr.js')}}" defer></script>
-  
-  
-  
+
+
+
     <!-- Select2 Script -->
     <script src="{{asset('assets/js/plugins/select2.js')}}" defer></script>
-  
-  
-  
-  
+
+
+
+
   <!-- Slider-tab Script -->
   <script src="{{asset('assets/js/plugins/slider-tabs.js')}}"></script>
-  
-  
-  
-  
-  
+
+
+
+
+
   <!-- Lodash Utility -->
   <script src="{{asset('assets/vendor/lodash/lodash.min.js')}}"></script>
   <!-- Utilities Functions -->
@@ -342,8 +342,6 @@
   <script src="{{asset('assets/js/core/external.min.js')}}"></script>
   <!-- Widgetchart Script -->
   <script src="{{asset('assets/js/charts/widgetcharts.js')}}" defer></script>
-  <!-- Dashboard Script -->
-  <script src="{{asset('assets/js/charts/dashboard.js')}}" defer></script>
   <!-- qompacui Script -->
   <script src="{{asset('assets/js/qompac-ui.js')}}" defer></script>
   <script src="{{asset('assets/js/sidebar.js')}}" defer></script>
