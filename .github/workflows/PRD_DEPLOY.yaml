@@ -45,7 +45,6 @@ jobs:
               server: ${{secrets.KISALOSERVER}}
               username: ${{secrets.KISALOUSER}}
               password: ${{secrets.KISALOPWD}}
-              exclude: |
-                 */.git
-                 */.git/**           
-                */node_modules/*
+             # exclude: |
+            #    */.git/**           
+            #    */node_modules/*
