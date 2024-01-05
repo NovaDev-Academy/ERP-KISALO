@@ -33,7 +33,7 @@ jobs:
     - name: Optimizing Route Loading
       run: php artisan route:cache
     - name: Optimizing View Loading
-      run: php artisan view:cache
+     # run: php artisan view:cache
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
       
