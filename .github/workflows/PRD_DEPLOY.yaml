@@ -42,10 +42,10 @@ jobs:
   #  - name: Started sync all 🎁 files
    #   uses: SamKirkland/FTP-Deploy-Action@v4.3.4
     #  with:
-     #         server: ${{secrets.KISALOSERVER}}
-      #        username: ${{secrets.KISALOUSER}}
-       #       password: ${{secrets.KISALOPWD}}
-        #      exclude: |
-         #        */.git
-          #       */.git/**           
-          #      */node_modules/*
+             server: ${{secrets.KISALOSERVER}}
+              username: ${{secrets.KISALOUSER}}
+              password: ${{secrets.KISALOPWD}}
+              exclude: |
+                 */.git
+                 */.git/**           
+                */node_modules/*
