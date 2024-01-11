@@ -39,12 +39,12 @@ jobs:
       
       # aqui comecou a deply com FTP  actions
 
-  #  - name: Started sync all 🎁 files
-   #   uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+    - name: Started sync all 🎁 files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
               server: ${{secrets.KISALOSERVER}}
               username: ${{secrets.KISALOUSER}}
               password: ${{secrets.KISALOPWD}}
-             # exclude: |
-            #    */.git/**           
-            #    */node_modules/*
+              exclude: |
+                */.git/**           
+                */node_modules/*
